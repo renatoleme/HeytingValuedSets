@@ -37,7 +37,7 @@ $E(t)$ é um predicado de existência. "t existe".
 Podemos compreender objetos em um topos como entidades "set-like"  **parcialmente existentes** (*partially existent*). Apenas alguns desses elementos são **existentes de fato** (*actually existent*). O fato de que um elemento $c$ existe é expresso como $\textbf{E(c)}$
 
 $$
-\textbf{E(c)} \equiv \exist v (v \approx \textbf{c})
+\textbf{E(c)} \equiv \exists v (v \approx \textbf{c})
 $$
 
 > Observe que $\textbf{E}$ é um predicado e $v$ varia entre os elementos parcialmente existentes (objetos do topos).
