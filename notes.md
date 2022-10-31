@@ -47,7 +47,7 @@ $$
 
 
 1.
-    Bicondicional ($\equiv$). Relação entre fórmulas.
+    Bicondicional $\equiv$. Relação entre fórmulas.
 
     $$
     A \equiv B  \Leftrightarrow (A \supset B) \land (B \supset A)
@@ -55,7 +55,7 @@ $$
 
     Onde A e B são fórmulas válidas.
 
-1. Equivalência enfraquecida ($≋$). Relação entre objetos. Dois elementos são equivalentes quando: (a) nenhum deles existem; ou (b) quando ambos existem e são iguais.
+1. Equivalência enfraquecida ≋. Relação entre objetos. Dois elementos são equivalentes quando: (a) nenhum deles existem; ou (b) quando ambos existem e são iguais.
 
     $$
     v ≋ w \equiv (E(v) \lor E(w) \supset v \approx w)
