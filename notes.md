@@ -18,16 +18,13 @@ Um topos é uma categoria.
 
 > A partir desta linguagem, podemos descrever uma estrutura listando seus **símbolos de relação**, **letras de função** e **constantes individuais**.
 
-> Exemplo: 
->
-> $$
-> \textbf{BA} = \{ 0,1,f,g,h \}
-> $$
->
-> onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de $v_1$ com $v_2$" e $h(v_1,v_2)$ significa "o join de $v_1$ com $v_2$".
+Exemplo: 
 
+$$
+ \textbf{BA} = \{ 0,1,f,g,h \}
+$$
 
-$E(t)$ é um predicado de existência. "t existe".
+onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de $v_1$ com $v_2$" e $h(v_1,v_2)$ significa "o join de $v_1$ com $v_2$".
 
 
 # Conjuntos Heyting-valorados
