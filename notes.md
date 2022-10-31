@@ -36,9 +36,9 @@ $E(t)$ é um predicado de existência. "t existe".
 
 Podemos compreender objetos em um topos como entidades "set-like"  **parcialmente existentes** (*partially existent*). Apenas alguns desses elementos são **existentes de fato** (*actually existent*). O fato de que um elemento $c$ existe é expresso como $\textbf{E(c)}$
 
-$
+$$
 \textbf{E(c)} \equiv \exist v (v \approx \textbf{c})
-$
+$$
 
 > Observe que $\textbf{E}$ é um predicado e $v$ varia entre os elementos parcialmente existentes (objetos do topos).
 
@@ -49,14 +49,14 @@ $
 1.
     Bicondicional ($\equiv$). Relação entre fórmulas.
 
-    $
+    $$
     A \equiv B  \Leftrightarrow (A \supset B) \land (B \supset A)
-$
+$$
 
     Onde A e B são fórmulas válidas.
 
 1. Equivalência enfraquecida ($≋$). Relação entre objetos. Dois elementos são equivalentes quando: (a) nenhum deles existem; ou (b) quando ambos existem e são iguais.
 
-    $
+    $$
     v ≋ w \equiv (E(v) \lor E(w) \supset v \approx w)
-$ 
+$$
