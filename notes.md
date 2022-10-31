@@ -42,18 +42,16 @@ $$
 ## Dois sentidos para "sameness"
 
 
+**Bicondicional** $\equiv$. Relação entre fórmulas.
 
-1.
-    Bicondicional $\equiv$. Relação entre fórmulas.
-
-    $$
+$$
     A \equiv B  \Leftrightarrow (A \supset B) \land (B \supset A)
 $$
 
-    Onde $A$ e $B$ são fórmulas válidas.
+Onde $A$ e $B$ são fórmulas válidas.
 
-1. Equivalência enfraquecida ≋. Relação entre objetos. Dois elementos $v$ e $w$ são equivalentes quando: **(a)** nenhum deles existem; ou **(b)** quando ambos existem e são iguais.
+**Equivalência enfraquecida** ≋. Relação entre objetos. Dois elementos $v$ e $w$ são equivalentes quando: **(a)** nenhum deles existem; ou **(b)** quando ambos existem e são iguais.
 
-    $$
+$$
     v ≋ w \equiv (E(v) \lor E(w) \supset v \approx w)
 $$
