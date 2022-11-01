@@ -69,4 +69,12 @@ Em suma, $\approx$ e ≋ são duas relações simétricas: é possível descreve
 
 4. $v \approx w \equiv (v ≋ w) \land (E(v) \land E(w))$
 
-Ou seja, dois elementos $v$ e $w$ são iguais se, e somente se, ambos existem e são fracamente equivalentes.
+Ou seja, dois elementos $v$ e $w$ são idênticos se, e somente se, ambos existem e são fracamente equivalentes.
+
+## [TODO] Exemplo do Bundle
+
+## Concepção generalizada de conjunto
+
+> p. 276-..
+
+Cito: "Um **conjunto** é uma coleção de elementos parciais, com alguma medida Heyting-valorada de graus de igualdade entre esses elementos.".
