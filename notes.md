@@ -59,7 +59,7 @@ $$
 Onde $A$ e $B$ são fórmulas válidas.
 
 
-**Equivalência enfraquecida** ≋. Relação entre objetos. Dois elementos $v$ e $w$ são equivalentes quando: **(a)** nenhum deles existe; ou **(b)** quando ambos existem e são iguais.
+**Equivalência enfraquecida** ≋. Relação entre objetos. Dois elementos $v$ e $w$ são **fracamente equivalentes** quando: **(a)** nenhum deles existe; ou **(b)** quando ambos existem e são iguais.
 
 3. $v ≋ w \equiv (E(v) \lor E(w) \supset v \approx w)$
 
