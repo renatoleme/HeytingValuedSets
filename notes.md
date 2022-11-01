@@ -77,4 +77,10 @@ Ou seja, dois elementos $v$ e $w$ são idênticos se, e somente se, ambos existe
 
 > p. 276-..
 
-Cito: "Um **conjunto** é uma coleção de elementos parciais, com alguma medida Heyting-valorada de graus de igualdade entre esses elementos.".
+Um **conjunto** é uma coleção de elementos parciais, com alguma medida alébrica Heyting-valorada de graus de igualdade (*equality*) entre eles.
+
+Essa noção admite o seguinte "desenvolvimento axiomático abstrato":
+
+> Uma álgebra de Heyting completa (**CHA**) é uma álgebra de Heyting na qual todo sub-conjunto $A \subseteq \Omega$ possui um "limite superior mínimo" (*least upper bound*), denotado por $\sqcup A$, e um "limite inferior máximo" (*greatest lower bound*), denotado por $\sqcap A$.
+
+Seja $(\Omega, \sqsubseteq)$ uma **CHA**.
