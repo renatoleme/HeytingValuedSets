@@ -67,6 +67,6 @@ Onde $A$ e $B$ são fórmulas válidas.
 
 Em suma, $\approx$ e ≋ são duas relações simétricas: é possível descrever a igualdade em termos da equivalência.
 
-1. $v \approx w \equiv (v ≋ w) \land (E(v) \land E(w))$
+4. $v \approx w \equiv (v ≋ w) \land (E(v) \land E(w))$
 
 Ou seja, dois elementos $v$ e $w$ são iguais se, e somente se, ambos existem e são fracamente equivalentes.
