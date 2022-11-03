@@ -1,10 +1,6 @@
 # Noções preliminares
 
-> Anotações a partir de Topoi (cap. 11) 
-
-## Topos
-
-Um topos é uma categoria.
+> Anotações a partir de Topoi (cap. 11).
 
 ## Linguagem
 
@@ -26,6 +22,22 @@ $$
 
 onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de $v_1$ com $v_2$" e $h(v_1,v_2)$ significa "o join de $v_1$ com $v_2$".
 
+## Topos
+
+Um topos é uma categoria.
+
+## Heyting algebra
+
+> (cap. 8)
+
+Proposta em 1930 por Arend Heyting, trata-se de um sistema axiomático da lógica proposicional que gera como teoremas aquelas, e apenas aquelas, "sentenças que são válidas de acordo com a *concepção intuicionista da verdade*" (p. 177). 
+
+> Of course the intuitionist only accepts formal systems as **imperfect tools** for description and communication. ... According to Heyting, "in principle it is impossible do set up a formal system which would be equivalent to intuitionist mathematics ... it can never be proved with mathematical rigour that the system of axioms really embraces every valid method of proof." (p.177-178, sec 8.2)
+
+
+## Limite superior mínimo e limite inferior máximo
+
+> Uma álgebra de Heyting é completa quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min.
 
 # Conjuntos Heyting-valorados
 
@@ -81,6 +93,6 @@ Um **conjunto** é uma coleção de elementos parciais, com alguma medida alébr
 
 Essa noção admite o seguinte "desenvolvimento axiomático abstrato":
 
-> Uma álgebra de Heyting completa (**CHA**) é uma álgebra de Heyting na qual todo sub-conjunto $A \subseteq \Omega$ possui um "limite superior mínimo" (*least upper bound*), denotado por $\sqcup A$, e um "limite inferior máximo" (*greatest lower bound*), denotado por $\sqcap A$.
+> Uma álgebra de Heyting completa (**AHC**) é uma álgebra de Heyting na qual todo sub-conjunto $A \subseteq \Omega$ possui um "limite superior mínimo" (*least upper bound*), denotado por $\sqcup A$, e um "limite inferior máximo" (*greatest lower bound*), denotado por $\sqcap A$.
 
-Seja $(\Omega, \sqsubseteq)$ uma **CHA**.
+Seja $(\Omega, \sqsubseteq)$ uma **AHC**.
