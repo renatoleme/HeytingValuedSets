@@ -26,6 +26,26 @@ onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de 
 
 Um topos é uma categoria.
 
+## Reticulado
+
+Um reticulado é um conjunto $R$ equipado com duas operações binárias, **meet** ($a \sqcap b$) e **join** ($a \sqcup b$), com relação as quais valem as seguintes identidades para todos elementos $a,b,c \in R$:
+
+### Comutatividade
+1. $a \sqcap b = b \sqcap a$;
+2. $a \sqcup b = b \sqcup a$;
+   
+### Associatividade
+3. $a \sqcap (b \sqcap c) = (a \sqcap b) \sqcap c$;
+4. $a \sqcup (b \sqcup c) = (a \sqcup b) \sqcup c$;
+
+### Absorção
+5. $a \sqcup (a \sqcap b) = a$;
+6. $a \sqcap (a \sqcup b) = a$;
+
+### Idempotência
+7. $a \sqcup a = a$;
+8. $a \sqcap a = a$.
+
 ## Álgebra de Heyting
 
 > (cap. 8)
