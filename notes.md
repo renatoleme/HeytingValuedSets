@@ -28,7 +28,7 @@ Um topos é uma categoria.
 
 ## Reticulado
 
-Um reticulado é um conjunto $R$ equipado com duas operações binárias, **meet** ($a \sqcap b$) e **join** ($a \sqcup b$), com relação as quais valem as seguintes identidades para todos elementos $a,b,c \in R$:
+Um reticulado é um conjunto $R$ equipado com duas operações binárias, **meet** $(a \sqcap b)$ e **join** $(a \sqcup b)$, com relação as quais valem as seguintes identidades para todos elementos $a,b,c \in R$:
 
 ### Comutatividade
 1. $a \sqcap b = b \sqcap a$;
