@@ -54,6 +54,8 @@ Proposta em $1930$ por Arend Heyting, trata-se de um sistema axiomático da lóg
 
 > Of course the intuitionist only accepts formal systems as **imperfect tools** for description and communication. ... According to Heyting, "in principle it is impossible do set up a formal system which would be equivalent to intuitionist mathematics ... it can never be proved with mathematical rigour that the system of axioms really embraces every valid method of proof." (p.$177$-$178$, sec $8.2$)
 
+## Limite superior mínimo e limite inferior máximo
+
 Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um limite superior de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$. [Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todo $y \in A$.]
 
 Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$, então $x$ é minimal, que chamaremos de **limite superior mínimo** (l.s.min).
@@ -62,8 +64,6 @@ Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$, então $x$ é mi
 
 > Limite inferior máximo. 
 
-
-## Limite superior mínimo e limite inferior máximo
 
 > Uma álgebra de Heyting é completa quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min.
 
