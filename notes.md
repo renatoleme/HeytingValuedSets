@@ -26,13 +26,21 @@ onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de 
 
 Um topos é uma categoria.
 
-## Heyting algebra
+## Álgebra de Heyting
 
 > (cap. 8)
 
-Proposta em 1930 por Arend Heyting, trata-se de um sistema axiomático da lógica proposicional que gera como teoremas aquelas, e apenas aquelas, "sentenças que são válidas de acordo com a *concepção intuicionista da verdade*" (p. 177). 
+Proposta em $1930$ por Arend Heyting, trata-se de um sistema axiomático da lógica proposicional que gera como teoremas aquelas, e apenas aquelas, "sentenças que são válidas de acordo com a *concepção intuicionista da verdade*" (p. $177$). 
 
-> Of course the intuitionist only accepts formal systems as **imperfect tools** for description and communication. ... According to Heyting, "in principle it is impossible do set up a formal system which would be equivalent to intuitionist mathematics ... it can never be proved with mathematical rigour that the system of axioms really embraces every valid method of proof." (p.177-178, sec 8.2)
+> Of course the intuitionist only accepts formal systems as **imperfect tools** for description and communication. ... According to Heyting, "in principle it is impossible do set up a formal system which would be equivalent to intuitionist mathematics ... it can never be proved with mathematical rigour that the system of axioms really embraces every valid method of proof." (p.$177$-$178$, sec $8.2$)
+
+Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um limite superior de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$. [Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todo $y \in A$.]
+
+Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$, então $x$ é minimal, que chamaremos de **limite superior mínimo** (l.s.min).
+
+> *$A$ possui no máximo um limite superior mínimo.* **Prova:** Supõe que $x$ um é limite superior mínimo de $A$. Então, além de $A \sqsubseteq x$, $x$ é minimal. Agora supõe que existe outro limite superior mínimo de $A \sqsubseteq x'$. Por definição, para todo $A \sqsubseteq z$, temos que $x' \sqsubseteq z$. Como $A \sqsubseteq x$, temos que $x' \sqsubseteq x$. De maneira análoga, como $x$ é minimal, temos que $x \sqsubseteq x'$. Logo, $x = x'$ (propriedade dos reticulados).
+
+> Limite inferior máximo. 
 
 
 ## Limite superior mínimo e limite inferior máximo
