@@ -17,7 +17,7 @@
 Exemplo: 
 
 $$
- \textbf{BA} = \left\{ 0,1,f,g,h \right\}
+ \textbf{BA} = \\{ 0,1,f,g,h \right \\}
 $$
 
 onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de $v_1$ com $v_2$" e $h(v_1,v_2)$ significa "o join de $v_1$ com $v_2$".
