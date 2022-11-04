@@ -2,26 +2,6 @@
 
 > Anotações a partir de Topoi (cap. 11).
 
-## Linguagem
-
-### Alfabeto
-
-1. Uma lista infinita $v_1,v_2, \cdots$ de variáveis individuais;
-2. Conectivos proposicionais $\land, \lor, \sim, \supset$;
-3. Símbolos de quantificação $\forall, \exists$;
-4. Símbolo de identidade $\approx$;
-5. Parênteses ), (.
-
-> A partir desta linguagem, podemos descrever uma estrutura listando seus **símbolos de relação**, **letras de função** e **constantes individuais**.
-
-Exemplo: 
-
-$$
- \textbf{BA} = \\{ 0,1,f,g,h \\}
-$$
-
-onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de $v_1$ com $v_2$" e $h(v_1,v_2)$ significa "o join de $v_1$ com $v_2$".
-
 ## Topos
 
 Um topos é uma categoria.
@@ -48,7 +28,7 @@ Um reticulado é um conjunto $R$ equipado com duas operações binárias, **meet
 
 ### Ordem
 
-Uma ordem em um reticulado é uma relação binária $\sqsubseteq$ que respeita os seguintes axiomas
+Uma ordem em um reticulado $R$ é uma relação binária $\_ \sqsubseteq \_$ entre dois elementos $a, b$ de $R$. Essa operação respeita os seguintes axiomas.
 
 1. $\forall a : a \sqsubseteq a$ [Reflexividade] 
 2. $\forall a, b : a \sqsubseteq b \land b \sqsubseteq a \rightarrow a = b$ [Anti-simetria]
@@ -64,13 +44,21 @@ Proposta em $1930$ por Arend Heyting, trata-se de um sistema axiomático da lóg
 
 ## Limite superior e limite inferior
 
+> Primeiro, precisamos ampliar o sentido da operação $\sqsubseteq$, que foi definida anteriormente apenas para pares de elementos. Nessa extensão, permitiremos que os parâmetros sejam conjuntos.
+
+> A partir dessa extensão, poderemos definir limite superior mínimo e limite inferior máximo.
+
 Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um **limite superior** de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$.
 
 > Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todo $y \in A$.
 
 Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$, então $x$ é minimal, que chamaremos de **limite superior mínimo** (l.s.min).
 
+### Exercícios
+#### Exercício 1
 > *$A$ possui no máximo um limite superior mínimo.* **Prova:** Supõe que $x$ um é limite superior mínimo de $A$. Então, além de $A \sqsubseteq x$, $x$ é minimal. Agora supõe que existe outro limite superior mínimo de $A \sqsubseteq x'$. Por definição, para todo $A \sqsubseteq z$, temos que $x' \sqsubseteq z$. Como $A \sqsubseteq x$, temos que $x' \sqsubseteq x$. De maneira análoga, como $x$ é minimal, temos que $x \sqsubseteq x'$. Logo, $x = x'$ (por anti-simetria).
+
+#### Exercício 2
 
 > Limite inferior máximo. 
 
@@ -78,6 +66,26 @@ Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$, então $x$ é mi
 > Uma álgebra de Heyting é completa quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min.
 
 # Conjuntos Heyting-valorados
+
+## Linguagem
+
+### Alfabeto
+
+1. Uma lista infinita $v_1,v_2, \cdots$ de variáveis individuais;
+2. Conectivos proposicionais $\land, \lor, \sim, \supset$;
+3. Símbolos de quantificação $\forall, \exists$;
+4. Símbolo de identidade $\approx$;
+5. Parênteses ), (.
+
+> A partir desta linguagem, podemos descrever uma estrutura listando seus **símbolos de relação**, **letras de função** e **constantes individuais**.
+
+Exemplo: 
+
+$$
+ \textbf{BA} = \\{ 0,1,f,g,h \\}
+$$
+
+onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de $v_1$ com $v_2$" e $h(v_1,v_2)$ significa "o join de $v_1$ com $v_2$".
 
 > (cap. 11, sec. 9, pp. 274--..).
 
