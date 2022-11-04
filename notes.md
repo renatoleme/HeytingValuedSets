@@ -17,7 +17,7 @@
 Exemplo: 
 
 $$
- \textbf{BA} = \{0,1,f,g,h\}
+ \textbf{BA} = \left\{ 0,1,f,g,h \right\}
 $$
 
 onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de $v_1$ com $v_2$" e $h(v_1,v_2)$ significa "o join de $v_1$ com $v_2$".
@@ -46,21 +46,31 @@ Um reticulado é um conjunto $R$ equipado com duas operações binárias, **meet
 7. $a \sqcup a = a$;
 8. $a \sqcap a = a$.
 
+### Ordem
+
+Uma ordem em um reticulado é uma relação binária $\sqsubseteq$ que respeita os seguintes axiomas
+
+1. $\forall a : a \sqsubseteq a$ [Reflexividade] 
+2. $\forall a, b : a \sqsubseteq b \land b \sqsubseteq a \rightarrow a = b$ [Anti-simetria]
+3. $\forall a, b, c : a \sqsubseteq b \land b \sqsubseteq c \rightarrow a \sqsubseteq c$ [Transitividade]
+
 ## Álgebra de Heyting
 
 > (cap. 8)
 
 Proposta em $1930$ por Arend Heyting, trata-se de um sistema axiomático da lógica proposicional que gera como teoremas aquelas, e apenas aquelas, "sentenças que são válidas de acordo com a *concepção intuicionista da verdade*" (p. $177$). 
 
-> Of course the intuitionist only accepts formal systems as **imperfect tools** for description and communication. ... According to Heyting, "in principle it is impossible do set up a formal system which would be equivalent to intuitionist mathematics ... it can never be proved with mathematical rigour that the system of axioms really embraces every valid method of proof." (p.$177$-$178$, sec $8.2$)
+> "Of course the intuitionist only accepts formal systems as **imperfect tools** for description and communication. He leaves open the possibility that his intuitive deliberations will one day reveal as yet unheard of principles of reasoning. According to Heyting, 'in principle it is impossible to set up a formal system which would be equivalent to intuitionist mathematics ... it can never be proved with mathematical rigour that the system of axioms really embraces every valid method of proof.'" (p.$177$-$178$, sec $8.2$)
 
-## Limite superior mínimo e limite inferior máximo
+## Limite superior e limite inferior
 
-Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um limite superior de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$. [Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todo $y \in A$.]
+Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um **limite superior** de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$.
+
+> Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todo $y \in A$.
 
 Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$, então $x$ é minimal, que chamaremos de **limite superior mínimo** (l.s.min).
 
-> *$A$ possui no máximo um limite superior mínimo.* **Prova:** Supõe que $x$ um é limite superior mínimo de $A$. Então, além de $A \sqsubseteq x$, $x$ é minimal. Agora supõe que existe outro limite superior mínimo de $A \sqsubseteq x'$. Por definição, para todo $A \sqsubseteq z$, temos que $x' \sqsubseteq z$. Como $A \sqsubseteq x$, temos que $x' \sqsubseteq x$. De maneira análoga, como $x$ é minimal, temos que $x \sqsubseteq x'$. Logo, $x = x'$ (propriedade dos reticulados).
+> *$A$ possui no máximo um limite superior mínimo.* **Prova:** Supõe que $x$ um é limite superior mínimo de $A$. Então, além de $A \sqsubseteq x$, $x$ é minimal. Agora supõe que existe outro limite superior mínimo de $A \sqsubseteq x'$. Por definição, para todo $A \sqsubseteq z$, temos que $x' \sqsubseteq z$. Como $A \sqsubseteq x$, temos que $x' \sqsubseteq x$. De maneira análoga, como $x$ é minimal, temos que $x \sqsubseteq x'$. Logo, $x = x'$ (por anti-simetria).
 
 > Limite inferior máximo. 
 
