@@ -82,7 +82,7 @@ Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$ (ou seja, todo li
 Exemplos: considere o reticulado conjunto das partes de $X$ $(P(X), \subseteq)$. Nesse reticulado, o menor elemento é o conjunto vazio $(\empty)$; e o maior elemento é $X$. Além disso, $\bar{A}$ (o complemento de $A$) é o maior elemento disjunto de $A$:
 
 $$
-\bar{A} = max (x \in P(X)  \mid A \cap x = \empty)
+\bar{A} = max (x \in P(X)  \mid A \cap x = \emptyset)
 $$
 
 > Isso implica que $A \cap \bar{A} = \emptyset$ [porque disjunto] e, sempre que $A \cap B = \emptyset$, então $B \subseteq \bar{A}$ [porque maximal].
