@@ -28,7 +28,7 @@ Um reticulado é um conjunto $R$ equipado com duas operações binárias, **meet
 
 ### Ordem
 
-Uma ordem em um reticulado $R$ é uma relação binária $\_ \sqsubseteq \_$ entre dois elementos $a, b$ de $R$. Essa operação respeita os seguintes axiomas.
+Uma ordem em um reticulado $R$ é uma relação binária $* \sqsubseteq *$ entre dois elementos $a, b$ de $R$. Essa operação respeita os seguintes axiomas.
 
 1. $\forall a : a \sqsubseteq a$ [Reflexividade] 
 2. $\forall a, b : a \sqsubseteq b \land b \sqsubseteq a \rightarrow a = b$ [Anti-simetria]
