@@ -45,17 +45,16 @@ Proposta em $1930$ por Arend Heyting, trata-se de um sistema axiomático da lóg
 
 ## Limite superior e limite inferior
 
-> Primeiro, precisamos ampliar o sentido da operação $\sqsubseteq$, que foi definida anteriormente apenas para pares de elementos. Nessa extensão, permitiremos que os parâmetros sejam conjuntos.
+Primeiro, precisamos ampliar o sentido da operação $\sqsubseteq$, que foi definida anteriormente apenas para pares de elementos. Nessa extensão, permitiremos que os parâmetros sejam conjuntos.
 
-> A partir dessa extensão, poderemos definir limite superior mínimo e limite inferior máximo.
+A partir dessa extensão, poderemos definir limite superior mínimo e limite inferior máximo.
 
-Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um **limite superior** de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$.
-
-> Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todo $y \in A$.
+> Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um **limite superior** de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$.
+>> Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todo $y \in A$.
 
 Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$ (ou seja, todo limite superior de $A$ é um limite superior de $x$), então $x$ é minimal, que chamaremos de **limite superior mínimo** (l.s.min).
 
-Diremos que $x$ é o **maior elemento** de $A$ se $x \in A$ e $x$ é l.s.min de $A$.
+> Diremos que $x$ é o **maior elemento** de $A$ se $x \in A$ e $x$ é l.s.min de $A$.
 
 ### Exercícios
 #### Exercício 1
