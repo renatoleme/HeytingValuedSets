@@ -28,7 +28,7 @@ Um reticulado é um conjunto $R$ equipado com duas operações binárias, **meet
 
 ### Ordem
 
-Uma ordem em um reticulado $R$ é uma relação binária $* \sqsubseteq *$ entre dois elementos $a, b$ de $R$. Essa operação respeita os seguintes axiomas.
+Uma ordem em um reticulado $R$ é uma relação entre elementos $a, b$ de $R$, denotada por $a \sqsubseteq b$ (a é menor ou igual a b). Essa relação respeita os seguintes axiomas.
 
 1. $\forall a : a \sqsubseteq a$ [Reflexividade] 
 2. $\forall a, b : a \sqsubseteq b \land b \sqsubseteq a \rightarrow a = b$ [Anti-simetria]
@@ -40,7 +40,8 @@ Uma ordem em um reticulado $R$ é uma relação binária $* \sqsubseteq *$ entre
 
 Proposta em $1930$ por Arend Heyting, trata-se de um sistema axiomático da lógica proposicional que gera como teoremas aquelas, e apenas aquelas, "sentenças que são válidas de acordo com a *concepção intuicionista da verdade*" (p. $177$). 
 
->> Of course the intuitionist only accepts formal systems as **imperfect tools** for description and communication. He leaves open the possibility that his intuitive deliberations will one day reveal as yet unheard of principles of reasoning. According to Heyting, 'in principle it is impossible to set up a formal system which would be equivalent to intuitionist mathematics ... it can never be proved with mathematical rigour that the system of axioms really embraces every valid method of proof.' (p.$177$-$178$, sec $8.2$)
+> (p.177-178, sec 8.2)
+>> Of course the intuitionist only accepts formal systems as **imperfect tools** for description and communication. He leaves open the possibility that his intuitive deliberations will one day reveal as yet unheard of principles of reasoning. According to Heyting, 'in principle it is impossible to set up a formal system which would be equivalent to intuitionist mathematics ... it can never be proved with mathematical rigour that the system of axioms really embraces every valid method of proof.' 
 
 ## Limite superior e limite inferior
 
@@ -52,18 +53,27 @@ Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. 
 
 > Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todo $y \in A$.
 
-Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$, então $x$ é minimal, que chamaremos de **limite superior mínimo** (l.s.min).
+Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$ (ou seja, todo limite superior de $A$ é um limite superior de $x$), então $x$ é minimal, que chamaremos de **limite superior mínimo** (l.s.min).
+
+Diremos que $x$ é o **maior elemento** de $A$ se $x \in A$ e $x$ é l.s.min de $A$.
 
 ### Exercícios
 #### Exercício 1
-> *$A$ possui no máximo um limite superior mínimo.* **Prova:** Supõe que $x$ um é limite superior mínimo de $A$. Então, além de $A \sqsubseteq x$, $x$ é minimal. Agora supõe que existe outro limite superior mínimo de $A \sqsubseteq x'$. Por definição, para todo $A \sqsubseteq z$, temos que $x' \sqsubseteq z$. Como $A \sqsubseteq x$, temos que $x' \sqsubseteq x$. De maneira análoga, como $x$ é minimal, temos que $x \sqsubseteq x'$. Logo, $x = x'$ (por anti-simetria).
+> *$A$ possui no máximo um limite superior mínimo.* **Prova:** Supõe que $x$ é um limite superior mínimo de $A$. Então, além de $A \sqsubseteq x$, $x$ é minimal. Agora supõe que existe outro limite superior mínimo de $A \sqsubseteq x'$. Por definição, para todo $A \sqsubseteq z$, temos que $x' \sqsubseteq z$. Como $A \sqsubseteq x$, temos que $x' \sqsubseteq x$. De maneira análoga, como $x$ é minimal, temos que $x \sqsubseteq x'$. Logo, $x = x'$ (por anti-simetria).
 
 #### Exercício 2
 
-> Limite inferior máximo. 
+> Limite inferior máximo. Seja $A$ um sub-conjunto de um reticulado $R_L = (L, \sqsubseteq)$ e $x \in L$. Diremos que $x \sqsubseteq A$ ($x$ é um limite inferior de $A$) se, e somente se, $x \sqsubseteq y$ para todo $y \in A$. Se, além disso, $z \sqsubseteq x$ para todo $z \sqsubseteq A$, então $x$ é um limite inferior máximo.
 
+#### Exercício 3
 
-> Uma álgebra de Heyting é completa quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min.
+> Um limite inferior máximo de $A$ é o maior elemento do conjunto de limites inferiores de $A$.
+
+#### Exercício 4
+
+> Defina o **menor elemento** de $A$.
+
+Uma álgebra de Heyting é completa quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min.
 
 # Conjuntos Heyting-valorados
 
