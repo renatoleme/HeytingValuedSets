@@ -50,7 +50,7 @@ Primeiro, precisamos ampliar o sentido da operação $\sqsubseteq$, que foi defi
 A partir dessa extensão, poderemos definir limite superior mínimo e limite inferior máximo.
 
 > Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um **limite superior** de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$.
->> Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todo $y \in A$.
+>> Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todos os elementos de $A$.
 
 Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$ (ou seja, todo limite superior de $A$ é um limite superior de $x$), então $x$ é minimal, que chamaremos de **limite superior mínimo** (l.s.min).
 
@@ -58,19 +58,41 @@ Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$ (ou seja, todo li
 
 ### Exercícios
 #### Exercício 1
-> *$A$ possui no máximo um limite superior mínimo.* **Prova:** Supõe que $x$ é um limite superior mínimo de $A$. Então, além de $A \sqsubseteq x$, $x$ é minimal. Agora supõe que existe outro limite superior mínimo de $A \sqsubseteq x'$. Por definição, para todo $A \sqsubseteq z$, temos que $x' \sqsubseteq z$. Como $A \sqsubseteq x$, temos que $x' \sqsubseteq x$. De maneira análoga, como $x$ é minimal, temos que $x \sqsubseteq x'$. Logo, $x = x'$ (por anti-simetria).
+> *A possui no máximo um limite superior mínimo.* 
+> >**Prova:** Supõe que $x$ é um limite superior mínimo de $A$. Então, além de $A \sqsubseteq x$, $x$ é minimal. Agora supõe que existe outro limite superior mínimo de $A \sqsubseteq x'$. Por definição, para todo $A \sqsubseteq z$, temos que $x' \sqsubseteq z$. Como $A \sqsubseteq x$, temos que $x' \sqsubseteq x$. De maneira análoga, como $x$ é minimal, temos que $x \sqsubseteq x'$. Logo, $x = x'$ (por anti-simetria).
 
 #### Exercício 2
 
-> Limite inferior máximo. Seja $A$ um sub-conjunto de um reticulado $R_L = (L, \sqsubseteq)$ e $x \in L$. Diremos que $x \sqsubseteq A$ ($x$ é um limite inferior de $A$) se, e somente se, $x \sqsubseteq y$ para todo $y \in A$. Se, além disso, $z \sqsubseteq x$ para todo $z \sqsubseteq A$, então $x$ é um limite inferior máximo.
+> Defina **limite inferior máximo**. 
+> >Seja $A$ um sub-conjunto de um reticulado $R_L = (L, \sqsubseteq)$ e $x \in L$. Diremos que $x \sqsubseteq A$ ($x$ é um limite inferior de $A$) se, e somente se, $x \sqsubseteq y$ para todo $y \in A$. Se, além disso, $z \sqsubseteq x$ para todo $z \sqsubseteq A$, então $x$ é um limite inferior máximo.
 
 #### Exercício 3
 
-> Um limite inferior máximo de $A$ é o maior elemento do conjunto de limites inferiores de $A$.
+> *Um limite inferior máximo de $A$ é o maior elemento do conjunto de limites inferiores de $A$.*
+> > **Prova:** Seja $x$ um limite inferior máximo de $A$. Precisamos mostrar que (1) $x$ é um elemento do conjunto de limites inferiores de $A$ (chamaremos de $\Omega$); e (2) $x$ é l.s.min de $\Omega$. Como $x$ é l.i.max de $A$, em particular $x$ é um limite inferior de $A$ e, portanto, temos que $x \in \Omega$. Resta mostar que $x$ é l.s.min de $\Omega$, ou seja: (2.a) $\Omega \sqsubseteq x$;  e (2.b) $\forall z$, se $\Omega \sqsubseteq z$, então $x \sqsubseteq z$. Sabemos que $\Omega \sqsubseteq x$ sse $y \sqsubseteq x$ para todo $y \in \Omega$. Por definição, $x$ é o l.i.max de $A$; logo, para todo limite inferior de $A$ (chamemos de $z$), vale que $z \sqsubseteq x$. Ora, $\Omega$ é justamente o conjunto de limites inferiores de $A$, portanto, para todo $x' \in \Omega$, temos que $x' \sqsubseteq x$ (2.a).
 
 #### Exercício 4
 
 > Defina o **menor elemento** de $A$.
+> > Diremos que $x$ é o **menor elemento** de $A$ se: 
+> > 1. $x \in A$;
+> > 2. $x$ é l.i.min de $A$. 
+
+
+Exemplos: considere o reticulado conjunto das partes de $X$ $(P(X), \subseteq)$. Nesse reticulado, o menor elemento é o conjunto vazio $(\empty)$; e o maior elemento é $X$. Além disso, $\bar{A}$ (o complemento de $A$) é o maior elemento disjunto de $A$:
+
+$$
+\bar{A} = max (x \in P(X)  \mid A \cap x = \empty)
+$$
+
+> Isso implica que $A \cap \bar{A} = \emptyset$ [porque disjunto] e, sempre que $A \cap B = \emptyset$, então $B \subseteq \bar{A}$ [porque maximal].
+
+
+> Pseudo-complemento.
+
+> Uma **álgebra de Heyting** (**HA**) é um reticulado $\Omega = (H, \sqsubseteq)$ relativamente pseudo-complementado que possui um zero (**0**).
+
+
 
 Uma álgebra de Heyting é completa quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min.
 
