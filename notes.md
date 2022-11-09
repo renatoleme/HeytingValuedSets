@@ -45,9 +45,9 @@ Proposta em $1930$ por Arend Heyting, trata-se de um sistema axiomático da lóg
 
 ## Limite superior e limite inferior
 
-Primeiro, precisamos ampliar o sentido da relação $\sqsubseteq$, que foi definida anteriormente apenas para pares de elementos. Nesse contexto, $x \sqsubseteq y$ denota "$y$ é maior que $x$". Na extensão que será feita nesta seção, permitiremos que os parâmetros sejam conjuntos. Queremos que $A \sqsubseteq x$ denote "x é limite superior do conjunto A" e $x \sqsubseteq A$ denote "x é limite inferior do conjunto A". Para isso, quantificaremos sobre o conjunto de elementos.
+Primeiro, precisamos ampliar o sentido da relação $\sqsubseteq$, que foi definida anteriormente apenas para pares de elementos. Nesse contexto, $x \sqsubseteq y$ denota **y é maior que x** (ou **x é menor ou igual a x**). Na extensão que será feita nesta seção, permitiremos que os parâmetros sejam conjuntos. Queremos que $A \sqsubseteq x$ denote **x é limite superior do conjunto A** e $x \sqsubseteq A$ denote **x é limite inferior do conjunto A**. Para isso, quantificaremos sobre o conjunto de elementos.
 
-Seja $A$ um sub-conjunto de um reticulado $R = (L, \sqsubseteq)$. Definimos:
+Seja $A$ um sub-conjunto de um reticulado $R = (L, \sqsubseteq)$ e $x$ um elemento de $R$. Definimos:
 
 1. **Limite superior** $(A \sqsubseteq x)$
 
