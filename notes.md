@@ -45,11 +45,25 @@ Proposta em $1930$ por Arend Heyting, trata-se de um sistema axiomático da lóg
 
 ## Limite superior e limite inferior
 
-Primeiro, precisamos ampliar o sentido da operação $\sqsubseteq$, que foi definida anteriormente apenas para pares de elementos. Nessa extensão, permitiremos que os parâmetros sejam conjuntos.
+Primeiro, precisamos ampliar o sentido da relação $\sqsubseteq$, que foi definida anteriormente apenas para pares de elementos. Nesse contexto, $x \sqsubseteq y$ denota "$y$ é maior que $x$". Na extensão que será feita nesta seção, permitiremos que os parâmetros sejam conjuntos. Queremos que $A \sqsubseteq x$ denote "x é limite superior do conjunto A" e $x \sqsubseteq A$ denote "x é limite inferior do conjunto A". Para isso, quantificaremos sobre o conjunto de elementos.
+
+Seja $A$ um sub-conjunto de um reticulado $R = (L, \sqsubseteq)$. Definimos:
+
+1. **Limite superior** $(A \sqsubseteq x)$
+
+$$
+\forall y (y \in A \rightarrow y \sqsubseteq x)
+$$
+
+2. **Limite inferior** $(x \sqsubseteq A)$
+
+$$
+\forall y (y \in A \rightarrow x \sqsubseteq y)
+$$
 
 A partir dessa extensão, poderemos definir limite superior mínimo e limite inferior máximo.
 
-> Seja $A$ um subconjunto de um reticulado $R_L = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um **limite superior** de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$.
+> Seja $A$ um subconjunto de um reticulado $R = (L, \sqsubseteq)$, e $x \in L$. Dizemos que $x$ é um **limite superior** de $A$ ($A \sqsubseteq x$), se, para todo $y \in A$, $y \sqsubseteq x$.
 >> Ou seja, $x$ é limite superior de $A$ se $x$ for limite superior de todos os elementos de $A$.
 
 Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$ (ou seja, todo limite superior de $A$ é um limite superior de $x$), então $x$ é minimal, que chamaremos de **limite superior mínimo** (l.s.min).
@@ -68,7 +82,7 @@ Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$ (ou seja, todo li
 
 #### Exercício 3
 
-> *Um limite inferior máximo de $A$ é o maior elemento do conjunto de limites inferiores de $A$.*
+> *Um limite inferior máximo de A é o maior elemento do conjunto de limites inferiores de A.*
 > > **Prova:** Seja $x$ um limite inferior máximo de $A$. Precisamos mostrar que (1) $x$ é um elemento do conjunto de limites inferiores de $A$ (chamaremos de $\Omega$); e (2) $x$ é l.s.min de $\Omega$. Como $x$ é l.i.max de $A$, em particular $x$ é um limite inferior de $A$ e, portanto, temos que $x \in \Omega$. Resta mostar que $x$ é l.s.min de $\Omega$, ou seja: (2.a) $\Omega \sqsubseteq x$;  e (2.b) $\forall z$, se $\Omega \sqsubseteq z$, então $x \sqsubseteq z$. Sabemos que $\Omega \sqsubseteq x$ sse $y \sqsubseteq x$ para todo $y \in \Omega$. Por definição, $x$ é o l.i.max de $A$; logo, para todo limite inferior de $A$ (chamemos de $z$), vale que $z \sqsubseteq x$. Ora, $\Omega$ é justamente o conjunto de limites inferiores de $A$, portanto, para todo $x' \in \Omega$, temos que $x' \sqsubseteq x$ (2.a).
 
 #### Exercício 4
