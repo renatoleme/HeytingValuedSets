@@ -117,13 +117,15 @@ Um reticulado $R$ tal que todo elemento de $R$ possui um pseudo-complemento é u
 
 #### Exemplos
 
+1. Complemento $(\bar{A})$, para um $A \in D$: $\bar{A} = \{x \mid x \in D$ e é falso que $x \in A\}$
+
 Em $(P(D), \subseteq)$, $\bar{A}$ é o pseudo-complemento de $A$. Para provar isso, temos que mostrar que
 
 $$
     \forall x \in P(D), x \subseteq \bar{A} \Leftrightarrow A \cap x = \emptyset
 $$
 
-Assuma que $x \subseteq \bar{A}$. Nesse caso, todo elemento de $x$ está em $A$ e $x$ não tem nenhum elemento a mais que $\bar{A}$. 
+> Assuma que $x \subseteq \bar{A}$. Nesse caso, todo elemento de $x$ está em $\bar{A}$. Pela definição de complemento, $\bar{A}$ não possui nenhum elemento de $A$. São, portanto, disjuntos. Como não existe nenhum elemento em $x$ além daqueles que estão no $\bar{A}$, $x$ e $A$ também são disjuntos. Para a volta, assuma que $A \cap x = \emptyset$. Observe que o complemento contém todos os elementos que não estão em $A$. Portanto, se $A$ é disjunto de $x$, então $x$ deve estar contido em $\bar{A}$.
 
 
 ### Definição de uma álgebra de Heyting
