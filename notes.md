@@ -93,16 +93,41 @@ Se, além disso, $x \sqsubseteq z$ para todo $A \sqsubseteq z$ (ou seja, todo li
 > > 2. $x$ é l.i.min de $A$. 
 
 
-Exemplos: considere o reticulado conjunto das partes de $X$ $(P(X), \subseteq)$. Nesse reticulado, o menor elemento é o conjunto vazio $(\emptyset)$; e o maior elemento é $X$. Além disso, $\bar{A}$ (o complemento de $A$) é o maior elemento disjunto de $A$:
+> Exemplo: considere o reticulado conjunto das partes de $X$ $(P(X), \subseteq)$. Nesse reticulado, o menor elemento é o conjunto vazio $(\emptyset)$; e o maior elemento é $X$. 
+
+### Complemento
+
+O **complemento** (ou **pseudo-complemento**, já que pode ser uma operação não-booleana [a depender do reticulado]) de um elemento $a$ de um reticulado $R = (L, \sqsubseteq)$, denotado por $\bar{a}$, é o maior elemento disjunto de $a$:
 
 $$
-\bar{A} = max (x \in P(X)  \mid A \cap x = \emptyset)
+\bar{a} = max (x \in L  \mid a \sqcap x = 0)
 $$
 
-> Isso implica que $A \cap \bar{A} = \emptyset$ [porque disjunto] e, sempre que $A \cap B = \emptyset$, então $B \subseteq \bar{A}$ [porque maximal].
+> Isso implica que, no exemplo do reticulado do conjunto das partes, $A \cap \bar{A} = \emptyset$ [porque disjunto] e, sempre que $A \cap B = \emptyset$, então $B \subseteq \bar{A}$ [porque maximal].
+
+Um reticulado $R$ tal que todo elemento de $R$ possui um pseudo-complemento é um **reticulado pseudo-complementado**.
+
+#### Exercício 5
+
+> $b$ é o maior disjunto de $a$ precisamente quando $b$ satisfaz a condição: 
+> 
+> >$\forall x \in L$, $x \sqsubseteq b$ $\Leftrightarrow$ $a \sqcap x = 0$.
+> 
+> > Supõe que $b$ satisfaz a condição. Então temos que mostrar que $b$ é o maior disjunto de $a$. Considere o conjunto $\Omega$ de todos os $x \sqsubseteq b$. É fácil ver que $b$ é o maior elemento desse conjunto. Como, por hipótese, $a \sqcap x = 0$ para todo $x \in \Omega$, então, em particular, $a \sqcap b = 0$. Portanto, $b$ é o maior disjunto de $a$.
+
+#### Exemplos
+
+Em $(P(D), \subseteq)$, $\bar{A}$ é o pseudo-complemento de $A$. Para provar isso, temos que mostrar que
+
+$$
+    \forall x \in P(D), x \subseteq \bar{A} \Leftrightarrow A \cap x = \emptyset
+$$
+
+Assuma que $x \subseteq \bar{A}$. Nesse caso, todo elemento de $x$ está em $A$ e $x$ não tem nenhum elemento a mais que $\bar{A}$. 
 
 
-> Pseudo-complemento.
+### Definição de uma álgebra de Heyting
+
 
 > Uma **álgebra de Heyting** (**HA**) é um reticulado $\Omega = (H, \sqsubseteq)$ relativamente pseudo-complementado que possui um zero (**0**).
 
