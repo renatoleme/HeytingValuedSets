@@ -111,9 +111,9 @@ Um reticulado $R$ tal que todo elemento de $R$ possui um pseudo-complemento é u
 
 > $b$ é o maior disjunto de $a$ precisamente quando $b$ satisfaz a condição: 
 > 
-> >$\forall x \in L$, $x \sqsubseteq b$ $\Leftrightarrow$ $a \sqcap x = 0$.
+> >(C) $\forall x \in L$, $x \sqsubseteq b$ $\Leftrightarrow$ $a \sqcap x = 0$.
 > 
-> > Supõe que $b$ satisfaz a condição. Então temos que mostrar que $b$ é o maior disjunto de $a$. Considere o conjunto $\Omega$ de todos os $x \sqsubseteq b$. É fácil ver que $b$ é o maior elemento desse conjunto. Como, por hipótese, $a \sqcap x = 0$ para todo $x \in \Omega$, então, em particular, $a \sqcap b = 0$. Portanto, $b$ é o maior disjunto de $a$.
+> > Supõe que $b$ satisfaz a condição (C). Então temos que mostrar que $b$ é o maior disjunto de $a$. Considere o conjunto $\Omega$ de todos os $x \sqsubseteq b$, isto é, o conjunto dos limites inferiores de $b$. Por definição, $b$ é um limite superior de $\Omega$. Para obter minimalidade, observe que $\sqsubseteq$ é transitivo. Portanto, $b$ é l.s.min de $\Omega$. Como, além disso, $b \in \Omega$, temos que $b$ é o maior elemento de $\Omega$, por definição. Além disso, por hipótese $(\Leftarrow)$, todos os disjuntos de $a$ estão no conjunto $b$. Portanto, $b$ é o maior disjunto de $a$.
 
 #### Exemplos
 
