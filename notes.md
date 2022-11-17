@@ -2,6 +2,108 @@
 
 > Anotações a partir de Topoi (cap. 11).
 
+## Categorias
+
+Uma categoria $C$ é composta dos seguintes elementos básicos
+
+1. Uma coleção $C$ de objetos;
+2. Para cada par $\langle A, B \rangle$ de objetos, uma coleção de morfismos (em $C$) de $A$ em $B$. Essa coleção denota-se $Hom_C(A,B)$;
+3. Uma operação parcial de composicão entre morfismos. Por exemplo, na categoria **Type**, podemos definir a composição como
+   ```coq
+   Definition comp 
+   {X Y Z: Type} 
+   (f : X -> Y) (g: Y -> Z) := 
+   fun a => g (f a).
+   ```
+   Nesta definição, $f$ vive em $Hom_{Type}(X,Y)$ e $g$ vive em $Hom_{Type}(Y, Z)$.
+4. Para cada objeto $A$, um morfismo $id_A$ tal que (1) $f \circ id_A = f$; e (2) $id_A \circ g = g$.
+
+
+Na categoria **Type**, objetos são tipos *nat, list, bool,* etc, morfismos são funções
+
+```coq
+f : A -> B
+```
+
+onde $A, B$ são tipos. A função identidade é definida da seguinte maneira
+
+```coq
+Definition id {X : Type} a : X := a.
+```
+
+### Endofuntores
+
+Um funtor $F$ é um morfismo que leva de uma categoria $X$ para outra categoria $Y$ preservando as flechas. Quando $X = Y$, $F$ é um **endofuntor**. 
+
+> **id** é um exemplo de endofuntor.
+
+
+Para ilustrar, considere o tipo parametrizado *Maybe* definido abaixo.
+
+```coq
+Inductive Maybe (X : Type) :=
+| Some (a : X)
+| None.
+
+Check Some nat 2.
+: Maybe nat
+```
+
+Observe que *Maybe* não é um tipo, mas um construtor de tipos. 
+
+```coq
+Check Maybe.
+: Type -> Type
+```
+
+Para um morfismo $F$ ser um funtor, além de $F$ mapear objetos (no caso, tipos) de um tipo a outro, $F$ deve mapear todos os morfismos entre os objetos daquele tipo. Por exemplo, seja $f$ um morfismo 
+
+```
+f : nat -> bool
+```
+
+
+
+Para isso, definimos a função de ordem superior **fmap** abaixo
+
+```coq
+Definition fmap 
+{X Y : Type}
+(f : X -> Y)
+: Maybe X -> Maybe Y :=
+fun (a : Maybe X) =>
+match a with
+| Some _ b => Some Y (f b)
+| None _ => None _
+end.
+```
+
+De modo mais geral, podemos definir a classe dos funtores da seguinte maneira
+
+```coq
+Class Functor
+(X Y : Type)
+(f : Type -> Type) :=
+{
+  fmap2 : (X -> Y) -> f X -> f Y
+}.
+```
+
+Sendo o funtor Maybe um caso particular (instância)
+
+```coq
+Instance MaybeMap {X Y : Type} : 
+Functor X Y Maybe :=
+{
+  fmap2 f a := 
+    match a with
+    | Some _ b => Some _ (f b)
+    | None _ => None _
+    end
+}.
+```
+
+
 ## Topos
 
 Um topos é uma categoria.
