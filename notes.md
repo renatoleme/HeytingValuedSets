@@ -31,9 +31,65 @@ onde $A, B$ são tipos. A função identidade é definida da seguinte maneira
 Definition id {X : Type} a : X := a.
 ```
 
-### Endofuntores
+e a composição conforme exemplo acima.
 
-Um funtor $F$ é um morfismo que leva de uma categoria $X$ para outra categoria $Y$ preservando as flechas. Quando $X = Y$, $F$ é um **endofuntor**. 
+### Monomorfismos
+
+> Generaliza a noção de função injetiva.
+
+Uma flecha $h : A \rightarrow B$ é um monomorfismo se e somente se $h \circ g = h \circ f$ implica que $g = f$ para todo $g, f : C \rightarrow A$.
+
+> Um monomorfismo é uma flecha que pode ser cancelada a esquerda da composição.
+
+### Epimorfismos
+
+> Generaliza a noção de função sobrejetiva.
+
+Uma flecha $h : A \rightarrow B$ é um epimorfismo se e somente se $g \circ h = f \circ h$ implica que $g = f$ para todo $g, f : B \rightarrow C$.
+
+> Um epimorfismo é uma flecha que pode ser cancelada a direita da composição.
+
+### Isomorfismos
+
+> Um isomorfismo é uma flecha invertível.
+
+Uma flecha $h : A \rightarrow B$ é um isomorfismo se e somente se existe uma flecha $g : B \rightarrow A$ tal que 
+
+1. $h \circ g = id_A$; e
+2. $g \circ h = id_B$.
+
+De modo geral, $g$ é a inversa de $h$, representada por $h^{-1}$.
+
+
+### Objeto inicial
+
+Um objeto $x$ de uma categoria $C$ é inicial se e somente se, para cada objeto $y$ em $C$, existe uma única flecha $0_y : x \rightarrow y$.
+
+> Usualmente, denota-se o objeto inicial como $0$.
+> > Exemplo: o conjunto vazio $\emptyset$ é o único objeto inicial da categoria **Set**.
+
+### Objeto terminal
+
+Um objeto $x$ de uma categoria $C$ é terminal se e somente se, para cada objeto $y$ em $C$, existe uma única flecha $1_y : y \rightarrow x$.
+
+> Usualmente, denota-se o objeto terminal como $1$.
+> > Exemplo: na categoria **Set**, existem infinitos objetos terminais (isomorfos): os conjuntos unitários.
+
+### Pullback
+
+### Pushout
+
+### Funtores
+
+Um funtor $F$ é um morfismo que leva de uma categoria $X$ para outra categoria $Y$ preservando a estrutura original, isto é,
+
+1. Para cada objeto $a$ de $X$, existe um objeto $F(a)$ correspondente em $Y$;
+2. Para cada morfismo $f : a \rightarrow b$, um morfismo $F(f) : F(a) \rightarrow F(b)$, tal que: 
+   1. $F(1_a) = 1_{F(a)}$;
+   2. $F(g  \circ f) = F(g) \circ F(f)$, sempre que a composição existe.
+
+
+ Quando $X = Y$, $F$ é um **endofuntor**. 
 
 > **id** é um exemplo de endofuntor.
 
@@ -78,7 +134,7 @@ match a with
 end.
 ```
 
-De modo mais geral, podemos definir a classe dos funtores da seguinte maneira
+De modo mais geral, podemos definir a classe dos endofuntores na categoria *Type* da seguinte maneira
 
 ```coq
 Class Functor
