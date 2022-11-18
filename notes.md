@@ -79,6 +79,10 @@ Um objeto $x$ de uma categoria $C$ é terminal se e somente se, para cada objeto
 
 ### Pushout
 
+### Equalizador
+
+### Limite
+
 ### Funtores
 
 Um funtor $F$ é um morfismo que leva de uma categoria $X$ para outra categoria $Y$ preservando a estrutura original, isto é,
@@ -161,6 +165,12 @@ Functor X Y Maybe :=
 
 
 ## Topos
+
+### Subobjeto
+
+> Generaliza a noção de subconjunto
+
+
 
 Um topos é uma categoria.
 
