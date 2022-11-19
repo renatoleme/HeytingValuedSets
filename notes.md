@@ -268,6 +268,10 @@ graph LR;
   A_j--F_j-->L;
 ```
 
+> Uma categoria $C$ é completa se todo diagrama possui um limite. $C$ é cocompleta se todo diagrama possui um colimite.
+
+### Exponenciação
+
 ### Funtores
 
 Um funtor $F$ é um morfismo que leva de uma categoria $X$ para outra categoria $Y$ preservando a estrutura original, isto é,
