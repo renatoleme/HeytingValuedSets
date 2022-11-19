@@ -75,13 +75,22 @@ Um objeto $x$ de uma categoria $C$ é terminal se e somente se, para cada objeto
 > Usualmente, denota-se o objeto terminal como $1$.
 > > Exemplo: na categoria **Set**, existem infinitos objetos terminais (isomorfos): os conjuntos unitários.
 
-### Pullback
-
-### Pushout
-
 ### Equalizador
 
+> O **maior lugar** em que dois morfismos coincidem.
+
+Sejam $f, g : A \rightarrow B$ duas flechas. O equalizador de $f$ e $g$ é um par $\langle E, i \rangle$ tal que 
+
+1. $i : E \rightarrow A$ satisfaz $f \circ i  = g \circ i$;
+2. Se $\langle C , h \rangle$ é tal que $h : C \rightarrow A$ satisfaz $f \circ h = g \circ h$ então existe uma única flecha $k : C \rightarrow E$ que comuta o diagrama.
+
 ### Limite
+
+### Pullback
+
+> Produto fibrado.
+
+### Pushout
 
 ### Funtores
 
