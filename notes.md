@@ -39,13 +39,29 @@ e a composição conforme exemplo acima.
 
 Uma flecha $h : A \rightarrow B$ é um monomorfismo se e somente se $h \circ g = h \circ f$ implica que $g = f$ para todo $g, f : C \rightarrow A$.
 
+```mermaid
+graph LR;
+  A--h-->B;
+  C--f-->A;
+  C--g-->A;
+```
+
 > Um monomorfismo é uma flecha que pode ser cancelada a esquerda da composição.
 
 ### Epimorfismos
 
 > Generaliza a noção de função sobrejetiva.
 
+> Intuição de imagem "suficientemente grande".
+
 Uma flecha $h : A \rightarrow B$ é um epimorfismo se e somente se $g \circ h = f \circ h$ implica que $g = f$ para todo $g, f : B \rightarrow C$.
+
+```mermaid
+graph LR;
+  A--h-->B;
+  B--f-->C;
+  B--g-->C;
+```
 
 > Um epimorfismo é uma flecha que pode ser cancelada a direita da composição.
 
@@ -57,6 +73,14 @@ Uma flecha $h : A \rightarrow B$ é um isomorfismo se e somente se existe uma fl
 
 1. $h \circ g = id_A$; e
 2. $g \circ h = id_B$.
+
+```mermaid
+graph LR;
+  A--h-->B;
+  B--g-->A;
+  A--id_A-->A;
+  B--id_B-->B;
+```
 
 De modo geral, $g$ é a inversa de $h$, representada por $h^{-1}$.
 
@@ -81,7 +105,7 @@ Um objeto $x$ de uma categoria $C$ é terminal se e somente se, para cada objeto
 
 Sejam $f, g : A \rightarrow B$ duas flechas. O equalizador de $f$ e $g$ é um par $\langle E, i \rangle$ tal que 
 
-1. $i : E \rightarrow A$ satisfaz $f \circ i  = g \circ i$;
+1. A flecha $i : E \rightarrow A$ satisfaz $f \circ i  = g \circ i$;
 2. Se $\langle C , h \rangle$ é tal que $h : C \rightarrow A$ satisfaz $f \circ h = g \circ h$ então existe uma única flecha $k : C \rightarrow E$ que comuta o diagrama.
 
 ```mermaid
@@ -90,16 +114,35 @@ graph LR;
     A--g-->B;
     E--i-->A;
     C--h-->A;
-    C--k-->E;
+    C-.k.->E;
 ```
 
-### Limite
+### Coequalizador
 
+> O menor lugar em que dois morfismos coincidem.
+
+Sejam $f,g : A \rightarrow B$ duas flechas. O coequalizador de $f$ e $g$ é um par $\langle E, q \rangle$  tal que
+
+1. A flecha $q : B \rightarrow E$ satisfaz $q \circ f = q \circ g$;
+2. Se $\langle C, h \rangle$ é tal que $h : B \rightarrow C$ satisfaz $h \circ f = h \circ g$ então existe uma única flecha $k : E \rightarrow C$ que comuta o diagrama.
+
+```mermaid
+graph LR;
+  A--f-->B;
+  A--g-->B;
+  B--q-->E;
+  B--h-->C;
+  E-.k.->C;
+```
+> Equalizador e coequalizador são conceitos duais.
+> 
 ### Pullback
 
 > Produto fibrado.
 
 ### Pushout
+
+### Limite
 
 ### Funtores
 
