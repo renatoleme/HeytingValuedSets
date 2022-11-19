@@ -154,6 +154,8 @@ graph LR;
 
 #### Propriedade universal do pullback
 
+> Único a menos de isomorfismo.
+
 Seja $\langle E, \{q_1, q_2\}\rangle$ um par tal que $q_1 : E \rightarrow A$ e $q_2 : E \rightarrow B$ são morfismos que comutam o diagrama abaixo
 
 ```mermaid
@@ -178,6 +180,45 @@ graph LR;
 ```
 
 ### Pushout
+
+Dado um par de flechas $f : A \rightarrow B$ e $g : A \rightarrow C$, o pushout desse par é um par $\langle D, \{ p_1, p_2 \} \rangle$ onde $p_1 : B \rightarrow D$ e $p_2 : C \rightarrow D$ são flechas que comutam o seguinte diagrama:
+
+```mermaid
+graph LR;
+  A--g-->C;
+  A--f-->B;
+  C--p_2-->D;
+  B--p_1-->D;
+```
+
+#### Propriedade universal do pushout
+
+> Único a menos de isomorfismo.
+
+Seja $\langle E, \{q_1, q_2\}\rangle$ um par tal que $q_1 : B \rightarrow E$ e $q_2 : C \rightarrow E$ são morfismos que comutam o diagrama abaixo
+
+```mermaid
+graph LR;
+  A--g-->C;
+  A--f-->B;
+  C--q_2-->E;
+  B--q_1-->E;
+```
+
+Então existe uma única flecha $k : D \rightarrow E$ que comuta o seguinte diagrama:
+
+```mermaid
+graph LR;
+  B--q_1-->E;
+  C--q_2-->E;
+  D-.k.->E;
+  A--g-->C;
+  A--f-->B;
+  C--p_2-->D;
+  B--p_1-->D;
+```
+
+> Pullback e pushout são conceitos duais.
 
 ### Limite
 
