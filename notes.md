@@ -222,6 +222,52 @@ graph LR;
 
 ### Limite
 
+> Um diagrama em uma categoria $C$ é um par $D = \langle O, M \rangle$ tal que $O = \{A_i\}_{i \in I}$ é uma família de objetos de $C$ e $M \subseteq \bigcup_{i,j \in I} Hom_C(A_i, A_j)$ é um conjunto de morfismos entre objetos de $O$. (p. 34, apostila)
+
+Um cone para um diagrama $D = \langle O, M\rangle$ numa categoria $C$ é um objeto $N$ de $C$ junto com uma família $\{ f_i \}_{i \in I}$ tal que cada $f_i  : N \rightarrow A_i$ é um morfismo em $C$ que comuta para todo $f \in M$. 
+
+```mermaid
+graph LR;
+  N--f_i-->A_i
+  N--f_j-->A_j
+  A_i--f-->A_j
+```
+
+Um limite para um diagrama $D$ é um cone $\langle L, \{ F_i \}_{i \in  I} \rangle$ tal que, dado qualquer outro cone $\langle N, \{ f_i \}_{i \in  I} \rangle$ para o diagrama $D$, existe uma única flecha $k : N \rightarrow L$ tal que $F_i \circ k = f_i$ para todo $i \in I$.
+
+```mermaid
+graph LR;
+  N-.k.->L;
+  N--f_j-->A_j;
+  L--F_i-->A_i;
+  L--F_j-->A_j;
+  A_i--f-->A_j;
+  N--f_i-->A_i;
+```
+
+### Colimite
+
+Primeiro, definimos o dual do cone. Um *cocone* de um diagrama $D$ é um par $\langle N, \{ f_i \}_{i \in I} \rangle$ tal que $f_i : A_i \rightarrow C$ é um morfismo em $C$ que comuta o seguinte diagrama:
+
+```mermaid
+graph LR;
+  A_i--f-->A_j;
+  A_i--f_i-->N;
+  A_j--f_j-->N;
+```
+
+Um colimite de $D$ é um cocone $\langle L, \{ F_i \}_{i\in I} \rangle$ tal que, dado qualquer outro cocone $\langle N, \{ f_i \}_{i \in I} \rangle$, existe uma única flecha $k : L \rightarrow N$ tal que $k \circ F_i = f_i$ para todo $i \in I$.
+
+```mermaid
+graph LR;
+  A_i--f-->A_j;
+  A_i--f_i-->N;
+  A_j--f_j-->N;
+  L-.k.->N;
+  A_i--F_i-->L;
+  A_j--F_j-->L;
+```
+
 ### Funtores
 
 Um funtor $F$ é um morfismo que leva de uma categoria $X$ para outra categoria $Y$ preservando a estrutura original, isto é,
