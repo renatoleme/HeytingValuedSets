@@ -270,6 +270,10 @@ graph LR;
 
 > Uma categoria $C$ é completa se todo diagrama possui um limite. $C$ é cocompleta se todo diagrama possui um colimite.
 
+### Produtos
+
+### Coprodutos
+
 ### Exponenciação
 
 ### Funtores
