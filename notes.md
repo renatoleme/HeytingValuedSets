@@ -84,6 +84,14 @@ Sejam $f, g : A \rightarrow B$ duas flechas. O equalizador de $f$ e $g$ é um pa
 1. $i : E \rightarrow A$ satisfaz $f \circ i  = g \circ i$;
 2. Se $\langle C , h \rangle$ é tal que $h : C \rightarrow A$ satisfaz $f \circ h = g \circ h$ então existe uma única flecha $k : C \rightarrow E$ que comuta o diagrama.
 
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 ### Limite
 
 ### Pullback
