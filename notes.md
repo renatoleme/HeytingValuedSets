@@ -4,9 +4,9 @@
 
 ## Categorias
 
-Uma categoria $C$ é composta dos seguintes elementos básicos
+Uma categoria $C$ consiste de:
 
-1. Uma coleção $C$ de objetos;
+1. Uma coleção $O$ de objetos;
 2. Para cada par $\langle A, B \rangle$ de objetos, uma coleção de morfismos (em $C$) de $A$ em $B$. Essa coleção denota-se $Hom_C(A,B)$;
 3. Uma operação parcial $\circ$ de composicão entre morfismos. 
 4. Para cada objeto $A$, um morfismo $id_A$ tal que (1) $f \circ id_A = f$; e (2) $id_A \circ g = g$.
