@@ -8,14 +8,7 @@ Uma categoria $C$ é composta dos seguintes elementos básicos
 
 1. Uma coleção $C$ de objetos;
 2. Para cada par $\langle A, B \rangle$ de objetos, uma coleção de morfismos (em $C$) de $A$ em $B$. Essa coleção denota-se $Hom_C(A,B)$;
-3. Uma operação parcial de composicão entre morfismos. Por exemplo, na categoria **Type**, podemos definir a composição como
-   ```coq
-   Definition comp 
-   {X Y Z: Type} 
-   (f : X -> Y) (g: Y -> Z) := 
-   fun a => g (f a).
-   ```
-   Nesta definição, $f$ vive em $Hom_{Type}(X,Y)$ e $g$ vive em $Hom_{Type}(Y, Z)$.
+3. Uma operação parcial $\circ$ de composicão entre morfismos. 
 4. Para cada objeto $A$, um morfismo $id_A$ tal que (1) $f \circ id_A = f$; e (2) $id_A \circ g = g$.
 
 
@@ -31,7 +24,16 @@ onde $A, B$ são tipos. A função identidade é definida da seguinte maneira
 Definition id {X : Type} a : X := a.
 ```
 
-e a composição conforme exemplo acima.
+e a composição da seguinte maneira
+
+```coq
+Definition comp 
+{X Y Z: Type} 
+(f : X -> Y) (g: Y -> Z) := 
+fun a => g (f a).
+```
+
+Nesta definição, $f$ vive em $Hom_{Type}(X,Y)$ e $g$ vive em $Hom_{Type}(Y, Z)$.
 
 ### Monomorfismos
 
