@@ -142,6 +142,41 @@ graph LR;
 
 > Produto fibrado.
 
+Dado um par de flechas $f : A \rightarrow C$ e $g : B \rightarrow C$, o seu **pullback** é um par $\langle D, \{p_1, p_2\}\rangle$ sendo $p_1 : D \rightarrow A$ e $p_2 : D \rightarrow B$ e tal que o diagrama abaixo comuta.
+
+```mermaid
+graph LR;
+  D--p_2-->B;
+  D--p_1-->A;
+  A--f-->C;
+  B--g-->C;
+```
+
+#### Propriedade universal do pullback
+
+Seja $\langle E, \{q_1, q_2\}\rangle$ um par tal que $q_1 : E \rightarrow A$ e $q_2 : E \rightarrow B$ são morfismos que comutam o diagrama abaixo
+
+```mermaid
+graph LR;
+  E--q_2-->B;
+  E--q_1-->A;
+  A--f-->C;
+  B--g-->C;
+```
+
+Então existe uma única flecha $k : E \rightarrow D$ que comuta o seguinte diagrama:
+
+```mermaid
+graph LR;
+  E--q_2-->B;
+  E--q_1-->A;
+  E-.k.->D;
+  D--p_2-->B;
+  D--p_1-->A;
+  A--f-->C;
+  B--g-->C;
+```
+
 ### Pushout
 
 ### Limite
