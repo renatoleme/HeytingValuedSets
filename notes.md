@@ -89,14 +89,14 @@ De modo geral, $g$ é a inversa de $h$, representada por $h^{-1}$.
 
 ### Objeto inicial
 
-Um objeto $x$ de uma categoria $C$ é inicial se e somente se, para cada objeto $y$ em $C$, existe uma única flecha $0_y : x \rightarrow y$.
+Um objeto $x$ de uma categoria $C$ é inicial se e somente se, para cada objeto $y$ em $C$, existe uma única flecha $! : x \rightarrow y$.
 
 > Usualmente, denota-se o objeto inicial como $0$.
 > > Exemplo: o conjunto vazio $\emptyset$ é o único objeto inicial da categoria **Set**.
 
 ### Objeto terminal
 
-Um objeto $x$ de uma categoria $C$ é terminal se e somente se, para cada objeto $y$ em $C$, existe uma única flecha $1_y : y \rightarrow x$.
+Um objeto $x$ de uma categoria $C$ é terminal se e somente se, para cada objeto $y$ em $C$, existe uma única flecha $! : y \rightarrow x$.
 
 > Usualmente, denota-se o objeto terminal como $1$.
 > > Exemplo: na categoria **Set**, existem infinitos objetos terminais (isomorfos): os conjuntos unitários.
@@ -276,6 +276,26 @@ graph LR;
 
 ### Exponenciação
 
+> Generaliza a noção de "espaço de funções de $A$ em $B$".
+
+Seja $C$ uma categoria com produtos binários. O exponencial de dois objetos $A$ e $B$ é um par $\langle B^A , ev_{BA} \rangle$, onde $ev_{BA} : B^A \times A \rightarrow B$ é tal que, para todo objeto $C$ e flecha $f : C \times A \rightarrow B$, existe uma única flecha $\bar{f} : C \rightarrow B^A$ tal que $ev_{BA} \circ (\bar{f} \times id_A) = f$. Ou seja, o seguinte diagrama comuta. 
+
+Chamaremos o conjunto $B^A \times A$ de $X$, $C \times A$ de $Y$ e o morfismo $\bar{f} \times id_A$ de $g$.
+
+```mermaid
+graph LR;
+  X--ev_BA-->B;
+  Y--h-->B;
+  Y--g-->X;
+```
+
+> Em uma categoria localmente pequena como **Set**, $B^A$ corresponde ao conjunto de todos os morfismos dessa categoria. Isto é, ao conjunto $Hom_C(A, B)$.
+
+> Em **Set**, portanto, $B^A$ é o conjunto de todas as funções $f : A \rightarrow B$. Para provar isso, precisamos mostrar que existe uma bijeção entre $Hom(C, Hom(A, B))$ e $Hom(C \times A, B)$. 
+
+> Uma categoria com exponenciais é uma *categoria cartesiana fechada*.
+
+
 ### Funtores
 
 Um funtor $F$ é um morfismo que leva de uma categoria $X$ para outra categoria $Y$ preservando a estrutura original, isto é,
@@ -357,15 +377,31 @@ Functor X Y Maybe :=
 ```
 
 
-## Topos
-
-### Subobjeto
+## Subobjeto
 
 > Generaliza a noção de subconjunto
 
+### Classificador de subobjetos
 
+## Topos
 
-Um topos é uma categoria.
+As seguintes definições são equivalentes. Um **topos** é uma categoria $C$ tal que:
+
+> 1. $C$ é finitamente completa.
+> 2. $C$ é finitamente cocompleta.
+> 3. $C$ tem classificador de subobjetos.
+> 4. $C$ tem exponenciação.
+
+ou
+
+> 1. $C$ tem objeto terminal.
+> 2. $C$ tem pullback
+> 3. $C$ tem classificador de subobjetos.
+> 4. $C$ tem exponenciação.
+ 
+Além disso,
+
+> Uma categoria $C$ é um topos se e somente se $C$ é cartesiana fechada e tem classificador de subobjetos.
 
 ## Reticulado
 
