@@ -411,6 +411,27 @@ A relação $\sim$ é uma relação de equivalência.
 > 1. $a \equiv a$ (reflexividade);
 > 2. $a \equiv b \Rightarrow b \equiv a$ (simetria);
 > 3. $a \equiv b$ e $b \equiv c$ então $a \equiv c$ (transitividade).
+> > Para todo morfismo $m$, $m \sim m$ ($\sim$ é reflexivo). Sabemos que $m \sim m$ se e somente se existe um isomorfismo $f : Dom(m) \rightarrow Dom (m)$. Tome $f = id_{Dom(m)}$. Sabemos que $id_A^{-1} = id_A$, para todo $A$. Portanto, $id_{Dom(m)}$ é um isomorfismo. Além disso, $m = m \circ id_{Dom(m)} \Rightarrow m = m$.
+>
+> > Para todo $m , n$, se $m \sim n$ então $n \sim m$. Assuma que $m \sim n$. Então existe um isomorfismo $f : Dom(m) \rightarrow Dom(n)$ tal que (A) $m = n \circ f$. Precisamos mostrar que existe um isomorfismo de $Dom(n)$ a $Dom(m)$. Tome $f^{-1}$ (cuja inversa é $f$). Precisamos mostrar que (B) $n = m \circ f^{-1}$. Substituindo A em B, temos que $n = (n \circ f) \circ f^{-1} \Rightarrow n = n \circ (f \circ f^{-1}) \Rightarrow n = n$.
+> 
+> > Transitividade. Sejam $m, n, p$ três morfismos. Queremos mostrar que, se $m \sim n$ e $n \sim p$ então $m \sim p$. Isso é equivalente a mostrar que existe um isomorfismo $h: Dom(m) \rightarrow Dom(p)$ que comuta o diagrama abaixo.
+
+```mermaid
+graph LR;
+  Dom_m--m-->A; 
+  Dom_m--f-->Dom_n;
+  Dom_n--inv_f-->Dom_m;
+  Dom_n--n-->A;
+  Dom_n--g-->Dom_p;
+  Dom_p--inv_g-->Dom_n;
+  Dom_p--p-->A;
+  Dom_m-.h.->Dom_p;
+  Dom_p-.inv_h.->Dom_m;
+```
+
+> > Tome $h = g \circ f$. Claramente, $h^{-1} = f^{-1} \circ g^{-1}$, portanto, $h$ é isomorfismo. Resta mostrar que $m = p \circ h$. Sabemos que $m = n \circ f$ e $n = p \circ g$. Fazendo as substituições, obtemos $(p \circ g) \circ f = p \circ h \Rightarrow p \circ (g \circ f) = p \circ h$. Por hipótese, $h = g \circ f$, portanto, $p \circ h = p \circ h$.
+
 
 ### Classificador de subobjetos
 
