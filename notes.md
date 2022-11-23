@@ -8,7 +8,7 @@ Uma categoria $C$ consiste de:
 
 1. Uma coleção $O$ de objetos;
 2. Para cada par $\langle A, B \rangle$ de objetos, uma coleção de morfismos (em $C$) de $A$ em $B$. Essa coleção denota-se $Hom_C(A,B)$;
-3. Uma operação parcial $\circ$ de composicão entre morfismos. 
+3. Uma operação parcial $\circ$ de composição entre morfismos;
 4. Para cada objeto $A$, um morfismo $id_A$ tal que (1) $f \circ id_A = f$; e (2) $id_A \circ g = g$.
 
 
@@ -432,6 +432,21 @@ graph LR;
 
 > > Tome $h = g \circ f$. Claramente, $h^{-1} = f^{-1} \circ g^{-1}$, portanto, $h$ é isomorfismo. Resta mostrar que $m = p \circ h$. Sabemos que $m = n \circ f$ e $n = p \circ g$. Fazendo as substituições, obtemos $(p \circ g) \circ f = p \circ h \Rightarrow p \circ (g \circ f) = p \circ h$. Por hipótese, $h = g \circ f$, portanto, $p \circ h = p \circ h$.
 
+> Seja $Sub(A)$ o conjunto de classes de equivalência $[m]$ de monomorfismos $m : Dom(m) \hookrightarrow A$.
+ > Sejam $[m_i]\in Sub(A)$. Para $i = (1,2)$, dizemos que $[m_1] \leq [m_2]$ sse existe um morfismo $f : Dom(m_1) \rightarrow Dom(m_2)$ tal que $m_1 = m_2 \circ f$.
+
+Ou seja, o seguinte diagrama comuta.
+
+```mermaid
+graph LR;
+  Dom_m1--m1-->A;
+  Dom_m2--m2-->A;
+  Dom_m1-.f.->Dom_m2;
+```
+
+ Em particular, temos que $[m_n] \leq [m_n]$, para todo $n \in I$ (tome $f = id_{Dom(m_n)}$, indução em $n$).
+
+ > $\langle Sub(A), \leq \rangle$ é uma ordem parcial. Ou seja: reflexiva, anti-simétrica e transitiva. Anti-simetria: se $[m_1] \leq [m_2]$ e $[m_2] \leq [m_1]$, então $[m_1] = [m_2]$.
 
 ### Classificador de subobjetos
 
@@ -646,15 +661,15 @@ $$
 Onde $A$ e $B$ são fórmulas válidas.
 
 
-**Equivalência enfraquecida** ≋. Relação entre objetos. Dois elementos $v$ e $w$ são **fracamente equivalentes** quando: **(a)** nenhum deles existe; ou **(b)** quando ambos existem e são iguais.
+**Equivalência enfraquecida** $\approxeq$. Relação entre objetos. Dois elementos $v$ e $w$ são **fracamente equivalentes** quando: **(a)** nenhum deles existe; ou **(b)** quando ambos existem e são iguais.
 
-3. $v ≋ w \equiv (E(v) \lor E(w) \supset v \approx w)$
+1. $v \approxeq w \equiv (E(v) \lor E(w) \supset v \approx w)$
 
 > Essa noção de equivalência enfraquecida "não diferencia os elementos com respeito a sua inexistência". Se dois elementos não existem eles são fracamente equivalentes.
 
-Em suma, $\approx$ e ≋ são duas relações simétricas: é possível descrever a igualdade em termos da equivalência.
+Em suma, $\approx$ e $\approxeq$ são duas relações simétricas: é possível descrever a igualdade em termos da equivalência.
 
-4. $v \approx w \equiv (v ≋ w) \land (E(v) \land E(w))$
+4. $v \approx w \equiv (v \approxeq w) \land (E(v) \land E(w))$
 
 Ou seja, dois elementos $v$ e $w$ são idênticos se, e somente se, ambos existem e são fracamente equivalentes.
 
