@@ -41,12 +41,16 @@ Nesta definição, $f$ vive em $Hom_{Type}(X,Y)$ e $g$ vive em $Hom_{Type}(Y, Z)
 
 Uma flecha $h : A \rightarrow B$ é um monomorfismo se e somente se $h \circ g = h \circ f$ implica que $g = f$ para todo $g, f : C \rightarrow A$.
 
+Ou seja, se o seguinte diagrama comuta
+
 ```mermaid
 graph LR;
   A--h-->B;
   C--f-->A;
   C--g-->A;
 ```
+
+então $f = g$.
 
 > Um monomorfismo é uma flecha que pode ser cancelada a esquerda da composição.
 
@@ -58,6 +62,8 @@ graph LR;
 
 Uma flecha $h : A \rightarrow B$ é um epimorfismo se e somente se $g \circ h = f \circ h$ implica que $g = f$ para todo $g, f : B \rightarrow C$.
 
+Ou seja, se o seguinte diagrama comuta
+
 ```mermaid
 graph LR;
   A--h-->B;
@@ -65,11 +71,15 @@ graph LR;
   B--g-->C;
 ```
 
+então $f = g$.
+
 > Um epimorfismo é uma flecha que pode ser cancelada a direita da composição.
 
 ### Isomorfismos
 
-> Um isomorfismo é uma flecha invertível.
+> Um isomorfismo é uma flecha que possui inversa.
+
+> Quais são os critérios suficientes e necessários para existir a inversa de uma função $f : A \rightarrow B$? Se $f$ é injetiva mas não é sobrejetiva, então $f^{-1} : B \rightarrow A$ não é uma função porque existiriam elementos do domínio $B$ sem imagem em $A$; por outro lado, se $f$ é sobrejetiva mas não é injetiva, então existiriam elementos do domínio com mais de uma imagem. Por isso, para existir inversa de uma função é suficiente e necessário que $f$ seja injetiva e sobrejetiva.
 
 Uma flecha $h : A \rightarrow B$ é um isomorfismo se e somente se existe uma flecha $g : B \rightarrow A$ tal que 
 
@@ -380,6 +390,27 @@ Functor X Y Maybe :=
 ## Subobjeto
 
 > Generaliza a noção de subconjunto
+
+Seja $C$ uma categoria e $B$ um objeto de $C$. Um subobjeto de $B$ é um monomorfismo $m : A \hookrightarrow B$ com codomínio $B$. 
+
+> Fixe um objeto $A$ de uma categoria pequena $C$. Definimos a seguinte relação no conjunto de monomorfismos com co-domínio $A$ : $m \sim n$ sse existe um isomorfismo $f : Dom(m) \rightarrow Dom(n)$ tal que $m = n \circ f$. (p. 43, apostila)
+
+O seguinte diagrama comuta
+
+```mermaid
+graph LR;
+  Dom_m--m-->A; 
+  Dom_m--f-->Dom_n;
+  Dom_n--inv_f-->Dom_m;
+  Dom_n--n-->A;
+```
+
+A relação $\sim$ é uma relação de equivalência.
+
+> Uma relação de equivalência $\equiv$ possui as seguintes propriedades:
+> 1. $a \equiv a$ (reflexividade);
+> 2. $a \equiv b \Rightarrow b \equiv a$ (simetria);
+> 3. $a \equiv b$ e $b \equiv c$ então $a \equiv c$ (transitividade).
 
 ### Classificador de subobjetos
 
