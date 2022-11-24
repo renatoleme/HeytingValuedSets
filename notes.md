@@ -79,7 +79,8 @@ então $f = g$.
 
 > Um isomorfismo é uma flecha que possui inversa.
 
-> Quais são os critérios suficientes e necessários para existir a inversa de uma função $f : A \rightarrow B$? Se $f$ é injetiva mas não é sobrejetiva, então $f^{-1} : B \rightarrow A$ não é uma função porque existiriam elementos do domínio $B$ sem imagem em $A$; por outro lado, se $f$ é sobrejetiva mas não é injetiva, então existiriam elementos do domínio com mais de uma imagem. Por isso, para existir inversa de uma função é suficiente e necessário que $f$ seja injetiva e sobrejetiva.
+> Quais são os critérios suficientes e necessários para existir a inversa de uma função $f : A \rightarrow B$? Se $f$ é injetiva mas não é sobrejetiva, então $f^{-1} : B \rightarrow A$ não é uma função porque existiriam elementos do domínio $B$ sem imagem em $A$; por outro lado, se $f$ é sobrejetiva mas não é injetiva, então existiriam elementos do domínio com mais de uma imagem. Então é necessário que $f$ seja tanto injetiva quanto sobrejetiva para possuir inversa. Será suficiente? No caso das funções na categoria **Set**, sim. No caso mais geral de morfismos em quaisquer categorias, não: em certas categorias, existem flechas que são mono e epi mas não são iso.
+
 
 Uma flecha $h : A \rightarrow B$ é um isomorfismo se e somente se existe uma flecha $g : B \rightarrow A$ tal que 
 
@@ -146,8 +147,9 @@ graph LR;
   B--h-->C;
   E-.k.->C;
 ```
+
 > Equalizador e coequalizador são conceitos duais.
-> 
+ 
 ### Pullback
 
 > Produto fibrado.
@@ -312,7 +314,7 @@ Um funtor $F$ é um morfismo que leva de uma categoria $X$ para outra categoria 
 
 1. Para cada objeto $a$ de $X$, existe um objeto $F(a)$ correspondente em $Y$;
 2. Para cada morfismo $f : a \rightarrow b$, um morfismo $F(f) : F(a) \rightarrow F(b)$, tal que: 
-   1. $F(1_a) = 1_{F(a)}$;
+   1. $F(id_a) = id_{F(a)}$;
    2. $F(g  \circ f) = F(g) \circ F(f)$, sempre que a composição existe.
 
 
@@ -344,8 +346,6 @@ Para um morfismo $F$ ser um funtor, além de $F$ mapear objetos (no caso, tipos)
 ```
 f : nat -> bool
 ```
-
-
 
 Para isso, definimos a função de ordem superior **fmap** abaixo
 
@@ -386,7 +386,6 @@ Functor X Y Maybe :=
 }.
 ```
 
-
 ## Subobjeto
 
 > Generaliza a noção de subconjunto
@@ -399,10 +398,10 @@ O seguinte diagrama comuta
 
 ```mermaid
 graph LR;
-  Dom_m--m-->A; 
+  Dom_m==m==>A; 
   Dom_m--f-->Dom_n;
   Dom_n--inv_f-->Dom_m;
-  Dom_n--n-->A;
+  Dom_n==n==>A;
 ```
 
 A relação $\sim$ é uma relação de equivalência.
@@ -419,40 +418,115 @@ A relação $\sim$ é uma relação de equivalência.
 
 ```mermaid
 graph LR;
-  Dom_m--m-->A; 
+  Dom_m==m==>A; 
   Dom_m--f-->Dom_n;
   Dom_n--inv_f-->Dom_m;
-  Dom_n--n-->A;
+  Dom_n==n==>A;
   Dom_n--g-->Dom_p;
   Dom_p--inv_g-->Dom_n;
-  Dom_p--p-->A;
+  Dom_p==p==>A;
   Dom_m-.h.->Dom_p;
   Dom_p-.inv_h.->Dom_m;
 ```
 
 > > Tome $h = g \circ f$. Claramente, $h^{-1} = f^{-1} \circ g^{-1}$, portanto, $h$ é isomorfismo. Resta mostrar que $m = p \circ h$. Sabemos que $m = n \circ f$ e $n = p \circ g$. Fazendo as substituições, obtemos $(p \circ g) \circ f = p \circ h \Rightarrow p \circ (g \circ f) = p \circ h$. Por hipótese, $h = g \circ f$, portanto, $p \circ h = p \circ h$.
 
-> Seja $Sub(A)$ o conjunto de classes de equivalência $[m]$ de monomorfismos $m : Dom(m) \hookrightarrow A$.
- > Sejam $[m_i]\in Sub(A)$. Para $i = (1,2)$, dizemos que $[m_1] \leq [m_2]$ sse existe um morfismo $f : Dom(m_1) \rightarrow Dom(m_2)$ tal que $m_1 = m_2 \circ f$.
+Chamaremos de $Sub(A)$ ao conjunto de classes de equivalência $[m]$ de monomorfismos $m : Dom(m) \hookrightarrow A$.
+
+> Seja $[m_i] \in Sub(A)$. Para $i = (1,2)$, dizemos que $[m_1] \leq [m_2]$ sse existe um morfismo $f : Dom(m_1) \rightarrow Dom(m_2)$ tal que $m_1 = m_2 \circ f$. Observe que cada $m_i$ é um monomorfismo que sai de $Dom(m_i)$ e vai para $A$. A flecha $f$ não precisa ser monomorfismo.
 
 Ou seja, o seguinte diagrama comuta.
 
 ```mermaid
 graph LR;
-  Dom_m1--m1-->A;
-  Dom_m2--m2-->A;
+  Dom_m1==m1==>A;
+  Dom_m2==m2==>A;
   Dom_m1-.f.->Dom_m2;
 ```
 
- Em particular, temos que $[m_n] \leq [m_n]$, para todo $n \in I$ (tome $f = id_{Dom(m_n)}$, indução em $n$).
+> Em particular, temos que $[m_n] \leq [m_n]$, para todo $n \in I$ (tome $f = id_{Dom(m_n)}$, indução em $n$).
 
  > $\langle Sub(A), \leq \rangle$ é uma ordem parcial. Ou seja: reflexiva, anti-simétrica e transitiva. Anti-simetria: se $[m_1] \leq [m_2]$ e $[m_2] \leq [m_1]$, então $[m_1] = [m_2]$.
+ 
+> $\langle  Sub(A), \leq \rangle$ é uma álgebra de Heyting.
+
+#### Imagem inversa
+
+ Um subobjeto pode ter imagem inversa. Seja $f : A \rightarrow B$ um morfismo e $i : C \hookrightarrow B$ um subobjeto de $B$, a *imagem inversa de i por f* é o monomorfismo $f^{-1}(i) : f^{-1}(C) \hookrightarrow A$ dado pelo seguinte pullback:
+
+```mermaid
+graph LR;
+  inv_f_C==inv_f_i==>A;
+  inv_f_C--f*-->C;
+  C==i==>B;
+  A--f-->B;
+```
+
+> Mostrar que é pullback.
 
 ### Classificador de subobjetos
 
+A função característica de um conjunto $S \subseteq A$ é uma função $\chi_S : A \rightarrow 2$ tal que 
+
+$$
+  \chi_S(x) =
+  \begin{cases}
+    1 & \text{se $x \in S$} \\
+    0 & \text{caso contrário}
+  \end{cases}
+$$
+
+> Existe uma bijeção entre os subconjuntos $S$ de $A$ [ou seja, $P(A)$] e as suas funções características. (p. 45, apostila)
+>
+> > Por essa razão, o conjunto das partes é por vezes denotado por $2^A$. Lembrando que $2^A$ corresponde ao conjunto de todas as funções $f : A \rightarrow 2$ na categoria **Set**.
+
+Dada $g : A \rightarrow 2$, seja $B_g = \{ x \in A : g(x) = 1 \}$, isto é, o conjunto de todos os elementos em $A$ tais que $g(x) = 1$. Nesse caso, a função característica de $B_g$ é a própria $g$, já que
+
+$$
+  \chi_{B_g}(x) =
+  \begin{cases}
+    1 & \text{se $x \in B_g$} \\
+    0 & \text{caso contrário}
+  \end{cases}
+$$
+
+O diagrama abaixo é um pullback.
+
+```mermaid
+graph LR;
+    Bg==>A;
+    _1_==>2;
+    Bg--!-->_1_;
+    A--g-->2;
+```
+> Seja $C$ uma categoria com objeto terminal **1**. Um classificador de subobjetos para $C$ é um par $\langle \Omega, true \rangle$ tal que $\Omega$ é um objeto de $C$ e $true : 1 \rightarrow \Omega$ é um morfismo de $C$ que satisfaz a seguinte propriedade: para cada monomorfismo $f : B \hookrightarrow A$, existe um único morfismo $\chi_f : A \rightarrow \Omega$ tal que o diagram abaixo é um pullback. (p. 46, apostila)
+
+```mermaid
+graph LR;
+    A--Xf-->Omega;
+    1==true==>Omega;
+    B==f==>A;
+    B--!-->1;
+```
+
+#### Axioma $\Omega$
+
+> Axioma $\Omega$. Para cada monomorfismo $f : a \rightarrow d$ existe uma e apenas uma flecha $\chi_f : d \rightarrow \Omega$ tal que
+
+```mermaid
+graph LR;
+    a ==f==>d;
+    d--Xf-->Omega;
+    a--!-->1;
+    1--true-->Omega;
+```
+
+> é pullback.
+
+
 ## Topos
 
-As seguintes definições são equivalentes. Um **topos** é uma categoria $C$ tal que:
+Um **topos** é uma categoria $C$ que satistaz as seguintes condições:
 
 > 1. $C$ é finitamente completa.
 > 2. $C$ é finitamente cocompleta.
