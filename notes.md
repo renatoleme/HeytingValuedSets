@@ -521,8 +521,9 @@ graph LR;
     1--true-->Omega;
 ```
 
-> é pullback.
+> é pullback. (p. 81, Topoi)
 
+A flecha $\chi_f$ é chamada de flecha característica do monomorfismo $f$.
 
 ## Topos
 
