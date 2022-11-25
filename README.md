@@ -776,10 +776,13 @@ Categoria dos bundles (fibrados). Objetos são funções $f : A \rightarrow I$ e
 
 > p. 276-..
 
-Um **conjunto** é uma coleção de elementos parciais, com alguma medida alébrica Heyting-valorada de graus de igualdade (*equality*) entre eles.
+Nesse modelo, um **conjunto** é uma coleção de elementos parciais, com alguma medida alébrica Heyting-valorada de graus de igualdade (*equality*) entre eles.
 
 Essa noção admite o seguinte "desenvolvimento axiomático abstrato":
 
 > Uma álgebra de Heyting completa (**AHC**) é uma álgebra de Heyting na qual todo sub-conjunto $A \subseteq \Omega$ possui um "limite superior mínimo" (*least upper bound*), denotado por $\sqcup A$, e um "limite inferior máximo" (*greatest lower bound*), denotado por $\sqcap A$.
 
-Seja $(\Omega, \sqsubseteq)$ uma **AHC**.
+Seja $(\Omega, \sqsubseteq)$ uma **AHC**. Um conjunto $\Omega$-valorado é um conjunto $A$ e uma função $\delta : A \times A \rightarrow \Omega$ tal que, para todo $x, y, z \in A$, vale que
+
+1. $\delta (x, y) \sqsubseteq \delta (y,x)$;
+2. $\delta (x, y) \sqcap \delta (y, z) \sqsubseteq \delta (x, z)$.
