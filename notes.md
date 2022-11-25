@@ -296,7 +296,7 @@ Chamaremos o conjunto $B^A \times A$ de $X$, $C \times A$ de $Y$ e o morfismo $\
 
 ```mermaid
 graph LR;
-  X--ev_BA-->B;
+  X--"ev_BA"-->B;
   Y--h-->B;
   Y--g-->X;
 ```
@@ -439,9 +439,9 @@ Ou seja, o seguinte diagrama comuta.
 
 ```mermaid
 graph LR;
-  Dom_m1==m1==>A;
-  Dom_m2==m2==>A;
-  Dom_m1-.f.->Dom_m2;
+  D["Dom(m1)"]==m1==>A;
+  E["Dom(m2)"]==m2==>A;
+  D["Dom(m1)"]-.f.->E["Dom(m2)"];
 ```
 
 > Em particular, temos que $[m_n] \leq [m_n]$, para todo $n \in I$ (tome $f = id_{Dom(m_n)}$, indução em $n$).
@@ -456,8 +456,8 @@ graph LR;
 
 ```mermaid
 graph LR;
-  inv_f_C==inv_f_i==>A;
-  inv_f_C--f*-->C;
+  D["f^-1(C)"]=="f^-1(i)"==>A;
+  D["f^-1(C)"]--f*-->C;
   C==i==>B;
   A--f-->B;
 ```
@@ -480,7 +480,7 @@ $$
 >
 > > Por essa razão, o conjunto das partes é por vezes denotado por $2^A$. Lembrando que $2^A$ corresponde ao conjunto de todas as funções $f : A \rightarrow 2$ na categoria **Set**.
 
-Dada $g : A \rightarrow 2$, seja $B_g = \{ x \in A : g(x) = 1 \}$, isto é, o conjunto de todos os elementos em $A$ tais que $g(x) = 1$. Nesse caso, a função característica de $B_g$ é a própria $g$, já que
+Ainda dentro da categoria **Set**, considere $g : A \rightarrow 2$ e defina $B_g = \{ x \in A : g(x) = 1 \}$, isto é, o conjunto de todos os elementos em $A$ tais que $g(x) = 1$. Nesse caso, a função característica de $B_g$ é a própria $g$, já que
 
 $$
   \chi_{B_g}(x) =
@@ -490,16 +490,24 @@ $$
   \end{cases}
 $$
 
-O diagrama abaixo é um pullback.
+ou seja: mesmos outputs para os mesmos inputs. 
+
+> Para todo $x \in A$, $\chi_{B_g}(x) = 1$ se e somente se $g(x) = 1$. 
+> > Por definição, se $g(x) = 1$, então $x \in B_g$. Mas, se $x \in B_g$, então $\chi_{B_g}(x) = 1$. Similarmente para a ida.
+
+Observe que $g^{-1} : 2 \rightarrow A$ é uma função que, dado um elemento de $2 = \{0,1\}$, manda para o elemento de $A$ correspondente de tal modo que $g^{-1} \circ g = id_A$ e $g \circ g^{-1} = id_2$. Dado que $\chi_{B_g} = g$, temos que $B_g = g^{-1}(\{1\})$ [a imagem da inversa da função característica de $B_g$ restrita a $\{ 1 \}$]. Ou seja, o diagrama abaixo é um pullback.
 
 ```mermaid
 graph LR;
     Bg==>A;
-    _1_==>2;
-    Bg--!-->_1_;
+    1["{1}"]==>2;
+    Bg--!-->1["{1}"];
     A--g-->2;
 ```
-> Seja $C$ uma categoria com objeto terminal **1**. Um classificador de subobjetos para $C$ é um par $\langle \Omega, true \rangle$ tal que $\Omega$ é um objeto de $C$ e $true : 1 \rightarrow \Omega$ é um morfismo de $C$ que satisfaz a seguinte propriedade: para cada monomorfismo $f : B \hookrightarrow A$, existe um único morfismo $\chi_f : A \rightarrow \Omega$ tal que o diagram abaixo é um pullback. (p. 46, apostila)
+
+Generalizando para qualquer categoria, obtemos a noção de *classificador de subobjeto*. Seja $C$ uma categoria com objeto terminal **1**. Um classificador de subobjetos para $C$ é um par $\langle \Omega, true \rangle$ tal que $\Omega$ é um objeto de $C$ e $true : 1 \rightarrow \Omega$ é um morfismo de $C$ que satisfaz a seguinte propriedade: 
+
+> Para cada monomorfismo $f : B \hookrightarrow A$, existe um único morfismo $\chi_f : A \rightarrow \Omega$ tal que o diagrama abaixo é um pullback. (p. 46, apostila)
 
 ```mermaid
 graph LR;
@@ -509,21 +517,7 @@ graph LR;
     B--!-->1;
 ```
 
-#### Axioma $\Omega$
-
-> Axioma $\Omega$. Para cada monomorfismo $f : a \rightarrow d$ existe uma e apenas uma flecha $\chi_f : d \rightarrow \Omega$ tal que
-
-```mermaid
-graph LR;
-    a ==f==>d;
-    d--Xf-->Omega;
-    a--!-->1;
-    1--true-->Omega;
-```
-
-> é pullback. (p. 81, Topoi)
-
-A flecha $\chi_f$ é chamada de flecha característica do monomorfismo $f$.
+No livro Topoi, essa propriedade é chamada de *Axioma* $\Omega$ (p. 81). A flecha $\chi_f$ é chamada de flecha característica do monomorfismo $f$.
 
 ## Topos
 
