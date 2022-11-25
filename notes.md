@@ -521,6 +521,8 @@ No livro Topoi, essa propriedade é chamada de *Axioma* $\Omega$ (p. 81). A flec
 
 ## Topos
 
+> pp. 49-50, apostila.
+
 Um **topos** é uma categoria $C$ que satistaz as seguintes condições:
 
 > 1. $C$ é finitamente completa.
@@ -538,6 +540,8 @@ ou
 Além disso,
 
 > Uma categoria $C$ é um topos se e somente se $C$ é cartesiana fechada e tem classificador de subobjetos.
+
+> **Teorema fundamental dos topos**. Se $C$ é um topos e $A \in |C|$, então $C \downarrow A$ é um topos. 
 
 ## Reticulado
 
@@ -668,6 +672,26 @@ $$
 
 > Assuma que $x \subseteq \bar{A}$. Nesse caso, todo elemento de $x$ está em $\bar{A}$. Pela definição de complemento, $\bar{A}$ não possui nenhum elemento de $A$. São, portanto, disjuntos. Por definição de sub-conjunto, não existe nenhum elemento em $x$ além daqueles que estão em $\bar{A}$; em particular, não existe nenhum elemento de $A$ em $x$, isto é, $x$ e $A$ também são disjuntos. Para a volta, assuma que $A \cap x = \emptyset$. Observe que o complemento contém todos os elementos que não estão em $A$, já que pega todos os elementos do universo $(D)$ que não pertencem a $A$. Portanto, se $A$ é disjunto de $x$, então $x$ deve estar contido em $\bar{A}$.
 
+#### Sub(A)
+
+> p. 180[197]
+
+Em $Sub(A)$ de qualquer topos, o pseudo-complemento de um morfismo $f : A \rightarrow B$ é um morfismo $\bar{f} : \bar{A} \rightarrow B$. 
+
+> Para provar isso, precisamos mostrar que $g \subseteq \bar{f}$ sse $f \cap g \simeq 0_B$
+
+Supõe que $f \cap g \simeq 0_B$. Isso é o mesmo que dizer que o diagrama formado pelas flechas em negrito é um pullback.
+
+```mermaid
+graph LR;
+    A==f==>B;
+    A--->1;
+    0===>A;
+    0==0b==>C;
+    C==g==>B;
+    1--true-->Omega;
+    B--Xf-->Omega;
+```
 
 ### Definição de uma álgebra de Heyting
 
@@ -695,14 +719,14 @@ Uma álgebra de Heyting é completa quando todo subconjunto de $\Omega$ possui l
 Exemplo: 
 
 $$
- \textbf{BA} = \\{ 0,1,f,g,h \\}
+ \textbf{BA} = \{ 0,1,f,g,h \}
 $$
 
 onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de $v_1$ com $v_2$" e $h(v_1,v_2)$ significa "o join de $v_1$ com $v_2$".
 
 > (cap. 11, sec. 9, pp. 274--..).
 
-Podemos compreender objetos em um topos como entidades "set-like"  **parcialmente existentes** (*partially existent*). Apenas alguns desses elementos são **fortemente existentes** (*actually existent*). O fato de que um elemento $c$ é **fortemente existente** é expresso por $\textbf{E(c)}$
+Podemos compreender objetos em um topos como entidades "set-like"  **parcialmente existentes** (*partially existent*). Apenas alguns desses elementos são **realmente existentes** (*actually existent*). O fato de que um elemento $c$ é **realmente existente** é expresso por $\textbf{E(c)}$
 
 1. $\textbf{E(c)} \equiv \exists v (v\approx \textbf{c})$
 
@@ -743,6 +767,10 @@ Em suma, $\approx$ e $\approxeq$ são duas relações simétricas: é possível 
 Ou seja, dois elementos $v$ e $w$ são idênticos se, e somente se, ambos existem e são fracamente equivalentes.
 
 ## [TODO] Exemplo do Bundle
+
+> Lembrando que $Bn(I) = Set \downarrow I$. Sendo $Set \downarrow I$ a categoria onde os objetos são os morfismos $m : A \rightarrow I$ da categoria **Set** (ou seja, os morfismos de **Set** com co-domínio $I$). 51
+
+Categoria dos bundles (fibrados). Objetos são funções $f : A \rightarrow I$ e um morfismo $\bar{k} : f \rightarrow g$.
 
 ## Concepção generalizada de conjunto
 
