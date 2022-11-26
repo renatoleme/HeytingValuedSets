@@ -793,10 +793,7 @@ $$
 [[ x \approxeq y ]]_A = ([[Ex]]_A \sqcup [[Ey]]_A) \Rightarrow [[x \approx y]]_A
 $$
 
-Exemplo. Considere a seguinte **AHC**: $\mathcal{H}_{0} = \langle \{\bot,\top\}, \subseteq, \cup, \cap, \Rightarrow, 0, 1 \rangle$. Um conjunto $\Omega$-valorado, nesse caso, pode ser $\langle \top, \delta \rangle$ ou $\langle  \bot, \delta \rangle$. Nesse exemplo, o seguinte é válido para todo $x,y,z \in \{ \bot, \top \}$
-
-1. $\delta (x, y) \subseteq \delta (y, x)$;
-2. $\delta (x, y) \cap \delta (y, z) \subseteq \delta (x, z)$.
+Exemplo. Considere a seguinte **AHC**: $\mathcal{H}_{0} = \langle \{\bot,\top\}, \subseteq, \cup, \cap, \Rightarrow, 0, 1 \rangle$. Um conjunto $\Omega$-valorado, nesse caso, pode ser $\langle \top, \delta \rangle$ ou $\langle  \bot, \delta \rangle$. 
 
 
 #### Exercícios
@@ -818,8 +815,45 @@ $$
 
 2. $\delta (x, y) = [[ x \approxeq y]] \sqcap [[Ex]] \sqcap [[Ey]]$
 
+Por anti-simetria, se mostramos que $a \sqsubseteq b$ e $b \sqsubseteq a$, mostramos que $a = b$. Ida: queremos mostrar que
+
 $$
 \begin{align}
-\delta(x,y) &= ([[Ex]] \sqcup [[Ey]] \Rightarrow \delta(x,y)) \sqcap ([[Ex]] \sqcap [[Ey]])
+\delta(x,y) &\sqsubseteq ([[Ex]] \sqcup [[Ey]] \Rightarrow \delta(x,y)) \sqcap ([[Ex]] \sqcap [[Ey]]) \\
+\delta(x,y) &\sqsubseteq max(C : ([[Ex]] \sqcup [[Ey]]) \sqcap C \sqsubseteq \delta(x,y)) \sqcap ([[Ex]] \sqcap [[Ey]])
 \end{align}
 $$
+
+```mermaid
+graph LR;
+    Ex--->C;
+    Ey--->C;
+    C--->1["d(x,y)"];
+    0--->Ex;
+    0--->Ey;
+```
+
+$[[ A \Rightarrow B ]] = max (C : A \sqcap C \sqsubseteq B)$
+
+$a \sqcap c \sqsubseteq b$ sse $c \sqcap a \Rightarrow b$, onde $a \sqsubseteq b =_{\text{def}} a \sqcup b = b$
+
+### Categoria $\Omega$-set
+
+Objetos são conjuntos $\Omega$-valorados e uma flecha de $A$ em $B$ é uma função $f : A \times B \rightarrow \Omega$ que satisfaz as seguintes propriedades
+
+$$
+            \begin{align}
+                [[ x \approx x' ]]_A \sqcap f(x,y) \sqsubseteq f(x',y) \\
+                f(x,y) \sqcap [[ y \approx y' ]]_B \sqsubseteq f(x,y')\\
+                f(x,y) \sqcap f(x, y') \sqsubseteq [[ y \approx y' ]]_B\\
+                [[ x \approx x ]]_A = \bigsqcup \{ f(x,y) : y \in B \}
+            \end{align}
+$$
+
+> A categoria $\Omega$-set é um topos.
+
+#### Objeto terminal
+#### Produto
+#### Pullback
+#### Subobjeto
+#### Classificador de subobjeto
