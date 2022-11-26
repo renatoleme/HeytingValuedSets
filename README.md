@@ -772,7 +772,7 @@ Ou seja, dois elementos $v$ e $w$ são idênticos se, e somente se, ambos existe
 
 Categoria dos bundles (fibrados). Objetos são funções $f : A \rightarrow I$ e um morfismo $\bar{k} : f \rightarrow g$.
 
-## Concepção generalizada de conjunto
+## Conjuntos $\Omega$-valorados
 
 > p. 276-..
 
@@ -782,7 +782,31 @@ Essa noção admite o seguinte "desenvolvimento axiomático abstrato":
 
 > Uma álgebra de Heyting completa (**AHC**) é uma álgebra de Heyting na qual todo sub-conjunto $A \subseteq \Omega$ possui um "limite superior mínimo" (*least upper bound*), denotado por $\sqcup A$, e um "limite inferior máximo" (*greatest lower bound*), denotado por $\sqcap A$.
 
-Seja $(\Omega, \sqsubseteq)$ uma **AHC**. Um conjunto $\Omega$-valorado é um conjunto $A$ e uma função $\delta : A \times A \rightarrow \Omega$ tal que, para todo $x, y, z \in A$, vale que
+> Seja $(\Omega, \sqsubseteq)$ uma **AHC**. Um conjunto $\Omega$-valorado é um conjunto $A \in \Omega$ e uma função $\delta : A \times A \rightarrow \Omega$ tal que, para todo $x, y, z \in A$, vale que
 
 1. $\delta (x, y) \sqsubseteq \delta (y,x)$;
 2. $\delta (x, y) \sqcap \delta (y, z) \sqsubseteq \delta (x, z)$.
+
+Denotamos $\delta (x, x)$ como $[[Ex]]$.
+
+Exemplo. Considere a seguinte **AHC**: $\mathcal{H}_{0} = \langle \{\bot,\top\}, \subseteq, \cup, \cap, \Rightarrow, 0, 1 \rangle$. Um conjunto $\Omega$-valorado, nesse caso, pode ser $\langle \top, \delta \rangle$ ou $\langle  \bot, \delta \rangle$. Nesse exemplo, o seguinte é válido para todo $x,y,z \in \{ \bot, \top \}$
+
+1. $\delta (x, y) \subseteq \delta (y, x)$;
+2. $\delta (x, y) \cap \delta (y, z) \subseteq \delta (x, z)$.
+
+
+#### Exercícios
+
+> Prove que as seguintes condições valem para qualquer conjunto $\Omega$-valorado.
+
+1. $\delta (x, y) \sqsubseteq \llbracket Ex\rrbracket$.
+
+$$
+\begin{align}
+\delta(x,y) &\sqsubseteq \delta (y, x) \text{ [Simet. $\delta$]} \\
+\delta(x,y) &\sqsubseteq \delta (x, y) \text{ [Refl. $\sqsubseteq$]} \\
+\delta(x,y) &\sqsubseteq \delta (x, y) \sqcap \delta(y, x) \text{ [(1) e (2)]} \\
+\delta (x, y) \sqcap \delta(y, x) &\sqsubseteq \delta (x, x) \text{ [Trans. $\delta$]} \\
+\delta (x, y) &\sqsubseteq \delta(x,x) \text{ [Trans. $\sqsubseteq$ (1), (3) e (4)]}
+\end{align}
+$$
