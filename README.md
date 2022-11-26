@@ -853,6 +853,14 @@ $$
 > A categoria $\Omega$-set é um topos.
 
 #### Objeto terminal
+
+```mermaid
+graph LR;
+    A["<A, d>"]--!k-->B["<{0}, [[0 ≈ 0]]>"]
+```
+
+onde a flecha $k : A \rightarrow 1$ é dada por $[[f(x) \approx 0]] = [[Ex]]$
+
 #### Produto
 #### Pullback
 #### Subobjeto
