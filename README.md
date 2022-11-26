@@ -787,7 +787,11 @@ Essa noção admite o seguinte "desenvolvimento axiomático abstrato":
 1. $\delta (x, y) \sqsubseteq \delta (y,x)$;
 2. $\delta (x, y) \sqcap \delta (y, z) \sqsubseteq \delta (x, z)$.
 
-Denotamos $\delta (x, x)$ como $[[Ex]]$.
+Denotamos, para um $\delta : A \times A \rightarrow \Omega$, $\delta(x,y)$ como $[[ x \approx y]]_A$ e $\delta (x, x)$ como $[[Ex]]_A$. Além disso, definimos
+
+$$
+[[ x \approxeq y ]]_A = ([[Ex]]_A \sqcup [[Ey]]_A) \Rightarrow [[x \approx y]]_A
+$$
 
 Exemplo. Considere a seguinte **AHC**: $\mathcal{H}_{0} = \langle \{\bot,\top\}, \subseteq, \cup, \cap, \Rightarrow, 0, 1 \rangle$. Um conjunto $\Omega$-valorado, nesse caso, pode ser $\langle \top, \delta \rangle$ ou $\langle  \bot, \delta \rangle$. Nesse exemplo, o seguinte é válido para todo $x,y,z \in \{ \bot, \top \}$
 
@@ -799,7 +803,7 @@ Exemplo. Considere a seguinte **AHC**: $\mathcal{H}_{0} = \langle \{\bot,\top\},
 
 > Prove que as seguintes condições valem para qualquer conjunto $\Omega$-valorado.
 
-1. $\delta (x, y) \sqsubseteq \llbracket Ex\rrbracket$.
+1. $\delta (x, y) \sqsubseteq [[ Ex ]]$.
 
 $$
 \begin{align}
@@ -808,5 +812,14 @@ $$
 \delta(x,y) &\sqsubseteq \delta (x, y) \sqcap \delta(y, x) \text{ [(1) e (2)]} \\
 \delta (x, y) \sqcap \delta(y, x) &\sqsubseteq \delta (x, x) \text{ [Trans. $\delta$]} \\
 \delta (x, y) &\sqsubseteq \delta(x,x) \text{ [Trans. $\sqsubseteq$ (1), (3) e (4)]}
+\end{align}
+$$
+
+
+2. $\delta (x, y) = [[ x \approxeq y]] \sqcap [[Ex]] \sqcap [[Ey]]$
+
+$$
+\begin{align}
+\delta(x,y) &= ([[Ex]] \sqcup [[Ey]] \Rightarrow \delta(x,y)) \sqcap ([[Ex]] \sqcap [[Ey]])
 \end{align}
 $$
