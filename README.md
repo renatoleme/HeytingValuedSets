@@ -734,7 +734,7 @@ Para derivar (1), utiliza-se o seguinte
 
 > **Princípio** "tudo que é igual a algo que existe, existe".
 
-> Observe que $\textbf{E}$ é um predicado e $v$ varia entre os elementos parcialmente existentes (objetos do topos).
+> Observe que $\textbf{E}$ é um predicado e $v$ varia entre os elementos parcialmente existentes de um conjunto $\Omega$. Como veremos mais tarde, esse conjunto admite uma álgebra de Heyting.
 
 **Princípio** "elementos só podem ser iguais se existentes". Em outras palavras, "igualdade implica existência". Formalizando:
 
@@ -752,7 +752,6 @@ $$
 $$
 
 Onde $A$ e $B$ são fórmulas válidas.
-
 
 **Equivalência enfraquecida** $\approxeq$. Relação entre objetos. Dois elementos $v$ e $w$ são **fracamente equivalentes** quando: **(a)** nenhum deles existe; ou **(b)** quando ambos existem e são iguais.
 
@@ -849,6 +848,8 @@ $$
                 [[ x \approx x ]]_A = \bigsqcup \{ f(x,y) : y \in B \}
             \end{align}
 $$
+
+Morfismo identidade. Composição.
 
 > A categoria $\Omega$-set é um topos.
 
