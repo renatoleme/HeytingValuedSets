@@ -1,0 +1,1571 @@
+\hypertarget{nouxe7uxf5es-preliminares}{%
+\section{Noções preliminares}\label{nouxe7uxf5es-preliminares}}
+
+\begin{quote}
+Anotações a partir de Topoi (R. Goldblatt) e ``Mini-curso de Introdução
+à Teoria de Categorias com aplicações à Lógica'' (M. Coniglio).
+\end{quote}
+
+\hypertarget{categorias}{%
+\subsection{Categorias}\label{categorias}}
+
+Uma categoria \(C\) consiste de:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Uma coleção \(O\) de objetos;
+\item
+  Para cada par \(\langle A, B \rangle\) de objetos, uma coleção de
+  morfismos (em \(C\)) de \(A\) em \(B\). Essa coleção denota-se
+  \(Hom_C(A,B)\);
+\item
+  Uma operação parcial \(\circ\) de composição entre morfismos;
+\item
+  Para cada objeto \(A\), um morfismo \(id_A\) tal que (1)
+  \(f \circ id_A = f\); e (2) \(id_A \circ g = g\).
+\end{enumerate}
+
+Na categoria \textbf{Type}, objetos são tipos \emph{nat, list, bool,}
+etc, morfismos são funções
+
+\begin{verbatim}
+f : A -> B
+\end{verbatim}
+
+onde \(A, B\) são tipos. A função identidade é definida da seguinte
+maneira
+
+\begin{verbatim}
+Definition id {X : Type} a : X := a.
+\end{verbatim}
+
+e a composição da seguinte maneira
+
+\begin{verbatim}
+Definition comp 
+{X Y Z: Type} 
+(f : X -> Y) (g: Y -> Z) := 
+fun a => g (f a).
+\end{verbatim}
+
+Nesta definição, \(f\) vive em \(Hom_{Type}(X,Y)\) e \(g\) vive em
+\(Hom_{Type}(Y, Z)\).
+
+\hypertarget{monomorfismos}{%
+\subsubsection{Monomorfismos}\label{monomorfismos}}
+
+\begin{quote}
+Generaliza a noção de função injetiva.
+\end{quote}
+
+Uma flecha \(h : A \rightarrow B\) é um monomorfismo se e somente se
+\(h \circ g = h \circ f\) implica que \(g = f\) para todo
+\(g, f : C \rightarrow A\).
+
+Ou seja, se o seguinte diagrama comuta
+
+\begin{verbatim}
+graph LR;
+  A--h-->B;
+  C--f-->A;
+  C--g-->A;
+\end{verbatim}
+
+então \(f = g\).
+
+\begin{quote}
+Um monomorfismo é uma flecha que pode ser cancelada a esquerda da
+composição.
+\end{quote}
+
+\hypertarget{epimorfismos}{%
+\subsubsection{Epimorfismos}\label{epimorfismos}}
+
+\begin{quote}
+Generaliza a noção de função sobrejetiva.
+\end{quote}
+
+\begin{quote}
+Intuição de imagem ``suficientemente grande''.
+\end{quote}
+
+Uma flecha \(h : A \rightarrow B\) é um epimorfismo se e somente se
+\(g \circ h = f \circ h\) implica que \(g = f\) para todo
+\(g, f : B \rightarrow C\).
+
+Ou seja, se o seguinte diagrama comuta
+
+\begin{verbatim}
+graph LR;
+  A--h-->B;
+  B--f-->C;
+  B--g-->C;
+\end{verbatim}
+
+então \(f = g\).
+
+\begin{quote}
+Um epimorfismo é uma flecha que pode ser cancelada a direita da
+composição.
+\end{quote}
+
+\hypertarget{isomorfismos}{%
+\subsubsection{Isomorfismos}\label{isomorfismos}}
+
+\begin{quote}
+Um isomorfismo é uma flecha que possui inversa.
+\end{quote}
+
+\begin{quote}
+Quais são os critérios suficientes e necessários para existir a inversa
+de uma função \(f : A \rightarrow B\)? Se \(f\) é injetiva mas não é
+sobrejetiva, então \(f^{-1} : B \rightarrow A\) não é uma função porque
+existiriam elementos do domínio \(B\) sem imagem em \(A\); por outro
+lado, se \(f\) é sobrejetiva mas não é injetiva, então existiriam
+elementos do domínio com mais de uma imagem. Então é necessário que
+\(f\) seja tanto injetiva quanto sobrejetiva para possuir inversa. Será
+suficiente? No caso das funções na categoria \textbf{Set}, sim. No caso
+mais geral de morfismos em quaisquer categorias, não: em certas
+categorias, existem flechas que são mono e epi mas não são iso.
+\end{quote}
+
+Uma flecha \(h : A \rightarrow B\) é um isomorfismo se e somente se
+existe uma flecha \(g : B \rightarrow A\) tal que
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(h \circ g = id_A\); e
+\item
+  \(g \circ h = id_B\).
+\end{enumerate}
+
+\begin{verbatim}
+graph LR;
+  A--h-->B;
+  B--g-->A;
+  A--id_A-->A;
+  B--id_B-->B;
+\end{verbatim}
+
+De modo geral, \(g\) é a inversa de \(h\), representada por \(h^{-1}\).
+
+\hypertarget{objeto-inicial}{%
+\subsubsection{Objeto inicial}\label{objeto-inicial}}
+
+Um objeto \(x\) de uma categoria \(C\) é inicial se e somente se, para
+cada objeto \(y\) em \(C\), existe uma única flecha
+\(! : x \rightarrow y\).
+
+\begin{quote}
+Usualmente, denota-se o objeto inicial como \(0\). \textgreater{}
+Exemplo: o conjunto vazio \(\emptyset\) é o único objeto inicial da
+categoria \textbf{Set}.
+\end{quote}
+
+\hypertarget{objeto-terminal}{%
+\subsubsection{Objeto terminal}\label{objeto-terminal}}
+
+Um objeto \(x\) de uma categoria \(C\) é terminal se e somente se, para
+cada objeto \(y\) em \(C\), existe uma única flecha
+\(! : y \rightarrow x\).
+
+\begin{quote}
+Usualmente, denota-se o objeto terminal como \(1\). \textgreater{}
+Exemplo: na categoria \textbf{Set}, existem infinitos objetos terminais
+(isomorfos): os conjuntos unitários.
+\end{quote}
+
+\hypertarget{equalizador}{%
+\subsubsection{Equalizador}\label{equalizador}}
+
+\begin{quote}
+O \textbf{maior lugar} em que dois morfismos coincidem.
+\end{quote}
+
+Sejam \(f, g : A \rightarrow B\) duas flechas. O equalizador de \(f\) e
+\(g\) é um par \(\langle E, i \rangle\) tal que
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A flecha \(i : E \rightarrow A\) satisfaz \(f \circ i = g \circ i\);
+\item
+  Se \(\langle C , h \rangle\) é tal que \(h : C \rightarrow A\)
+  satisfaz \(f \circ h = g \circ h\) então existe uma única flecha
+  \(k : C \rightarrow E\) que comuta o diagrama.
+\end{enumerate}
+
+\begin{verbatim}
+graph LR;
+    A--f-->B;
+    A--g-->B;
+    E--i-->A;
+    C--h-->A;
+    C-.k.->E;
+\end{verbatim}
+
+\hypertarget{coequalizador}{%
+\subsubsection{Coequalizador}\label{coequalizador}}
+
+\begin{quote}
+O menor lugar em que dois morfismos coincidem.
+\end{quote}
+
+Sejam \(f,g : A \rightarrow B\) duas flechas. O coequalizador de \(f\) e
+\(g\) é um par \(\langle E, q \rangle\) tal que
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A flecha \(q : B \rightarrow E\) satisfaz \(q \circ f = q \circ g\);
+\item
+  Se \(\langle C, h \rangle\) é tal que \(h : B \rightarrow C\) satisfaz
+  \(h \circ f = h \circ g\) então existe uma única flecha
+  \(k : E \rightarrow C\) que comuta o diagrama.
+\end{enumerate}
+
+\begin{verbatim}
+graph LR;
+  A--f-->B;
+  A--g-->B;
+  B--q-->E;
+  B--h-->C;
+  E-.k.->C;
+\end{verbatim}
+
+\begin{quote}
+Equalizador e coequalizador são conceitos duais.
+\end{quote}
+
+\hypertarget{pullback}{%
+\subsubsection{Pullback}\label{pullback}}
+
+\begin{quote}
+Produto fibrado.
+\end{quote}
+
+Dado um par de flechas \(f : A \rightarrow C\) e
+\(g : B \rightarrow C\), o seu \textbf{pullback} é um par
+\(\langle D, \{p_1, p_2\}\rangle\) sendo \(p_1 : D \rightarrow A\) e
+\(p_2 : D \rightarrow B\) e tal que o diagrama abaixo comuta.
+
+\begin{verbatim}
+graph LR;
+  D--p_2-->B;
+  D--p_1-->A;
+  A--f-->C;
+  B--g-->C;
+\end{verbatim}
+
+\hypertarget{propriedade-universal-do-pullback}{%
+\paragraph{Propriedade universal do
+pullback}\label{propriedade-universal-do-pullback}}
+
+\begin{quote}
+Único a menos de isomorfismo.
+\end{quote}
+
+Seja \(\langle E, \{q_1, q_2\}\rangle\) um par tal que
+\(q_1 : E \rightarrow A\) e \(q_2 : E \rightarrow B\) são morfismos que
+comutam o diagrama abaixo
+
+\begin{verbatim}
+graph LR;
+  E--q_2-->B;
+  E--q_1-->A;
+  A--f-->C;
+  B--g-->C;
+\end{verbatim}
+
+Então existe uma única flecha \(k : E \rightarrow D\) que comuta o
+seguinte diagrama:
+
+\begin{verbatim}
+graph LR;
+  E--q_2-->B;
+  E--q_1-->A;
+  E-.k.->D;
+  D--p_2-->B;
+  D--p_1-->A;
+  A--f-->C;
+  B--g-->C;
+\end{verbatim}
+
+\hypertarget{pushout}{%
+\subsubsection{Pushout}\label{pushout}}
+
+Dado um par de flechas \(f : A \rightarrow B\) e
+\(g : A \rightarrow C\), o pushout desse par é um par
+\(\langle D, \{ p_1, p_2 \} \rangle\) onde \(p_1 : B \rightarrow D\) e
+\(p_2 : C \rightarrow D\) são flechas que comutam o seguinte diagrama:
+
+\begin{verbatim}
+graph LR;
+  A--g-->C;
+  A--f-->B;
+  C--p_2-->D;
+  B--p_1-->D;
+\end{verbatim}
+
+\hypertarget{propriedade-universal-do-pushout}{%
+\paragraph{Propriedade universal do
+pushout}\label{propriedade-universal-do-pushout}}
+
+\begin{quote}
+Único a menos de isomorfismo.
+\end{quote}
+
+Seja \(\langle E, \{q_1, q_2\}\rangle\) um par tal que
+\(q_1 : B \rightarrow E\) e \(q_2 : C \rightarrow E\) são morfismos que
+comutam o diagrama abaixo
+
+\begin{verbatim}
+graph LR;
+  A--g-->C;
+  A--f-->B;
+  C--q_2-->E;
+  B--q_1-->E;
+\end{verbatim}
+
+Então existe uma única flecha \(k : D \rightarrow E\) que comuta o
+seguinte diagrama:
+
+\begin{verbatim}
+graph LR;
+  B--q_1-->E;
+  C--q_2-->E;
+  D-.k.->E;
+  A--g-->C;
+  A--f-->B;
+  C--p_2-->D;
+  B--p_1-->D;
+\end{verbatim}
+
+\begin{quote}
+Pullback e pushout são conceitos duais.
+\end{quote}
+
+\hypertarget{limite}{%
+\subsubsection{Limite}\label{limite}}
+
+\begin{quote}
+Um diagrama em uma categoria \(C\) é um par \(D = \langle O, M \rangle\)
+tal que \(O = \{A_i\}_{i \in I}\) é uma família de objetos de \(C\) e
+\(M \subseteq \bigcup_{i,j \in I} Hom_C(A_i, A_j)\) é um conjunto de
+morfismos entre objetos de \(O\). (p.~34, apostila)
+\end{quote}
+
+Um cone para um diagrama \(D = \langle O, M\rangle\) numa categoria
+\(C\) é um objeto \(N\) de \(C\) junto com uma família
+\(\{ f_i \}_{i \in I}\) tal que cada \(f_i : N \rightarrow A_i\) é um
+morfismo em \(C\) que comuta para todo \(f \in M\).
+
+\begin{verbatim}
+graph LR;
+  N--f_i-->A_i
+  N--f_j-->A_j
+  A_i--f-->A_j
+\end{verbatim}
+
+Um limite para um diagrama \(D\) é um cone
+\(\langle L, \{ F_i \}_{i \in I} \rangle\) tal que, dado qualquer outro
+cone \(\langle N, \{ f_i \}_{i \in I} \rangle\) para o diagrama \(D\),
+existe uma única flecha \(k : N \rightarrow L\) tal que
+\(F_i \circ k = f_i\) para todo \(i \in I\).
+
+\begin{verbatim}
+graph LR;
+  N-.k.->L;
+  N--f_j-->A_j;
+  L--F_i-->A_i;
+  L--F_j-->A_j;
+  A_i--f-->A_j;
+  N--f_i-->A_i;
+\end{verbatim}
+
+\hypertarget{colimite}{%
+\subsubsection{Colimite}\label{colimite}}
+
+Primeiro, definimos o dual do cone. Um \emph{cocone} de um diagrama
+\(D\) é um par \(\langle N, \{ f_i \}_{i \in I} \rangle\) tal que
+\(f_i : A_i \rightarrow C\) é um morfismo em \(C\) que comuta o seguinte
+diagrama:
+
+\begin{verbatim}
+graph LR;
+  A_i--f-->A_j;
+  A_i--f_i-->N;
+  A_j--f_j-->N;
+\end{verbatim}
+
+Um colimite de \(D\) é um cocone
+\(\langle L, \{ F_i \}_{i\in I} \rangle\) tal que, dado qualquer outro
+cocone \(\langle N, \{ f_i \}_{i \in I} \rangle\), existe uma única
+flecha \(k : L \rightarrow N\) tal que \(k \circ F_i = f_i\) para todo
+\(i \in I\).
+
+\begin{verbatim}
+graph LR;
+  A_i--f-->A_j;
+  A_i--f_i-->N;
+  A_j--f_j-->N;
+  L-.k.->N;
+  A_i--F_i-->L;
+  A_j--F_j-->L;
+\end{verbatim}
+
+\begin{quote}
+Uma categoria \(C\) é completa se todo diagrama possui um limite. \(C\)
+é cocompleta se todo diagrama possui um colimite.
+\end{quote}
+
+\hypertarget{produtos}{%
+\subsubsection{Produtos}\label{produtos}}
+
+\hypertarget{coprodutos}{%
+\subsubsection{Coprodutos}\label{coprodutos}}
+
+\hypertarget{exponenciauxe7uxe3o}{%
+\subsubsection{Exponenciação}\label{exponenciauxe7uxe3o}}
+
+\begin{quote}
+Generaliza a noção de ``espaço de funções de \(A\) em \(B\)''.
+\end{quote}
+
+Seja \(C\) uma categoria com produtos binários. O exponencial de dois
+objetos \(A\) e \(B\) é um par \(\langle B^A , ev_{BA} \rangle\), onde
+\(ev_{BA} : B^A \times A \rightarrow B\) é tal que, para todo objeto
+\(C\) e flecha \(f : C \times A \rightarrow B\), existe uma única flecha
+\(\bar{f} : C \rightarrow B^A\) tal que
+\(ev_{BA} \circ (\bar{f} \times id_A) = f\). Ou seja, o seguinte
+diagrama comuta.
+
+Chamaremos o conjunto \(B^A \times A\) de \(X\), \(C \times A\) de \(Y\)
+e o morfismo \(\bar{f} \times id_A\) de \(g\).
+
+\begin{verbatim}
+graph LR;
+  X--"ev_BA"-->B;
+  Y--h-->B;
+  Y--g-->X;
+\end{verbatim}
+
+\begin{quote}
+Em uma categoria localmente pequena como \textbf{Set}, \(B^A\)
+corresponde ao conjunto de todos os morfismos dessa categoria. Isto é,
+ao conjunto \(Hom_C(A, B)\).
+\end{quote}
+
+\begin{quote}
+Em \textbf{Set}, portanto, \(B^A\) é o conjunto de todas as funções
+\(f : A \rightarrow B\). Para provar isso, precisamos mostrar que existe
+uma bijeção entre \(Hom(C, Hom(A, B))\) e \(Hom(C \times A, B)\).
+\end{quote}
+
+\begin{quote}
+Uma categoria com exponenciais é uma \emph{categoria cartesiana
+fechada}.
+\end{quote}
+
+\hypertarget{funtores}{%
+\subsubsection{Funtores}\label{funtores}}
+
+Um funtor \(F\) é um morfismo que leva de uma categoria \(X\) para outra
+categoria \(Y\) preservando a estrutura original, isto é,
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Para cada objeto \(a\) de \(X\), existe um objeto \(F(a)\)
+  correspondente em \(Y\);
+\item
+  Para cada morfismo \(f : a \rightarrow b\), um morfismo
+  \(F(f) : F(a) \rightarrow F(b)\), tal que:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    \(F(id_a) = id_{F(a)}\);
+  \item
+    \(F(g \circ f) = F(g) \circ F(f)\), sempre que a composição existe.
+  \end{enumerate}
+\end{enumerate}
+
+Quando \(X = Y\), \(F\) é um \textbf{endofuntor}.
+
+\begin{quote}
+\textbf{id} é um exemplo de endofuntor.
+\end{quote}
+
+Para ilustrar, considere o tipo parametrizado \emph{Maybe} definido
+abaixo.
+
+\begin{verbatim}
+Inductive Maybe (X : Type) :=
+| Some (a : X)
+| None.
+
+Check Some nat 2.
+: Maybe nat
+\end{verbatim}
+
+Observe que \emph{Maybe} não é um tipo, mas um construtor de tipos.
+
+\begin{verbatim}
+Check Maybe.
+: Type -> Type
+\end{verbatim}
+
+Para um morfismo \(F\) ser um funtor, além de \(F\) mapear objetos (no
+caso, tipos) de um tipo a outro, \(F\) deve mapear todos os morfismos
+entre os objetos daquele tipo. Por exemplo, seja \(f\) um morfismo
+
+\begin{verbatim}
+f : nat -> bool
+\end{verbatim}
+
+Para isso, definimos a função de ordem superior \textbf{fmap} abaixo
+
+\begin{verbatim}
+Definition fmap 
+{X Y : Type}
+(f : X -> Y)
+: Maybe X -> Maybe Y :=
+fun (a : Maybe X) =>
+match a with
+| Some _ b => Some Y (f b)
+| None _ => None _
+end.
+\end{verbatim}
+
+De modo mais geral, podemos definir a classe dos endofuntores na
+categoria \emph{Type} da seguinte maneira
+
+\begin{verbatim}
+Class Functor
+(X Y : Type)
+(f : Type -> Type) :=
+{
+  fmap2 : (X -> Y) -> f X -> f Y
+}.
+\end{verbatim}
+
+Sendo o funtor Maybe um caso particular (instância)
+
+\begin{verbatim}
+Instance MaybeMap {X Y : Type} : 
+Functor X Y Maybe :=
+{
+  fmap2 f a := 
+    match a with
+    | Some _ b => Some _ (f b)
+    | None _ => None _
+    end
+}.
+\end{verbatim}
+
+\hypertarget{subobjeto}{%
+\subsection{Subobjeto}\label{subobjeto}}
+
+\begin{quote}
+Generaliza a noção de subconjunto
+\end{quote}
+
+Seja \(C\) uma categoria e \(B\) um objeto de \(C\). Um subobjeto de
+\(B\) é um monomorfismo \(m : A \hookrightarrow B\) com codomínio \(B\).
+
+\begin{quote}
+Fixe um objeto \(A\) de uma categoria pequena \(C\). Definimos a
+seguinte relação no conjunto de monomorfismos com co-domínio \(A\) :
+\(m \sim n\) sse existe um isomorfismo \(f : Dom(m) \rightarrow Dom(n)\)
+tal que \(m = n \circ f\). (p.~43, apostila)
+\end{quote}
+
+O seguinte diagrama comuta
+
+\begin{verbatim}
+graph LR;
+  Dom_m==m==>A; 
+  Dom_m--f-->Dom_n;
+  Dom_n--inv_f-->Dom_m;
+  Dom_n==n==>A;
+\end{verbatim}
+
+A relação \(\sim\) é uma relação de equivalência.
+
+\begin{quote}
+Uma relação de equivalência \(\equiv\) possui as seguintes propriedades:
+1. \(a \equiv a\) (reflexividade); 2.
+\(a \equiv b \Rightarrow b \equiv a\) (simetria); 3. \(a \equiv b\) e
+\(b \equiv c\) então \(a \equiv c\) (transitividade). \textgreater{}
+Para todo morfismo \(m\), \(m \sim m\) (\(\sim\) é reflexivo). Sabemos
+que \(m \sim m\) se e somente se existe um isomorfismo
+\(f : Dom(m) \rightarrow Dom (m)\). Tome \(f = id_{Dom(m)}\). Sabemos
+que \(id_A^{-1} = id_A\), para todo \(A\). Portanto, \(id_{Dom(m)}\) é
+um isomorfismo. Além disso,
+\(m = m \circ id_{Dom(m)} \Rightarrow m = m\).
+
+\begin{quote}
+Para todo \(m , n\), se \(m \sim n\) então \(n \sim m\). Assuma que
+\(m \sim n\). Então existe um isomorfismo
+\(f : Dom(m) \rightarrow Dom(n)\) tal que (A) \(m = n \circ f\).
+Precisamos mostrar que existe um isomorfismo de \(Dom(n)\) a \(Dom(m)\).
+Tome \(f^{-1}\) (cuja inversa é \(f\)). Precisamos mostrar que (B)
+\(n = m \circ f^{-1}\). Substituindo A em B, temos que
+\(n = (n \circ f) \circ f^{-1} \Rightarrow n = n \circ (f \circ f^{-1}) \Rightarrow n = n\).
+\end{quote}
+
+\begin{quote}
+Transitividade. Sejam \(m, n, p\) três morfismos. Queremos mostrar que,
+se \(m \sim n\) e \(n \sim p\) então \(m \sim p\). Isso é equivalente a
+mostrar que existe um isomorfismo \(h: Dom(m) \rightarrow Dom(p)\) que
+comuta o diagrama abaixo.
+\end{quote}
+\end{quote}
+
+\begin{verbatim}
+graph LR;
+  Dom_m==m==>A; 
+  Dom_m--f-->Dom_n;
+  Dom_n--inv_f-->Dom_m;
+  Dom_n==n==>A;
+  Dom_n--g-->Dom_p;
+  Dom_p--inv_g-->Dom_n;
+  Dom_p==p==>A;
+  Dom_m-.h.->Dom_p;
+  Dom_p-.inv_h.->Dom_m;
+\end{verbatim}
+
+\begin{quote}
+\begin{quote}
+Tome \(h = g \circ f\). Claramente, \(h^{-1} = f^{-1} \circ g^{-1}\),
+portanto, \(h\) é isomorfismo. Resta mostrar que \(m = p \circ h\).
+Sabemos que \(m = n \circ f\) e \(n = p \circ g\). Fazendo as
+substituições, obtemos
+\((p \circ g) \circ f = p \circ h \Rightarrow p \circ (g \circ f) = p \circ h\).
+Por hipótese, \(h = g \circ f\), portanto, \(p \circ h = p \circ h\).
+\end{quote}
+\end{quote}
+
+Chamaremos de \(Sub(A)\) ao conjunto de classes de equivalência \([m]\)
+de monomorfismos \(m : Dom(m) \hookrightarrow A\).
+
+\begin{quote}
+Seja \([m_i] \in Sub(A)\). Para \(i = (1,2)\), dizemos que
+\([m_1] \leq [m_2]\) sse existe um morfismo
+\(f : Dom(m_1) \rightarrow Dom(m_2)\) tal que \(m_1 = m_2 \circ f\).
+Observe que cada \(m_i\) é um monomorfismo que sai de \(Dom(m_i)\) e vai
+para \(A\). A flecha \(f\) não precisa ser monomorfismo.
+\end{quote}
+
+Ou seja, o seguinte diagrama comuta.
+
+\begin{verbatim}
+graph LR;
+  D["Dom(m1)"]==m1==>A;
+  E["Dom(m2)"]==m2==>A;
+  D["Dom(m1)"]-.f.->E["Dom(m2)"];
+\end{verbatim}
+
+\begin{quote}
+Em particular, temos que \([m_n] \leq [m_n]\), para todo \(n \in I\)
+(tome \(f = id_{Dom(m_n)}\), indução em \(n\)).
+\end{quote}
+
+\begin{quote}
+\(\langle Sub(A), \leq \rangle\) é uma ordem parcial. Ou seja:
+reflexiva, anti-simétrica e transitiva. Anti-simetria: se
+\([m_1] \leq [m_2]\) e \([m_2] \leq [m_1]\), então \([m_1] = [m_2]\).
+\end{quote}
+
+\begin{quote}
+\(\langle Sub(A), \leq \rangle\) é uma álgebra de Heyting.
+\end{quote}
+
+\hypertarget{imagem-inversa}{%
+\paragraph{Imagem inversa}\label{imagem-inversa}}
+
+Um subobjeto pode ter imagem inversa. Seja \(f : A \rightarrow B\) um
+morfismo e \(i : C \hookrightarrow B\) um subobjeto de \(B\), a
+\emph{imagem inversa de i por f} é o monomorfismo
+\(f^{-1}(i) : f^{-1}(C) \hookrightarrow A\) dado pelo seguinte pullback:
+
+\begin{verbatim}
+graph LR;
+  D["f^-1(C)"]=="f^-1(i)"==>A;
+  D["f^-1(C)"]--f*-->C;
+  C==i==>B;
+  A--f-->B;
+\end{verbatim}
+
+\begin{quote}
+Mostrar que é pullback.
+\end{quote}
+
+\hypertarget{classificador-de-subobjetos}{%
+\subsubsection{Classificador de
+subobjetos}\label{classificador-de-subobjetos}}
+
+A função característica de um conjunto \(S \subseteq A\) é uma função
+\(\chi_S : A \rightarrow 2\) tal que
+
+\[
+  \chi_S(x) =
+  \begin{cases}
+    1 & \text{se $x \in S$} \\
+    0 & \text{caso contrário}
+  \end{cases}
+\]
+
+\begin{quote}
+Existe uma bijeção entre os subconjuntos \(S\) de \(A\) {[}ou seja,
+\(P(A)\){]} e as suas funções características. (p.~45, apostila)
+
+\begin{quote}
+Por essa razão, o conjunto das partes é por vezes denotado por \(2^A\).
+Lembrando que \(2^A\) corresponde ao conjunto de todas as funções
+\(f : A \rightarrow 2\) na categoria \textbf{Set}.
+\end{quote}
+\end{quote}
+
+Ainda dentro da categoria \textbf{Set}, considere
+\(g : A \rightarrow 2\) e defina \(B_g = \{ x \in A : g(x) = 1 \}\),
+isto é, o conjunto de todos os elementos em \(A\) tais que \(g(x) = 1\).
+Nesse caso, a função característica de \(B_g\) é a própria \(g\), já que
+
+\[
+  \chi_{B_g}(x) =
+  \begin{cases}
+    1 & \text{se $x \in B_g$} \\
+    0 & \text{caso contrário}
+  \end{cases}
+\]
+
+ou seja: mesmos outputs para os mesmos inputs.
+
+\begin{quote}
+Para todo \(x \in A\), \(\chi_{B_g}(x) = 1\) se e somente se
+\(g(x) = 1\). \textgreater{} Por definição, se \(g(x) = 1\), então
+\(x \in B_g\). Mas, se \(x \in B_g\), então \(\chi_{B_g}(x) = 1\).
+Similarmente para a ida.
+\end{quote}
+
+Observe que \(g^{-1} : 2 \rightarrow A\) é uma função que, dado um
+elemento de \(2 = \{0,1\}\), manda para o elemento de \(A\)
+correspondente de tal modo que \(g^{-1} \circ g = id_A\) e
+\(g \circ g^{-1} = id_2\). Dado que \(\chi_{B_g} = g\), temos que
+\(B_g = g^{-1}(\{1\})\) {[}a imagem da inversa da função característica
+de \(B_g\) restrita a \(\{ 1 \}\){]}. Ou seja, o diagrama abaixo é um
+pullback.
+
+\begin{verbatim}
+graph LR;
+    Bg==>A;
+    1["{1}"]==>2;
+    Bg--!-->1["{1}"];
+    A--g-->2;
+\end{verbatim}
+
+Generalizando para qualquer categoria, obtemos a noção de
+\emph{classificador de subobjeto}. Seja \(C\) uma categoria com objeto
+terminal \textbf{1}. Um classificador de subobjetos para \(C\) é um par
+\(\langle \Omega, true \rangle\) tal que \(\Omega\) é um objeto de \(C\)
+e \(true : 1 \rightarrow \Omega\) é um morfismo de \(C\) que satisfaz a
+seguinte propriedade:
+
+\begin{quote}
+Para cada monomorfismo \(f : B \hookrightarrow A\), existe um único
+morfismo \(\chi_f : A \rightarrow \Omega\) tal que o diagrama abaixo é
+um pullback. (p.~46, apostila)
+\end{quote}
+
+\begin{verbatim}
+graph LR;
+    A--Xf-->Omega;
+    1==true==>Omega;
+    B==f==>A;
+    B--!-->1;
+\end{verbatim}
+
+No livro Topoi, essa propriedade é chamada de \emph{Axioma} \(\Omega\)
+(p.~81). A flecha \(\chi_f\) é chamada de flecha característica do
+monomorfismo \(f\).
+
+\hypertarget{topos}{%
+\subsection{Topos}\label{topos}}
+
+\begin{quote}
+pp.~49-50, apostila.
+\end{quote}
+
+Um \textbf{topos} é uma categoria \(C\) que satistaz as seguintes
+condições:
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(C\) é finitamente completa.
+\item
+  \(C\) é finitamente cocompleta.
+\item
+  \(C\) tem classificador de subobjetos.
+\item
+  \(C\) tem exponenciação.
+\end{enumerate}
+\end{quote}
+
+ou
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(C\) tem objeto terminal.
+\item
+  \(C\) tem pullback
+\item
+  \(C\) tem classificador de subobjetos.
+\item
+  \(C\) tem exponenciação.
+\end{enumerate}
+\end{quote}
+
+Além disso,
+
+\begin{quote}
+Uma categoria \(C\) é um topos se e somente se \(C\) é cartesiana
+fechada e tem classificador de subobjetos.
+\end{quote}
+
+\begin{quote}
+\textbf{Teorema fundamental dos topos}. Se \(C\) é um topos e
+\(A \in |C|\), então \(C \downarrow A\) é um topos.
+\end{quote}
+
+\hypertarget{reticulado}{%
+\subsection{Reticulado}\label{reticulado}}
+
+Um reticulado é um conjunto \(R\) equipado com duas operações binárias,
+\textbf{meet} \((a \sqcap b)\) e \textbf{join} \((a \sqcup b)\), com
+relação as quais valem as seguintes identidades para todos elementos
+\(a,b,c \in R\):
+
+\hypertarget{comutatividade}{%
+\subsubsection{Comutatividade}\label{comutatividade}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(a \sqcap b = b \sqcap a\);
+\item
+  \(a \sqcup b = b \sqcup a\);
+\end{enumerate}
+
+\hypertarget{associatividade}{%
+\subsubsection{Associatividade}\label{associatividade}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \(a \sqcap (b \sqcap c) = (a \sqcap b) \sqcap c\);
+\item
+  \(a \sqcup (b \sqcup c) = (a \sqcup b) \sqcup c\);
+\end{enumerate}
+
+\hypertarget{absoruxe7uxe3o}{%
+\subsubsection{Absorção}\label{absoruxe7uxe3o}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  \(a \sqcup (a \sqcap b) = a\);
+\item
+  \(a \sqcap (a \sqcup b) = a\);
+\end{enumerate}
+
+\hypertarget{idempotuxeancia}{%
+\subsubsection{Idempotência}\label{idempotuxeancia}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  \(a \sqcup a = a\);
+\item
+  \(a \sqcap a = a\).
+\end{enumerate}
+
+\hypertarget{ordem}{%
+\subsubsection{Ordem}\label{ordem}}
+
+Uma ordem em um reticulado \(R\) é uma relação entre elementos \(a, b\)
+de \(R\), denotada por \(a \sqsubseteq b\) (a é menor ou igual a b).
+Essa relação respeita os seguintes axiomas.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\forall a : a \sqsubseteq a\) {[}Reflexividade{]}
+\item
+  \(\forall a, b : a \sqsubseteq b \land b \sqsubseteq a \rightarrow a = b\)
+  {[}Anti-simetria{]}
+\item
+  \(\forall a, b, c : a \sqsubseteq b \land b \sqsubseteq c \rightarrow a \sqsubseteq c\)
+  {[}Transitividade{]}
+\end{enumerate}
+
+\hypertarget{uxe1lgebra-de-heyting}{%
+\subsection{Álgebra de Heyting}\label{uxe1lgebra-de-heyting}}
+
+\begin{quote}
+(cap. 8)
+\end{quote}
+
+Proposta em \(1930\) por Arend Heyting, trata-se de um sistema
+axiomático da lógica proposicional que gera como teoremas aquelas, e
+apenas aquelas, ``sentenças que são válidas de acordo com a
+\emph{concepção intuicionista da verdade}'' (p.~\(177\)).
+
+\begin{quote}
+(p.177-178, sec 8.2) \textgreater{} Of course the intuitionist only
+accepts formal systems as \textbf{imperfect tools} for description and
+communication. He leaves open the possibility that his intuitive
+deliberations will one day reveal as yet unheard of principles of
+reasoning. According to Heyting, `in principle it is impossible to set
+up a formal system which would be equivalent to intuitionist mathematics
+\ldots{} it can never be proved with mathematical rigour that the system
+of axioms really embraces every valid method of proof.'
+\end{quote}
+
+\hypertarget{limite-superior-e-limite-inferior}{%
+\subsection{Limite superior e limite
+inferior}\label{limite-superior-e-limite-inferior}}
+
+Primeiro, precisamos ampliar o sentido da relação \(\sqsubseteq\), que
+foi definida anteriormente apenas para pares de elementos. Nesse
+contexto, \(x \sqsubseteq y\) denota \textbf{y é maior que x} (ou
+\textbf{x é menor ou igual a x}). Na extensão que será feita nesta
+seção, permitiremos que os parâmetros sejam conjuntos. Queremos que
+\(A \sqsubseteq x\) denote \textbf{x é limite superior do conjunto A} e
+\(x \sqsubseteq A\) denote \textbf{x é limite inferior do conjunto A}.
+Para isso, quantificaremos sobre o conjunto de elementos.
+
+Seja \(A\) um sub-conjunto de um reticulado \(R = (L, \sqsubseteq)\) e
+\(x\) um elemento de \(R\). Definimos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Limite superior} \((A \sqsubseteq x)\)
+\end{enumerate}
+
+\[
+\forall y (y \in A \rightarrow y \sqsubseteq x)
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Limite inferior} \((x \sqsubseteq A)\)
+\end{enumerate}
+
+\[
+\forall y (y \in A \rightarrow x \sqsubseteq y)
+\]
+
+A partir dessa extensão, poderemos definir limite superior mínimo e
+limite inferior máximo.
+
+\begin{quote}
+Seja \(A\) um subconjunto de um reticulado \(R = (L, \sqsubseteq)\), e
+\(x \in L\). Dizemos que \(x\) é um \textbf{limite superior} de \(A\)
+(\(A \sqsubseteq x\)), se, para todo \(y \in A\), \(y \sqsubseteq x\).
+\textgreater{} Ou seja, \(x\) é limite superior de \(A\) se \(x\) for
+limite superior de todos os elementos de \(A\).
+\end{quote}
+
+Se, além disso, \(x \sqsubseteq z\) para todo \(A \sqsubseteq z\) (ou
+seja, todo limite superior de \(A\) é um limite superior de \(x\)),
+então \(x\) é minimal, que chamaremos de \textbf{limite superior mínimo}
+(l.s.min).
+
+\begin{quote}
+Diremos que \(x\) é o \textbf{maior elemento} de \(A\) se \(x \in A\) e
+\(x\) é l.s.min de \(A\).
+\end{quote}
+
+\hypertarget{exercuxedcios}{%
+\subsubsection{Exercícios}\label{exercuxedcios}}
+
+\hypertarget{exercuxedcio-1}{%
+\paragraph{Exercício 1}\label{exercuxedcio-1}}
+
+\begin{quote}
+\emph{A possui no máximo um limite superior mínimo.}
+\textgreater{}\textbf{Prova:} Supõe que \(x\) é um limite superior
+mínimo de \(A\). Então, além de \(A \sqsubseteq x\), \(x\) é minimal.
+Agora supõe que existe outro limite superior mínimo de
+\(A \sqsubseteq x'\). Por definição, para todo \(A \sqsubseteq z\),
+temos que \(x' \sqsubseteq z\). Como \(A \sqsubseteq x\), temos que
+\(x' \sqsubseteq x\). De maneira análoga, como \(x\) é minimal, temos
+que \(x \sqsubseteq x'\). Logo, \(x = x'\) (por anti-simetria).
+\end{quote}
+
+\hypertarget{exercuxedcio-2}{%
+\paragraph{Exercício 2}\label{exercuxedcio-2}}
+
+\begin{quote}
+Defina \textbf{limite inferior máximo}. \textgreater Seja \(A\) um
+sub-conjunto de um reticulado \(R_L = (L, \sqsubseteq)\) e \(x \in L\).
+Diremos que \(x \sqsubseteq A\) (\(x\) é um limite inferior de \(A\))
+se, e somente se, \(x \sqsubseteq y\) para todo \(y \in A\). Se, além
+disso, \(z \sqsubseteq x\) para todo \(z \sqsubseteq A\), então \(x\) é
+um limite inferior máximo.
+\end{quote}
+
+\hypertarget{exercuxedcio-3}{%
+\paragraph{Exercício 3}\label{exercuxedcio-3}}
+
+\begin{quote}
+\emph{Um limite inferior máximo de A é o maior elemento do conjunto de
+limites inferiores de A.} \textgreater{} \textbf{Prova:} Seja \(x\) um
+limite inferior máximo de \(A\). Precisamos mostrar que (1) \(x\) é um
+elemento do conjunto de limites inferiores de \(A\) (chamaremos de
+\(\Omega\)); e (2) \(x\) é l.s.min de \(\Omega\). Como \(x\) é l.i.max
+de \(A\), em particular \(x\) é um limite inferior de \(A\) e, portanto,
+temos que \(x \in \Omega\). Resta mostar que \(x\) é l.s.min de
+\(\Omega\), ou seja: (2.a) \(\Omega \sqsubseteq x\); e (2.b)
+\(\forall z\), se \(\Omega \sqsubseteq z\), então \(x \sqsubseteq z\).
+Sabemos que \(\Omega \sqsubseteq x\) sse \(y \sqsubseteq x\) para todo
+\(y \in \Omega\). Por definição, \(x\) é o l.i.max de \(A\); logo, para
+todo limite inferior de \(A\) (chamemos de \(z\)), vale que
+\(z \sqsubseteq x\). Ora, \(\Omega\) é justamente o conjunto de limites
+inferiores de \(A\), portanto, para todo \(x' \in \Omega\), temos que
+\(x' \sqsubseteq x\) (2.a).
+\end{quote}
+
+\hypertarget{exercuxedcio-4}{%
+\paragraph{Exercício 4}\label{exercuxedcio-4}}
+
+\begin{quote}
+Defina o \textbf{menor elemento} de \(A\). \textgreater{} Diremos que
+\(x\) é o \textbf{menor elemento} de \(A\) se: \textgreater{} 1.
+\(x \in A\); \textgreater{} 2. \(x\) é l.i.min de \(A\).
+\end{quote}
+
+\begin{quote}
+Exemplo: considere o reticulado conjunto das partes de \(X\)
+\((P(X), \subseteq)\). Nesse reticulado, o menor elemento é o conjunto
+vazio \((\emptyset)\); e o maior elemento é \(X\).
+\end{quote}
+
+\hypertarget{complemento}{%
+\subsubsection{Complemento}\label{complemento}}
+
+O \textbf{complemento} (ou \textbf{pseudo-complemento}, já que pode ser
+uma operação não-booleana {[}a depender do reticulado{]}) de um elemento
+\(a\) de um reticulado \(R = (L, \sqsubseteq)\), denotado por
+\(\bar{a}\), é o maior elemento disjunto de \(a\):
+
+\[
+\bar{a} = max (x \in L  \mid a \sqcap x = 0)
+\]
+
+\begin{quote}
+Isso implica que, no exemplo do reticulado do conjunto das partes,
+\(A \cap \bar{A} = \emptyset\) {[}porque disjunto{]} e, sempre que
+\(A \cap B = \emptyset\), então \(B \subseteq \bar{A}\) {[}porque
+maximal{]}.
+\end{quote}
+
+Um reticulado \(R\) tal que todo elemento de \(R\) possui um
+pseudo-complemento é um \textbf{reticulado pseudo-complementado}.
+
+\hypertarget{exercuxedcio-5}{%
+\paragraph{Exercício 5}\label{exercuxedcio-5}}
+
+\begin{quote}
+\(b\) é o maior disjunto de \(a\) precisamente quando \(b\) satisfaz a
+condição:
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\Alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \(\forall x \in L\), \(x \sqsubseteq b\) \(\Leftrightarrow\)
+  \(a \sqcap x = 0\).
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+Supõe que \(b\) satisfaz a condição (C). Então temos que mostrar que
+\(b\) é o maior disjunto de \(a\). Considere o conjunto \(\Omega\) de
+todos os \(x \sqsubseteq b\), isto é, o conjunto dos limites inferiores
+de \(b\). Por definição, \(b\) é um limite superior de \(\Omega\). Para
+obter minimalidade, observe que \(\sqsubseteq\) é transitivo. Portanto,
+\(b\) é l.s.min de \(\Omega\). Como, além disso, \(b \in \Omega\), temos
+que \(b\) é o maior elemento de \(\Omega\), por definição. Além disso,
+por hipótese \((\Leftarrow)\), todos os disjuntos de \(a\) estão no
+conjunto \(b\). Portanto, \(b\) é o maior disjunto de \(a\).
+\end{quote}
+\end{quote}
+
+\hypertarget{exemplos}{%
+\paragraph{Exemplos}\label{exemplos}}
+
+Dados \(A, B \in D\), definimos
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Complemento: \(\bar{A} = \{x \mid x \in D\) e \(x \not\in A\}\)
+\item
+  Intersecção: \(A \cap B = \{ x \mid x \in A\) e \(x \in B \}\)
+\item
+  União: \(A \cup B = \{ x \mid x \in A\) ou \(x \in B \}\)
+\end{enumerate}
+
+O conjunto das partes \(P(D)\), junto com as operações
+\(\cap, \cup, \bar{}\) , ``exibem a estrutura daquilo que entendemos por
+\ldots{} Álgebra booleana'' (cap. 6, pag. 125)
+
+\begin{quote}
+These algebras, to be defined shortly, are intimately connected with the
+classical account of logical truth. (p.~125)
+\end{quote}
+
+No reticulado do conjunto das partes \(R = (P(D), \subseteq)\),
+\(\bar{A}\) é o pseudo-complemento de \(A\). Para provar isso, temos que
+mostrar que, para todo elemento \(x\) de \(P(D)\), se \(x\) está contido
+no complemento de \(A\), então \(x\) é disjunto de \(A\). Além disso, se
+\(x\) é disjunto de \(A\), então \(x\) está contido no complemento de
+\(A\) (\(\bar{A}\) é maximal). Ou seja:
+
+\[
+    \forall x \in P(D), x \subseteq \bar{A} \Leftrightarrow A \cap x = \emptyset
+\]
+
+\begin{quote}
+Assuma que \(x \subseteq \bar{A}\). Nesse caso, todo elemento de \(x\)
+está em \(\bar{A}\). Pela definição de complemento, \(\bar{A}\) não
+possui nenhum elemento de \(A\). São, portanto, disjuntos. Por definição
+de sub-conjunto, não existe nenhum elemento em \(x\) além daqueles que
+estão em \(\bar{A}\); em particular, não existe nenhum elemento de \(A\)
+em \(x\), isto é, \(x\) e \(A\) também são disjuntos. Para a volta,
+assuma que \(A \cap x = \emptyset\). Observe que o complemento contém
+todos os elementos que não estão em \(A\), já que pega todos os
+elementos do universo \((D)\) que não pertencem a \(A\). Portanto, se
+\(A\) é disjunto de \(x\), então \(x\) deve estar contido em
+\(\bar{A}\).
+\end{quote}
+
+\hypertarget{suba}{%
+\paragraph{Sub(A)}\label{suba}}
+
+\begin{quote}
+p.~180{[}197{]}
+\end{quote}
+
+Em \(Sub(A)\) de qualquer topos, o pseudo-complemento de um morfismo
+\(f : A \rightarrow B\) é um morfismo
+\(\bar{f} : \bar{A} \rightarrow B\).
+
+\begin{quote}
+Para provar isso, precisamos mostrar que \(g \subseteq \bar{f}\) sse
+\(f \cap g \simeq 0_B\)
+\end{quote}
+
+Supõe que \(f \cap g \simeq 0_B\). Isso é o mesmo que dizer que o
+diagrama formado pelas flechas em negrito é um pullback.
+
+\begin{verbatim}
+graph LR;
+    A==f==>B;
+    A--->1;
+    0===>A;
+    0==0b==>C;
+    C==g==>B;
+    1--true-->Omega;
+    B--Xf-->Omega;
+\end{verbatim}
+
+\hypertarget{definiuxe7uxe3o-de-uma-uxe1lgebra-de-heyting}{%
+\subsubsection{Definição de uma álgebra de
+Heyting}\label{definiuxe7uxe3o-de-uma-uxe1lgebra-de-heyting}}
+
+\begin{quote}
+Uma \textbf{álgebra de Heyting} (\textbf{HA}) é um reticulado
+\(\Omega = (H, \sqsubseteq)\) relativamente pseudo-complementado que
+possui um zero (\textbf{0}).
+\end{quote}
+
+Uma álgebra de Heyting é completa quando todo subconjunto de \(\Omega\)
+possui l.s.max e l.i.min.
+
+\hypertarget{conjuntos-heyting-valorados}{%
+\section{Conjuntos
+Heyting-valorados}\label{conjuntos-heyting-valorados}}
+
+\hypertarget{linguagem}{%
+\subsection{Linguagem}\label{linguagem}}
+
+\hypertarget{alfabeto}{%
+\subsubsection{Alfabeto}\label{alfabeto}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Uma lista infinita \(v_1,v_2, \cdots\) de variáveis individuais;
+\item
+  Conectivos proposicionais \(\land, \lor, \sim, \supset\);
+\item
+  Símbolos de quantificação \(\forall, \exists\);
+\item
+  Símbolo de identidade \(\approx\);
+\item
+  Parênteses ), (.
+\end{enumerate}
+
+\begin{quote}
+A partir desta linguagem, podemos descrever uma estrutura listando seus
+\textbf{símbolos de relação}, \textbf{letras de função} e
+\textbf{constantes individuais}.
+\end{quote}
+
+Exemplo:
+
+\[
+ \textbf{BA} = \{ 0,1,f,g,h \}
+\]
+
+onde \(f(v)\) significa ``o complemento de \(v\)'', \(g(v_1,v_2)\)
+significa ``o meet de \(v_1\) com \(v_2\)'' e \(h(v_1,v_2)\) significa
+``o join de \(v_1\) com \(v_2\)''.
+
+\begin{quote}
+(cap. 11, sec.~9, pp.~274--..).
+\end{quote}
+
+\hypertarget{a-tudo-que-uxe9-igual-a-algo-que-existe-existe}{%
+\subsubsection{(A) Tudo que é igual a algo que existe,
+existe}\label{a-tudo-que-uxe9-igual-a-algo-que-existe-existe}}
+
+Seja \(C\) um topos e \(c \in |C|\) um objeto de \(C\). Podemos
+compreender \(c\) como um objeto ``set-like'' \textbf{parcialmente
+existente} (\emph{partially existent}) ou como \textbf{realmente
+existente} (\emph{actually existent}). O fato de que o objeto \(c\) é
+\textbf{realmente existente} é expresso por \(\textbf{E(c)}\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\textbf{E(c)} \equiv \exists v (v\approx \textbf{c})\)
+\end{enumerate}
+
+Ou seja, ``tudo que é igual a algo que existe, existe''.
+
+\begin{quote}
+Observe que \(\textbf{E}\) é um predicado e a variável ligada \(v\) na
+expressão varia entre os elementos parcialmente existentes de um
+conjunto \(\Omega\). Como veremos mais tarde, esse conjunto admite uma
+álgebra de Heyting.
+\end{quote}
+
+O segundo princípio formalizado por Goldblatt é
+
+\hypertarget{b-elementos-suxf3-podem-ser-iguais-se-realmente-existentes}{%
+\subsubsection{(B) Elementos só podem ser iguais se realmente
+existentes}\label{b-elementos-suxf3-podem-ser-iguais-se-realmente-existentes}}
+
+Em outras palavras, ``igualdade implica existência''. Formalizando:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \(v \approx w \supset E(v) \land E(w)\)
+\end{enumerate}
+
+Podemos derivar (A) a partir de (B). Tome \(v = w\) em (2),
+
+\begin{align}
+    v \approx v \supset E(v) \land E(v) \\
+    v \approx v \supset E(v)
+\end{align}
+
+Por essa razão, chamaremos \(\approx\) de \textbf{equivalência forte} ou
+simplesmente \textbf{igualdade}.
+
+\hypertarget{dois-sentidos-para-sameness}{%
+\subsection{Dois sentidos para
+``sameness''}\label{dois-sentidos-para-sameness}}
+
+\textbf{Bicondicional} \(\equiv\). Relação entre fórmulas.
+
+\[
+    A \equiv B  \Leftrightarrow (A \supset B) \land (B \supset A)
+\]
+
+Onde \(A\) e \(B\) são fórmulas válidas.
+
+\textbf{Equivalência enfraquecida} \(\approxeq\). Relação entre objetos.
+Dois elementos \(v\) e \(w\) são \textbf{fracamente equivalentes}
+quando: \textbf{(a)} nenhum deles existe; ou \textbf{(b)} quando ambos
+existem e são iguais.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(v \approxeq w \equiv (E(v) \lor E(w) \supset v \approx w)\)
+\end{enumerate}
+
+\begin{quote}
+Essa noção de equivalência enfraquecida ``não diferencia os elementos
+com respeito a sua inexistência''. Se dois elementos não existem eles
+são fracamente equivalentes.
+\end{quote}
+
+Em suma, \(\approx\) e \(\approxeq\) são duas relações simétricas: é
+possível descrever a igualdade em termos da equivalência.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \(v \approx w \equiv (v \approxeq w) \land (E(v) \land E(w))\)
+\end{enumerate}
+
+Ou seja, dois elementos \(v\) e \(w\) são idênticos se, e somente se,
+ambos existem e são fracamente equivalentes.
+
+\hypertarget{exemplo-do-bundle}{%
+\subsection{Exemplo do Bundle}\label{exemplo-do-bundle}}
+
+\begin{quote}
+Observe que \(Bn(I) = Set \downarrow I\), onde \(Set \downarrow I\)
+denota a categoria onde os objetos são os morfismos
+\(m : A \rightarrow I\) da categoria \textbf{Set} (ou seja, os morfismos
+de \textbf{Set} com co-domínio \(I\)). Como \textbf{Set} é um topos,
+pelo teorema fundamental dos topos, \(Bn(I)\) é um topos. Sendo assim,
+podemos considerá-lo como modelo.
+\end{quote}
+
+Categoria dos bundles (fibrados). Objetos são funções
+\(f : A \rightarrow I\). Um morfismo \(\bar{k} : f \rightarrow g\) entre
+um objeto \(f\) e outro objeto \(g\) é uma flecha tal que o diagrama
+abaixo comuta:
+
+\begin{verbatim}
+graph LR;
+    B["Dom(f)"]--k-->C["Dom(g)"];
+    B["Dom(f)"]--f-->A;
+    C["Dom(g)"]--g-->A;
+\end{verbatim}
+
+\begin{quote}
+Objetos de \(Bn(I)\) são famílias de conjuntos \(\{ A_i \}_{i \in I}\)
+disjuntos dois a dois. (p.~51, Apostila)
+\end{quote}
+
+Sejam \(f\) e \(g\) dois elementos parciais de um bundle
+\(A \rightarrow I\) sobre um conjunto \(I\). Definimos a medida de
+igualdade entre \(f\) e \(g\) como o conjunto
+
+\[
+[[ f \approx g ]] = \{ i \in I \mid f(i) = g(i) \}
+\]
+
+\begin{figure}
+\centering
+\includegraphics{bn_h_valued.png}
+\caption{Heyting valued Bn(I)}
+\end{figure}
+
+Em um extremo, os morfismos \(f\) e \(g\) são iguais na medida em que
+suas imagens coincidem. No outro extremo, \(A_n \cap A_m = \emptyset\) e
+\([[ f \approx g ]] = 0\).
+
+\hypertarget{conjuntos-omega-valorados}{%
+\subsection{\texorpdfstring{Conjuntos
+\(\Omega\)-valorados}{Conjuntos \textbackslash Omega-valorados}}\label{conjuntos-omega-valorados}}
+
+\begin{quote}
+p.~276-..
+\end{quote}
+
+Nesse modelo, um \textbf{conjunto} é uma coleção de elementos parciais,
+com alguma medida alébrica Heyting-valorada de graus de igualdade
+(\emph{equality}) entre eles.
+
+Essa noção admite o seguinte ``desenvolvimento axiomático abstrato'':
+
+\begin{quote}
+Uma álgebra de Heyting completa (\textbf{AHC}) é uma álgebra de Heyting
+na qual todo sub-conjunto \(A \subseteq \Omega\) possui um ``limite
+superior mínimo'' (\emph{least upper bound}), denotado por \(\sqcup A\),
+e um ``limite inferior máximo'' (\emph{greatest lower bound}), denotado
+por \(\sqcap A\).
+\end{quote}
+
+\begin{quote}
+Seja \((\Omega, \sqsubseteq)\) uma \textbf{AHC}. Um conjunto
+\(\Omega\)-valorado é um conjunto \(A \in \Omega\) e uma função
+\(\delta : A \times A \rightarrow \Omega\) tal que, para todo
+\(x, y, z \in A\), vale que
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\delta (x, y) \sqsubseteq \delta (y,x)\);
+\item
+  \(\delta (x, y) \sqcap \delta (y, z) \sqsubseteq \delta (x, z)\).
+\end{enumerate}
+
+Denotamos, para um \(\delta : A \times A \rightarrow \Omega\),
+\(\delta(x,y)\) como \([[ x \approx y]]_A\) e \(\delta (x, x)\) como
+\([[Ex]]_A\). Além disso, definimos
+
+\[
+[[ x \approxeq y ]]_A = ([[Ex]]_A \sqcup [[Ey]]_A) \Rightarrow [[x \approx y]]_A
+\]
+
+Exemplo. Considere a seguinte \textbf{AHC}:
+\(\mathcal{H}_{0} = \langle \{\bot,\top\}, \subseteq, \cup, \cap, \Rightarrow, 0, 1 \rangle\).
+Um conjunto \(\Omega\)-valorado, nesse caso, pode ser
+\(\langle \top, \delta \rangle\) ou \(\langle \bot, \delta \rangle\).
+
+\hypertarget{exercuxedcios-1}{%
+\paragraph{Exercícios}\label{exercuxedcios-1}}
+
+\begin{quote}
+Prove que as seguintes condições valem para qualquer conjunto
+\(\Omega\)-valorado.
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\delta (x, y) \sqsubseteq [[ Ex ]]\).
+\end{enumerate}
+
+\begin{align}
+\delta(x,y) &\sqsubseteq \delta (y, x) \text{ [Simet. $\delta$]} \\
+\delta(x,y) &\sqsubseteq \delta (x, y) \text{ [Refl. $\sqsubseteq$]} \\
+\delta(x,y) &\sqsubseteq \delta (x, y) \sqcap \delta(y, x) \text{ [(1) e (2)]} \\
+\delta (x, y) \sqcap \delta(y, x) &\sqsubseteq \delta (x, x) \text{ [Trans. $\delta$]} \\
+\delta (x, y) &\sqsubseteq \delta(x,x) \text{ [Trans. $\sqsubseteq$ (1), (3) e (4)]}
+\end{align}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \([[ x \approx y ]] = [[ x \approxeq y]] \sqcap [[Ex]] \sqcap [[Ey]]\)
+\end{enumerate}
+
+\begin{quote}
+Dois conjuntos são iguais se e somente ambos são realmente existentes e
+um é fracamente equivalente ao outro.
+\end{quote}
+
+Por anti-simetria, se mostramos que \(a \sqsubseteq b\) e
+\(b \sqsubseteq a\), mostramos que \(a = b\). Ida: queremos mostrar que
+
+\begin{align}
+\delta(x,y) &\sqsubseteq ([[Ex]] \sqcup [[Ey]] \Rightarrow \delta(x,y)) \sqcap ([[Ex]] \sqcap [[Ey]]) \\
+\delta(x,y) &\sqsubseteq max(C : ([[Ex]] \sqcup [[Ey]]) \sqcap C \sqsubseteq \delta(x,y)) \sqcap ([[Ex]] \sqcap [[Ey]])
+\end{align}
+
+\begin{verbatim}
+graph LR;
+    Ex--->C;
+    Ey--->C;
+    C--->1["d(x,y)"];
+    0--->Ex;
+    0--->Ey;
+\end{verbatim}
+
+\([[ A \Rightarrow B ]] = max (C : A \sqcap C \sqsubseteq B)\)
+
+\(a \sqcap c \sqsubseteq b\) sse \(c \sqcap a \Rightarrow b\), onde
+\(a \sqsubseteq b =_{\text{def}} a \sqcup b = b\)
+
+\hypertarget{categoria-omega-set}{%
+\subsubsection{\texorpdfstring{Categoria
+\(\Omega\)-set}{Categoria \textbackslash Omega-set}}\label{categoria-omega-set}}
+
+Objetos são conjuntos \(\Omega\)-valorados e uma flecha de \(A\) em
+\(B\) é uma função \(f : A \times B \rightarrow \Omega\) que satisfaz as
+seguintes propriedades
+
+\begin{verbatim}
+        \begin{align}
+            [[ x \approx x' ]]_A \sqcap f(x,y) \sqsubseteq f(x',y) \\
+            f(x,y) \sqcap [[ y \approx y' ]]_B \sqsubseteq f(x,y')\\
+            f(x,y) \sqcap f(x, y') \sqsubseteq [[ y \approx y' ]]_B\\
+            [[ x \approx x ]]_A = \bigsqcup \{ f(x,y) : y \in B \}
+        \end{align}
+\end{verbatim}
+
+Morfismo identidade. Composição.
+
+\begin{quote}
+A categoria \(\Omega\)-set é um topos.
+\end{quote}
+
+\hypertarget{objeto-terminal-1}{%
+\paragraph{Objeto terminal}\label{objeto-terminal-1}}
+
+\begin{verbatim}
+graph LR;
+    A["<A, d>"]--!k-->B["<{0}, [[0 ≈ 0]]>"]
+\end{verbatim}
+
+onde a flecha \(k : A \rightarrow 1\) é dada por
+\([[f(x) \approx 0]] = [[Ex]]\)
+
+\hypertarget{produto}{%
+\paragraph{Produto}\label{produto}}
+
+\hypertarget{pullback-1}{%
+\paragraph{Pullback}\label{pullback-1}}
+
+\hypertarget{subobjeto-1}{%
+\paragraph{Subobjeto}\label{subobjeto-1}}
+
+\hypertarget{classificador-de-subobjeto}{%
+\paragraph{Classificador de
+subobjeto}\label{classificador-de-subobjeto}}

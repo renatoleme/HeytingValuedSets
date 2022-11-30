@@ -782,7 +782,7 @@ Ou seja, dois elementos $v$ e $w$ são idênticos se, e somente se, ambos existe
 
 > Observe que $Bn(I) = Set \downarrow I$, onde $Set \downarrow I$ denota a categoria onde os objetos são os morfismos $m : A \rightarrow I$ da categoria **Set** (ou seja, os morfismos de **Set** com co-domínio $I$). Como **Set** é um topos, pelo teorema fundamental dos topos, $Bn(I)$ é um topos. Sendo assim, podemos considerá-lo como modelo.
 
-Categoria dos bundles (fibrados). Objetos são funções $f : A \rightarrow I$. Um morfismo $\bar{k} : f \rightarrow g$ entre um objeto $f$ e outro objeto $g$ é uma flecha tal que o diagrama abaixo comuta:
+Categoria dos bundles (fibrados). Objetos são funções $f : A \rightarrow I$. Um morfismo $\bar{k} : f \rightarrow g$ entre um objeto $f$ e outro objeto $g$ é uma função $k : Dom(f) \rightarrow Dom(g)$ tal que o diagrama abaixo comuta:
 
 ```mermaid
 graph LR;
@@ -799,7 +799,7 @@ $$
 [[ f \approx g ]] = \{ i \in I \mid f(i) = g(i) \}
 $$ 
 
-![Heyting valued Bn(I)](/bn_h_valued.svg)
+![Heyting valued Bn(I)](bn_h_valued.svg)
 
 Em um extremo, os morfismos $f$ e $g$ são iguais na medida em que suas imagens coincidem. No outro extremo, $A_n \cap A_m = \emptyset$ e $[[ f \approx g ]] = 0$.
 
