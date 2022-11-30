@@ -728,7 +728,7 @@ onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de 
 
 ### (A) Tudo que é igual a algo que existe, existe
 
-Seja $C$ um topos e $A \in |C|$ um objeto de $C$. Podemos compreender $A$ como um objeto "set-like"  **parcialmente existente** (*partially existent*) ou como **realmente existente** (*actually existent*). O fato de que o objeto $A$ é **realmente existente** é expresso por $\textbf{E(c)}$
+Seja $C$ um topos e $c \in |C|$ um objeto de $C$. Podemos compreender $c$ como um objeto "set-like"  **parcialmente existente** (*partially existent*) ou como **realmente existente** (*actually existent*). O fato de que o objeto $c$ é **realmente existente** é expresso por $\textbf{E(c)}$
 
 1. $\textbf{E(c)} \equiv \exists v (v\approx \textbf{c})$
 
