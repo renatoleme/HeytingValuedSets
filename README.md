@@ -801,7 +801,19 @@ $$
 
 ![Heyting valued Bn(I)](bn_h_valued.svg)
 
-Em um extremo, os morfismos $f$ e $g$ são iguais na medida em que suas imagens coincidem. No outro extremo, $A_n \cap A_m = \emptyset$ e $[[ f \approx g ]] = 0$.
+Como ilustrado pela Figure 1, os morfismos $f$ e $g$ são iguais na medida em que suas imagens coincidem. Ou seja, em um extremo, $A_n = A_m$ e $f$ e $g$ são, portanto, iguais. No outro extremo não existe ponto de contato entre $f$ e $g$, isto é, $A_n \cap A_m = \emptyset$ e $[[ f \approx g ]] = 0$. Observe que 
+
+$$
+[[ f \approx g ]] \subseteq Dom(f) \cap Dom(g)
+$$
+
+Além disso,
+
+$$
+    [[ f \approx g ]] = \{ i \in I \mid f(i) = f(i) \} = Dom(f) = [[ E(f) ]]
+$$
+
+Em outras palavras, $[[ f \approx f ]]$ é a própria medida de existência de $f$.
 
 ## Conjuntos $\Omega$-valorados
 
