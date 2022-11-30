@@ -3,8 +3,8 @@
 
 <svg
    width="152.64963mm"
-   height="149.44867mm"
-   viewBox="0 0 152.64963 149.44867"
+   height="134.72736mm"
+   viewBox="0 0 152.64963 134.72736"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
@@ -27,9 +27,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="2.0686842"
-     inkscape:cx="323.39397"
-     inkscape:cy="360.6157"
+     inkscape:zoom="0.51717105"
+     inkscape:cx="160.48849"
+     inkscape:cy="315.17619"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
      inkscape:window-x="0"
@@ -94,7 +94,7 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-11.038764,-35.044159)">
+     transform="translate(-11.038764,-49.76547)">
     <ellipse
        style="fill:#ffffff;stroke:#000000;stroke-width:1.03612;stroke-miterlimit:4;stroke-dasharray:none"
        id="path1030"
@@ -145,14 +145,14 @@
     <text
        xml:space="preserve"
        style="font-size:6.19118px;line-height:1.25;font-family:sans-serif;stroke-width:0.165835"
-       x="70.590256"
-       y="39.748005"
+       x="110.38319"
+       y="167.76503"
        id="text19490"><tspan
          sodipodi:role="line"
          id="tspan19488"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.19118px;font-family:monospace;-inkscape-font-specification:monospace;stroke-width:0.165835"
-         x="70.590256"
-         y="39.748005">[[f ≈ g]]</tspan></text>
+         x="110.38319"
+         y="167.76503">[[f ≈ g]]</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:21.1667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
@@ -186,17 +186,6 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace;stroke-width:0.0979461"
          x="135.55959"
          y="94.511375">A_m</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:7.83568px;line-height:1.25;font-family:sans-serif;stroke-width:0.0979461"
-       x="109.64578"
-       y="169.20461"
-       id="text5039"><tspan
-         sodipodi:role="line"
-         id="tspan5037"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace;stroke-width:0.0979461"
-         x="109.64578"
-         y="169.20461">i</tspan></text>
     <g
        id="g7532">
       <ellipse
