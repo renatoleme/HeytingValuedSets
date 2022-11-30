@@ -1,6 +1,6 @@
 # Noções preliminares
 
-> Anotações a partir de Topoi (cap. 11).
+> Anotações a partir de Topoi (R. Goldblatt) e "Mini-curso de Introdução à Teoria de Categorias com aplicações à Lógica" (M. Coniglio).
 
 ## Categorias
 
@@ -726,21 +726,34 @@ onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de 
 
 > (cap. 11, sec. 9, pp. 274--..).
 
-Podemos compreender objetos em um topos como entidades "set-like"  **parcialmente existentes** (*partially existent*). Apenas alguns desses elementos são **realmente existentes** (*actually existent*). O fato de que um elemento $c$ é **realmente existente** é expresso por $\textbf{E(c)}$
+### (A) Tudo que é igual a algo que existe, existe
+
+Seja $C$ um topos e $A \in |C|$ um objeto de $C$. Podemos compreender $A$ como um objeto "set-like"  **parcialmente existente** (*partially existent*) ou como **realmente existente** (*actually existent*). O fato de que o objeto $A$ é **realmente existente** é expresso por $\textbf{E(c)}$
 
 1. $\textbf{E(c)} \equiv \exists v (v\approx \textbf{c})$
 
-Para derivar (1), utiliza-se o seguinte
+Ou seja, "tudo que é igual a algo que existe, existe".
 
-> **Princípio** "tudo que é igual a algo que existe, existe".
+> Observe que $\textbf{E}$ é um predicado e a variável ligada $v$ na expressão varia entre os elementos parcialmente existentes de um conjunto $\Omega$. Como veremos mais tarde, esse conjunto admite uma álgebra de Heyting.
 
-> Observe que $\textbf{E}$ é um predicado e $v$ varia entre os elementos parcialmente existentes de um conjunto $\Omega$. Como veremos mais tarde, esse conjunto admite uma álgebra de Heyting.
+O segundo princípio formalizado por Goldblatt é
 
-**Princípio** "elementos só podem ser iguais se existentes". Em outras palavras, "igualdade implica existência". Formalizando:
+### (B) Elementos só podem ser iguais se existirem
+
+Em outras palavras, "igualdade implica existência". Formalizando:
 
 2. $v \approx w \supset E(v) \land E(w)$
 
-> Este princípio é mais forte que o princípio utilizado para derivar (1). Chamaremos de **equivalência forte**.
+Podemos derivar (A) a partir de (B). Tome $v = w$ em (2),
+
+$$
+\begin{align}
+    v \approx v \supset E(v) \land E(v) \\
+    v \approx v \supset E(v)
+\end{align}
+$$
+
+Por essa razão, chamaremos $\approx$ de **equivalência forte** ou **igualdade**.
 
 ## Dois sentidos para "sameness"
 
@@ -812,7 +825,9 @@ $$
 $$
 
 
-2. $\delta (x, y) = [[ x \approxeq y]] \sqcap [[Ex]] \sqcap [[Ey]]$
+2. $[[ x \approx y ]] = [[ x \approxeq y]] \sqcap [[Ex]] \sqcap [[Ey]]$
+
+> Dois conjuntos são iguais se e somente ambos são realmente existentes e um é fracamente equivalente ao outro.
 
 Por anti-simetria, se mostramos que $a \sqsubseteq b$ e $b \sqsubseteq a$, mostramos que $a = b$. Ida: queremos mostrar que
 
