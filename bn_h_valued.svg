@@ -27,9 +27,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="0.51717105"
-     inkscape:cx="278.43786"
-     inkscape:cy="361.5825"
+     inkscape:zoom="2.0686842"
+     inkscape:cx="323.39397"
+     inkscape:cy="360.6157"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
      inkscape:window-x="0"
@@ -218,22 +218,17 @@
        id="ellipse1216-3"
        style="mix-blend-mode:normal;fill:url(#Wavy);fill-opacity:1;fill-rule:nonzero;stroke:#0000ff;stroke-width:1.072;stroke-miterlimit:4;stroke-dasharray:none"
        d="M 87.369262,53.502933 A 28.566991,36.497484 0 0 0 70.483989,86.800124 28.566991,36.497484 0 0 0 87.363579,120.09474 28.566991,36.497484 0 0 0 104.24316,86.800124 28.566991,36.497484 0 0 0 87.369262,53.502933 Z" />
-    <g
-       id="g7413"
-       transform="translate(1.8065184)"
-       style="fill:#800000;stroke:#800000">
-      <path
-         style="fill:#800000;fill-opacity:1;stroke:#800000;stroke-width:1.02233;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.067, 1.02233;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
-         d="M 90.866736,167.24339 V 108.37985"
-         id="path3756"
-         inkscape:path-effect="#path-effect3760"
-         inkscape:original-d="m 90.866736,167.24339 c 1.67e-4,-19.62072 1.67e-4,-39.24191 0,-58.86354" />
-      <path
-         style="fill:#800000;fill-opacity:1;stroke:#800000;stroke-width:1.02233;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.067, 1.02233;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
-         d="M 80.283402,167.24339 V 108.37985"
-         id="path7403"
-         inkscape:path-effect="#path-effect7407"
-         inkscape:original-d="m 80.283402,167.24339 c 1.67e-4,-19.62072 1.67e-4,-39.24191 0,-58.86354" />
-    </g>
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:#800000;stroke-width:1.02233;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.067, 1.02233;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="M 92.673254,167.24339 V 108.37985"
+       id="path3756"
+       inkscape:path-effect="#path-effect3760"
+       inkscape:original-d="m 92.673254,167.24339 c 1.67e-4,-19.62072 1.67e-4,-39.24191 0,-58.86354" />
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:#800000;stroke-width:1.02233;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.067, 1.02233;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="M 82.08992,167.24339 V 108.37985"
+       id="path7403"
+       inkscape:path-effect="#path-effect7407"
+       inkscape:original-d="m 82.08992,167.24339 c 1.67e-4,-19.62072 1.67e-4,-39.24191 0,-58.86354" />
   </g>
 </svg>

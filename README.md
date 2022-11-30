@@ -807,10 +807,16 @@ $$
 [[ f \approx g ]] \subseteq Dom(f) \cap Dom(g)
 $$
 
-Além disso,
+Ou seja, o conjunto de $i \in I$ nos quais $f$ e $g$ coincidem pega exclusivamente aquele $i$ que pertence simultaneamente aos domínios de $f$ e $g$. Além disso,
 
 $$
-    [[ f \approx g ]] = \{ i \in I \mid f(i) = f(i) \} = Dom(f) = [[ E(f) ]]
+    [[f \approx g]] \subseteq [[E(f)]] \cap [[E(g)]]
+$$
+
+E, portanto,
+
+$$
+    [[ f \approx f ]] = \{ i \in I \mid f(i) = f(i) \} = Dom(f) = [[ E(f) ]]
 $$
 
 Em outras palavras, $[[ f \approx f ]]$ é a própria medida de existência de $f$.
