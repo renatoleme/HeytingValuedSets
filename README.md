@@ -693,14 +693,30 @@ graph LR;
     B--Xf-->Omega;
 ```
 
-### Definição de uma álgebra de Heyting
+### Definição formal
+
+A noção de pseudo-complemento pode ser generalizada para qualquer $b$. O **pseudo-complemento de $a$ relativo a $b$**, também conhecido como $a \Rightarrow b$, é definido como o maior $c$ tal que $a \sqcap c \sqsubseteq b$. 
 
 
-> Uma **álgebra de Heyting** (**HA**) é um reticulado $\Omega = (H, \sqsubseteq)$ relativamente pseudo-complementado que possui um zero (**0**).
+> Um reticulado com pseudo-complemento relativo é chamado de reticulado pseudo-complementado (r.p.c)
+
+Observe que o pseudo-complemento de $a$ é o r.p.c de $a$ relativo a $\bot$ (isto é, $a \Rightarrow \bot$). Contudo, a definição de r.p.c não requer a existência de- $\bot$ no reticulado.
 
 
+> Uma **álgebra de Heyting** (**AH**) é um reticulado r.p.c  $\Omega = \langle H, \sqsubseteq, \sqcap, \sqcup \rangle$ com $\bot$, onde $\neg, \Rightarrow$ são funções $H \rightarrow H$ tais que
+> - $a \Rightarrow b = max \{ x \mid a \sqcap x \sqsubseteq b \}$
+> - $\neg a = (a \Rightarrow \bot) = max \{ x \mid a \sqcap x = \bot \}$
+> - $a \sqcap b = max \{ x \mid x \sqsubseteq a \text{ e } x \sqsubseteq b \}$
+> - $a \sqcup b = min \{ x \mid a \sqsubseteq x \text{ e } b \sqsubseteq x \}$
 
-Uma álgebra de Heyting é completa quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min.
+Uma álgebra de Heyting é **completa** (**AHC**) quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min. Em particular, como sabemos, $\Omega$ é subconjunto de si próprio, e portanto possui l.s.max, o qual chamaremos de $\top$.
+
+Além das leis usuais de um reticulado (listadas na seção sobre reticulados), observe que, em uma álgebra de Heyting, $\bot$ é o neutro do $\sqcup$ e $\top$ o neutro do $\sqcap$. Isto é, valem as seguintes identidades para qualquer $a$ 
+
+- $a \sqcap \top = a$
+- $a \sqcup \bot = a$
+
+> Para $\Omega$ ser booleana é suficiente que valide $a \Rightarrow b = \neg a \sqcup b$. Observe que, se isso é o caso, então $a \Rightarrow a$ seria igual a $\neg a \sqcup a$. Mas  $a \Rightarrow a = \top$ e, portanto, $\Omega$ validaria o princípio do terceiro excluído. 
 
 # Conjuntos Heyting-valorados
 
@@ -708,21 +724,18 @@ Uma álgebra de Heyting é completa quando todo subconjunto de $\Omega$ possui l
 
 ### Alfabeto
 
-1. Uma lista infinita $v_1,v_2, \cdots$ de variáveis individuais;
-2. Conectivos proposicionais $\land, \lor, \sim, \supset$;
-3. Símbolos de quantificação $\forall, \exists$;
-4. Símbolo de identidade $\approx$;
-5. Parênteses ), (.
+1. Um conjunto enumerável $\{ v_1,v_2, \ldots \}$ de variáveis;
+2. Um conjunto de constantes $\{ a, b, c, \ldots , a_1, \ldots, b_2, \ldots \}$;
+3. Conectivos proposicionais $\land, \lor, \sim, \supset$;
+4. Símbolos de quantificação $\forall, \exists$;
+5. Um conjunto de símbolos relacionais $\{ R_0, R_1, \ldots \}$;
+6. Um conjunto de símbolos funcionais $\{ f_0, f_1, \ldots \}$
+7. Símbolo de identidade $\approx$;
+8. Parênteses ), (.
 
-> A partir desta linguagem, podemos descrever uma estrutura listando seus **símbolos de relação**, **letras de função** e **constantes individuais**.
+### Semântica algébrica
 
-Exemplo: 
-
-$$
- \textbf{BA} = \{ 0,1,f,g,h \}
-$$
-
-onde $f(v)$ significa "o complemento de $v$", $g(v_1,v_2)$ significa "o meet de $v_1$ com $v_2$" e $h(v_1,v_2)$ significa "o join de $v_1$ com $v_2$".
+Podemos obter uma semântica para essa linguagem a partir da álgebra de Heyting definida acima. 
 
 > (cap. 11, sec. 9, pp. 274--..).
 
@@ -857,6 +870,14 @@ $$
 
 Essa função possui algumas restrições, como veremos a seguir. Antes, fazemos o seguinte lembrete.
 
+> Uma álgebra de Heyting é um reticulado $\langle \mathcal{H}, \sqsubseteq \rangle$ com $\bot$ que satisfaz as seguintes propriedades para quaisquer $a,b,c \in \Omega$:
+> - $\sqcup$ e $\sqcap$ são associativos, comutativos e mutualmente distributivos;
+> - $\sqcup$ tem identidade $\bot$, $a \sqcup \bot = a$, e $a \sqcup a = a$;
+> - $\sqcap$ tem identidade $\top$: $a \sqcap \top = a$;
+> - $a \sqcap c \sqsubseteq b$ sse $c \sqcap a \Rightarrow b$, onde $a \sqsubseteq b =_{\text{def}} a \sqcup b = b$;
+>
+> Definimos $\lnot a =_{\text{def}} a \Rightarrow \bot$ e dizemos que $\mathcal{H}$ é *booleana* se $a \Rightarrow b = \lnot a \sqcup b$.
+
 > Uma Álgebra de Heyting Completa (**AHC**) é uma álgebra de Heyting na qual todo sub-conjunto $A \subseteq \Omega$ possui um "limite superior mínimo" (*least upper bound*), denotado por $\sqcup A$, e um "limite inferior máximo" (*greatest lower bound*), denotado por $\sqcap A$.
 
 ### Definição formal
@@ -866,7 +887,7 @@ Seja $(\Omega, \sqsubseteq)$ uma **AHC**. Um conjunto $\Omega$-valorado é um co
 1. $[[ x \approx y ]]_A \sqsubseteq [[ y \approx x]]_A$;
 2. $[[ x \approx y ]]_A \sqcap [[ y \approx z ]]_A \sqsubseteq [[ x \approx z ]]_A$.
 
-Onde (1) e (2) são as contrapartidas algébricas da reflexividade da relação de identidade e da transitividade, respectivamente. Isto é, $\Omega$-validam as fórmulas
+Onde (1) e (2) são as contrapartidas algébricas da reflexividade da relação de identidade e da transitividade, respectivamente. Isto é, validam em $\Omega$ as fórmulas
 
 - $(x \approx y) \supset (y \approx x)$
 - $(x \approx y) \land (y \approx z) \supset (x \approx z)$
@@ -877,13 +898,15 @@ $$
 [[ x \approxeq y ]]_A = ([[Ex]]_A \sqcup [[Ey]]_A) \Rightarrow [[x \approx y]]_A
 $$
 
+onde $[[Ex]]_A = [[ x \approx x ]]_A$ e $[[Ey]]_A = [[ y \approx y ]]_A$.
+
 > Considere a seguinte **AHC**: $\mathcal{H}_{0} = \langle \{\bot,\top\}, \subseteq, \cup, \cap, \Rightarrow, 0, 1 \rangle$. Um conjunto $\Omega$-valorado, nesse caso, pode ser $\langle \top, \delta \rangle$ ou $\langle  \bot, \delta' \rangle$. 
 
 #### Exercícios
 
 > Prove que as seguintes condições valem para qualquer conjunto $\Omega$-valorado.
 
-Denotamos $[[ x \approx y]]_A$ como $\delta(x,y)$, onde $\delta$ é uma funcão $\delta : A \times A \rightarrow \Omega$, sendo $\delta (x, x) = [[Ex]]_A$.
+Denotamos $[[ x \approx y]]_A$ como $\delta(x,y)$, onde $\delta$ é uma função $\delta : A \times A \rightarrow \Omega$, sendo $\delta (x, x) = [[Ex]]_A$.
 
 1. $\delta (x, y) \sqsubseteq [[ Ex ]]$.
 
