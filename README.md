@@ -780,7 +780,9 @@ Em suma, $\approx$ e $\approxeq$ são duas relações simétricas: é possível 
 
 Ou seja, dois elementos $v$ e $w$ são idênticos se, e somente se, ambos existem e são fracamente equivalentes.
 
-## Exemplo do Bundle
+## Exemplos 
+
+### Bn(I)
 
 > Observe que $Bn(I) = Set \downarrow I$, onde $Set \downarrow I$ denota a categoria onde os objetos são os morfismos $m : A \rightarrow I$ da categoria **Set** (ou seja, os morfismos de **Set** com co-domínio $I$). Como **Set** é um topos, pelo teorema fundamental dos topos, $Bn(I)$ é um topos.
 
@@ -839,33 +841,49 @@ $$
 
 Isto é, $f$ e $g$ são fracamente equivalentes se e somente se nenhuma delas existe (não podem ser definidas) ou podem ser definidas e concordam (são fortemente equivalentes).
 
+### Top(I)
+
 ## Conjuntos $\Omega$-valorados
 
 > p. 276-..
 
-Nesse modelo, um **conjunto** é uma coleção de elementos parciais, com alguma medida alébrica Heyting-valorada de graus de igualdade (*equality*) entre eles.
+Um conjunto $\Omega$-valorado é um par $\langle A, [[\cdot]] \rangle$, onde $A$ é uma coleção de elementos parciais, e $[[\cdot]]$ uma medida alébrica Heyting-valorada do grau de igualdade (*equality*) entre cada $x,y \in A$.
 
-Essa noção admite o seguinte "desenvolvimento axiomático abstrato":
+A medida dessa igualdade é expressa, em uma álgebra de Heyting completa, pelo valor de verdade denotado por
 
-> Uma álgebra de Heyting completa (**AHC**) é uma álgebra de Heyting na qual todo sub-conjunto $A \subseteq \Omega$ possui um "limite superior mínimo" (*least upper bound*), denotado por $\sqcup A$, e um "limite inferior máximo" (*greatest lower bound*), denotado por $\sqcap A$.
+$$
+    [[ x \approx y ]]_A
+$$
 
-> Seja $(\Omega, \sqsubseteq)$ uma **AHC**. Um conjunto $\Omega$-valorado é um conjunto $A \in \Omega$ e uma função $\delta : A \times A \rightarrow \Omega$ tal que, para todo $x, y, z \in A$, vale que
+Essa função possui algumas restrições, como veremos a seguir. Antes, fazemos o seguinte lembrete.
 
-1. $\delta (x, y) \sqsubseteq \delta (y,x)$;
-2. $\delta (x, y) \sqcap \delta (y, z) \sqsubseteq \delta (x, z)$.
+> Uma Álgebra de Heyting Completa (**AHC**) é uma álgebra de Heyting na qual todo sub-conjunto $A \subseteq \Omega$ possui um "limite superior mínimo" (*least upper bound*), denotado por $\sqcup A$, e um "limite inferior máximo" (*greatest lower bound*), denotado por $\sqcap A$.
 
-Denotamos, para um $\delta : A \times A \rightarrow \Omega$, $\delta(x,y)$ como $[[ x \approx y]]_A$ e $\delta (x, x)$ como $[[Ex]]_A$. Além disso, definimos
+### Definição formal
+
+Seja $(\Omega, \sqsubseteq)$ uma **AHC**. Um conjunto $\Omega$-valorado é um conjunto $A \in \Omega$ equipado de uma função $[[\cdot]] : A \times A \rightarrow \Omega$ tal que, para todo $x, y, z \in A$, vale que
+
+1. $[[ x \approx y ]]_A \sqsubseteq [[ y \approx x]]_A$;
+2. $[[ x \approx y ]]_A \sqcap [[ y \approx z ]]_A \sqsubseteq [[ x \approx z ]]_A$.
+
+Onde (1) e (2) são as contrapartidas algébricas da reflexividade da relação de identidade e da transitividade, respectivamente. Isto é, $\Omega$-validam as fórmulas
+
+- $(x \approx y) \supset (y \approx x)$
+- $(x \approx y) \land (y \approx z) \supset (x \approx z)$
+
+Além disso, definimos
 
 $$
 [[ x \approxeq y ]]_A = ([[Ex]]_A \sqcup [[Ey]]_A) \Rightarrow [[x \approx y]]_A
 $$
 
-Exemplo. Considere a seguinte **AHC**: $\mathcal{H}_{0} = \langle \{\bot,\top\}, \subseteq, \cup, \cap, \Rightarrow, 0, 1 \rangle$. Um conjunto $\Omega$-valorado, nesse caso, pode ser $\langle \top, \delta \rangle$ ou $\langle  \bot, \delta \rangle$. 
-
+> Considere a seguinte **AHC**: $\mathcal{H}_{0} = \langle \{\bot,\top\}, \subseteq, \cup, \cap, \Rightarrow, 0, 1 \rangle$. Um conjunto $\Omega$-valorado, nesse caso, pode ser $\langle \top, \delta \rangle$ ou $\langle  \bot, \delta' \rangle$. 
 
 #### Exercícios
 
 > Prove que as seguintes condições valem para qualquer conjunto $\Omega$-valorado.
+
+Denotamos $[[ x \approx y]]_A$ como $\delta(x,y)$, onde $\delta$ é uma funcão $\delta : A \times A \rightarrow \Omega$, sendo $\delta (x, x) = [[Ex]]_A$.
 
 1. $\delta (x, y) \sqsubseteq [[ Ex ]]$.
 
@@ -911,12 +929,12 @@ $a \sqcap c \sqsubseteq b$ sse $c \sqcap a \Rightarrow b$, onde $a \sqsubseteq b
 Objetos são conjuntos $\Omega$-valorados e uma flecha de $A$ em $B$ é uma função $f : A \times B \rightarrow \Omega$ que satisfaz as seguintes propriedades
 
 $$
-            \begin{align}
-                [[ x \approx x' ]]_A \sqcap f(x,y) \sqsubseteq f(x',y) \\
-                f(x,y) \sqcap [[ y \approx y' ]]_B \sqsubseteq f(x,y')\\
-                f(x,y) \sqcap f(x, y') \sqsubseteq [[ y \approx y' ]]_B\\
-                [[ x \approx x ]]_A = \bigsqcup \{ f(x,y) : y \in B \}
-            \end{align}
+\begin{align}
+[[ x \approx x' ]]_A \sqcap f(x,y) \sqsubseteq f(x',y) \\
+ f(x,y) \sqcap [[ y \approx y' ]]_B \sqsubseteq f(x,y')\\
+f(x,y) \sqcap f(x, y') \sqsubseteq [[ y \approx y' ]]_B\\
+[[ x \approx x ]]_A = \bigsqcup \{ f(x,y) : y \in B \}
+\end{align}
 $$
 
 Morfismo identidade. Composição.
