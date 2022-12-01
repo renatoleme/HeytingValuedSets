@@ -724,6 +724,8 @@ Além das leis usuais de um reticulado (listadas na seção sobre reticulados), 
 
 ### Alfabeto
 
+Lembramos que, usualmente, em uma linguagem de primeira ordem temos o seguinte alfabeto.
+
 1. Um conjunto enumerável $\{ v_1,v_2, \ldots \}$ de variáveis;
 2. Um conjunto de constantes $\{ a, b, c, \ldots , a_1, \ldots, b_2, \ldots \}$;
 3. Conectivos proposicionais $\land, \lor, \sim, \supset$;
@@ -733,16 +735,19 @@ Além das leis usuais de um reticulado (listadas na seção sobre reticulados), 
 7. Símbolo de identidade $\approx$;
 8. Parênteses ), (.
 
+A partir do qual as sentenças são construídas da maneira usual.
+
 ### Semântica algébrica
 
-Podemos providenciar uma semântica intuicionista para essa linguagem a partir de uma álgebra de Heyting $\Omega$. Para isso, dizemos que uma sentença $A$ é $\Omega$-válida $([[A]]_{\Omega})$ quando $[[A]]_{\Omega} = \top$ para toda valoração $[[\cdot]]$. Partindo dessa caracterização, obtemos correção e completude com relação a lógica intuicionista (IL), isto é,
+Podemos providenciar uma semântica intuicionista para a lógica intuicionista proposicional (IL) a partir de uma álgebra de Heyting $\Omega$. Para isso, mapeamos os conectivos da linguagem para os operadores do reticulado e dizemos que uma sentença $A$ é $\Omega$-válida $([[A]]_{\Omega})$ quando $[[A]]_{\Omega} = \top$ para toda valoração $[[\cdot]]$. Partindo dessa caracterização, obtemos correção e completude com relação a IL, isto é,
 
 $$
 [[A]]_{\Omega} \text { se e somente se } \vdash_{IL} A 
 $$
 
-
 Para mais detalhes, [Goldblatt, p. 185].
+
+Na seção 8.9, Goldblatt explora os $\Omega$-conjuntos. Como veremos, os $\Omega$-conjuntos formam uma categoria. Mais do que isso, são um topos a partir do qual podemos definir uma semântica para os quantificadores. 
 
 ## Dois princípios
 
