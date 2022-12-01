@@ -700,7 +700,7 @@ A noção de pseudo-complemento pode ser generalizada para qualquer $b$. O **pse
 
 > Um reticulado com pseudo-complemento relativo é chamado de reticulado pseudo-complementado (r.p.c)
 
-Observe que o pseudo-complemento de $a$ é o r.p.c de $a$ relativo a $\bot$ (isto é, $a \Rightarrow \bot$). Contudo, a definição de r.p.c não requer a existência de- $\bot$ no reticulado.
+Observe que o pseudo-complemento de $a$ é o r.p.c de $a$ relativo a $\bot$ (isto é, $a \Rightarrow \bot$). Contudo, a definição de r.p.c não requer a existência de $\bot$ no reticulado.
 
 
 > Uma **álgebra de Heyting** (**AH**) é um reticulado r.p.c  $\Omega = \langle H, \sqsubseteq, \sqcap, \sqcup \rangle$ com $\bot$, onde $\neg, \Rightarrow$ são funções $H \rightarrow H$ tais que
@@ -735,7 +735,16 @@ Além das leis usuais de um reticulado (listadas na seção sobre reticulados), 
 
 ### Semântica algébrica
 
-Podemos obter uma semântica para essa linguagem a partir da álgebra de Heyting definida acima. 
+Podemos providenciar uma semântica intuicionista para essa linguagem a partir de uma álgebra de Heyting $\Omega$. Para isso, dizemos que uma sentença $A$ é $\Omega$-válida $([[A]]_{\Omega})$ quando $[[A]]_{\Omega} = \top$ para toda valoração $[[\cdot]]$. Partindo dessa caracterização, obtemos correção e completude com relação a lógica intuicionista (IL), isto é,
+
+$$
+[[A]]_{\Omega} \text { se e somente se } \vdash_{IL} A 
+$$
+
+
+Para mais detalhes, [Goldblatt, p. 185].
+
+## Dois princípios
 
 > (cap. 11, sec. 9, pp. 274--..).
 
@@ -869,14 +878,6 @@ $$
 $$
 
 Essa função possui algumas restrições, como veremos a seguir. Antes, fazemos o seguinte lembrete.
-
-> Uma álgebra de Heyting é um reticulado $\langle \mathcal{H}, \sqsubseteq \rangle$ com $\bot$ que satisfaz as seguintes propriedades para quaisquer $a,b,c \in \Omega$:
-> - $\sqcup$ e $\sqcap$ são associativos, comutativos e mutualmente distributivos;
-> - $\sqcup$ tem identidade $\bot$, $a \sqcup \bot = a$, e $a \sqcup a = a$;
-> - $\sqcap$ tem identidade $\top$: $a \sqcap \top = a$;
-> - $a \sqcap c \sqsubseteq b$ sse $c \sqcap a \Rightarrow b$, onde $a \sqsubseteq b =_{\text{def}} a \sqcup b = b$;
->
-> Definimos $\lnot a =_{\text{def}} a \Rightarrow \bot$ e dizemos que $\mathcal{H}$ é *booleana* se $a \Rightarrow b = \lnot a \sqcup b$.
 
 > Uma Álgebra de Heyting Completa (**AHC**) é uma álgebra de Heyting na qual todo sub-conjunto $A \subseteq \Omega$ possui um "limite superior mínimo" (*least upper bound*), denotado por $\sqcup A$, e um "limite inferior máximo" (*greatest lower bound*), denotado por $\sqcap A$.
 
