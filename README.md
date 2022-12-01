@@ -825,7 +825,19 @@ $$
     [[ f \approx f ]] = \{ i \in I \mid f(i) = f(i) \} = Dom(f) = [[ E(f) ]]
 $$
 
-Em outras palavras, $[[ f \approx f ]]$ é a própria medida de existência de $f$.
+Em outras palavras, $[[ f \approx f ]]$ é a própria medida de existência de $f$. Para obter a equivalência fraca, observamos primeiro que $\bar{A} \cup B = A \Rightarrow B$ em $P(I)$. Então aplicamos (3) e obtemos
+
+$$
+[[ v \approxeq w ]] = \overline{(Dom(f) \cup Dom(g))} \cup [[ f \approx g]]
+$$
+
+que é equivalente a
+
+$$
+    \overline{([[E(f)]] \cup [[E(g)]])} \cup [[f \approx g]]
+$$
+
+Isto é, $f$ e $g$ são fracamente equivalentes se e somente se nenhuma delas existe (não podem ser definidas) ou podem ser definidas e concordam (são fortemente equivalentes).
 
 ## Conjuntos $\Omega$-valorados
 
