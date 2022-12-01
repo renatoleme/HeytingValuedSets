@@ -768,11 +768,13 @@ Onde $A$ e $B$ são fórmulas válidas.
 
 **Equivalência enfraquecida** $\approxeq$. Relação entre objetos. Dois elementos $v$ e $w$ são **fracamente equivalentes** quando: **(a)** nenhum deles existe; ou **(b)** quando ambos existem e são iguais.
 
-1. $v \approxeq w \equiv (E(v) \lor E(w) \supset v \approx w)$
+3. $v \approxeq w \equiv (E(v) \lor E(w) \supset v \approx w)$
 
 > Essa noção de equivalência enfraquecida "não diferencia os elementos com respeito a sua inexistência". Se dois elementos não existem eles são fracamente equivalentes.
 
-Em suma, $\approx$ e $\approxeq$ são duas relações simétricas: é possível descrever a igualdade em termos da equivalência.
+Equivalência forte entre $v$ e $w$ implica existência real de ambos. Além disso, implica a equivência fraca, por (3). Observamos também que equivalência fraca e existência real de $v$ e $w$ implica equivalência forte, por (2) e (3).
+
+Em suma, $\approx$ e $\approxeq$ são duas relações simétricas: é possível descrever a igualdade em termos da equivalência fraca (assumindo existência forte).
 
 4. $v \approx w \equiv (v \approxeq w) \land (E(v) \land E(w))$
 
@@ -780,7 +782,7 @@ Ou seja, dois elementos $v$ e $w$ são idênticos se, e somente se, ambos existe
 
 ## Exemplo do Bundle
 
-> Observe que $Bn(I) = Set \downarrow I$, onde $Set \downarrow I$ denota a categoria onde os objetos são os morfismos $m : A \rightarrow I$ da categoria **Set** (ou seja, os morfismos de **Set** com co-domínio $I$). Como **Set** é um topos, pelo teorema fundamental dos topos, $Bn(I)$ é um topos. Sendo assim, podemos considerá-lo como modelo.
+> Observe que $Bn(I) = Set \downarrow I$, onde $Set \downarrow I$ denota a categoria onde os objetos são os morfismos $m : A \rightarrow I$ da categoria **Set** (ou seja, os morfismos de **Set** com co-domínio $I$). Como **Set** é um topos, pelo teorema fundamental dos topos, $Bn(I)$ é um topos.
 
 Categoria dos bundles (fibrados). Objetos são funções $f : A \rightarrow I$. Um morfismo $\bar{k} : f \rightarrow g$ entre um objeto $f$ e outro objeto $g$ é uma função $k : Dom(f) \rightarrow Dom(g)$ tal que o diagrama abaixo comuta:
 
@@ -793,15 +795,19 @@ graph LR;
 
 > Objetos de $Bn(I)$ são famílias de conjuntos $\{ A_i \}_{i \in I}$ disjuntos dois a dois. (p. 51, Apostila)
 
-Sejam $f$ e $g$ dois elementos parciais de um bundle $A \rightarrow I$ sobre um conjunto $I$. Definimos a medida de igualdade entre $f$ e $g$ como o conjunto
+Sejam $f$ e $g$ dois elementos parciais de um bundle $A \rightarrow I$ sobre um conjunto $I$. Seja $A = \{ A_i \mid i \in I \}$. Definimos a medida de igualdade entre $f$ e $g$ como o conjunto
 
 $$
 [[ f \approx g ]] = \{ i \in I \mid f(i) = g(i) \}
 $$ 
 
-![Heyting valued Bn(I)](bn_h_valued.svg)
+| ![Heyting valued Bn(I)](bn_h_valued.svg) |
+|:--:|
+| <b>Figura 1. - Medida de igualdade entre objetos de um bundle.</b>|
 
-Como ilustrado pela Figure 1, os morfismos $f$ e $g$ são iguais na medida em que suas imagens coincidem. Ou seja, em um extremo, $A_n = A_m$ e $f$ e $g$ são, portanto, iguais. No outro extremo não existe ponto de contato entre $f$ e $g$, isto é, $A_n \cap A_m = \emptyset$ e $[[ f \approx g ]] = 0$. Observe que 
+
+
+Como ilustrado pela **Figura 1**, os morfismos $f$ e $g$ são iguais na medida em que suas imagens coincidem. Ou seja, em um extremo, $A_n = A_m$ e $f$ e $g$ são, portanto, iguais. No outro extremo não existe ponto de contato entre $f$ e $g$, isto é, $A_n \cap A_m = \emptyset$ e $[[ f \approx g ]] = 0$. Observe que 
 
 $$
 [[ f \approx g ]] \subseteq Dom(f) \cap Dom(g)
