@@ -755,6 +755,8 @@ Na seção 8.9, Goldblatt explora os $\Omega$-conjuntos. Como veremos, os $\Omeg
 
 ### (A) Tudo que é igual a algo que existe, existe
 
+> To be equal is to exist.
+
 Seja $C$ um topos e $c \in |C|$ um objeto de $C$. Podemos compreender $c$ como um objeto "set-like"  **parcialmente existente** (*partially existent*) ou como **realmente existente** (*actually existent*). O fato de que o objeto $c$ é **realmente existente** é expresso por $\textbf{E(c)}$
 
 1. $\textbf{E(c)} \equiv \exists v (v\approx \textbf{c})$
@@ -765,7 +767,9 @@ Ou seja, "tudo que é igual a algo que existe, existe".
 
 O segundo princípio formalizado por Goldblatt é
 
-### (B) Elementos só podem ser iguais se realmente existentes
+### (B) Igualdade implica existência
+
+É necessário que dois elementos existam para que eles possam ser iguais um ao outro.
 
 Em outras palavras, "igualdade implica existência". Formalizando:
 
