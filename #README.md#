@@ -755,7 +755,7 @@ Na seção 8.9, Goldblatt explora os $\Omega$-conjuntos. Como veremos, os $\Omeg
 
 ### (A) Tudo que é igual a algo que existe, existe
 
-> To be equal is to be.
+> To be equal is to exist.
 
 Seja $C$ um topos e $c \in |C|$ um objeto de $C$. Podemos compreender $c$ como um objeto "set-like"  **parcialmente existente** (*partially existent*) ou como **realmente existente** (*actually existent*). O fato de que o objeto $c$ é **realmente existente** é expresso por $\textbf{E(c)}$
 
@@ -939,6 +939,13 @@ $$
 $$
 
 onde os elementos de $\Omega$ são interpretados como valores de verdade. Em particular, $\bot$ significa o menor elemento de $\Omega$ (zero) e $\top$ significa o maior elemento de $\Omega$ (um).
+
+##### Exercícios
+
+> $[[Ep]]_{\Omega} = \top$
+> > Por definição, 
+
+
 
 ### Categoria $\Omega$-set
 
