@@ -960,7 +960,20 @@ $$
 $$
 \begin{align}
 [[ p \approx \top ]]_{\Omega} &=_{def} p \Leftrightarrow \top \\
-p \Leftrightarrow \top &=_{def} (p \Rightarrow \top) \sqcap (\top \Rightarrow p)
+p \Leftrightarrow \top &=_{def} (p \Rightarrow \top) \sqcap (\top \Rightarrow p) \\
+\text{(A) } p \Rightarrow \top &=_{def} max \{ c \mid c \sqcap p \sqsubseteq \top \} \\
+&= \top \\
+\text{(B) } \top \Rightarrow p &=_{def} max \{ c \mid c \sqcap \top \sqsubseteq p \} \\
+&= p \\
+&\therefore \top \sqcap p = p
+\end{align}
+$$
+
+> $[[ p \approx \bot ]]_{\Omega} = \neg p$
+
+$$
+\begin{align}
+[[ p \approx \bot ]]_{\Omega} &=_{def} (p \Rightarrow \bot) \sqcap (\bot \Rightarrow p)
 \end{align}
 $$
 
