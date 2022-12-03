@@ -973,13 +973,18 @@ $$
 
 $$
 \begin{align}
-[[ p \approx \bot ]]_{\Omega} &=_{def} (p \Rightarrow \bot) \sqcap (\bot \Rightarrow p)
+[[ p \approx \bot ]]_{\Omega} &=_{def} (p \Rightarrow \bot) \sqcap (\bot \Rightarrow p) \\
+\text{(A) } p \Rightarrow \bot &=_{def} max \{ c \mid c \sqcap p \sqsubseteq \bot \} \\
+&=_{def} \neg p \\
+\text{(B) } \bot \Rightarrow p &=_{def} max \{ c \mid c \sqcap \bot \sqsubseteq p \} \\
+&=_{def} \top \\
+&\therefore \neg p \sqcap \top = \neg p
 \end{align}
 $$
 
 ### Categoria $\Omega$-set
 
-Objetos são conjuntos $\Omega$-valorados e uma flecha de $A$ em $B$ é uma função $f : A \times B \rightarrow \Omega$ que satisfaz as seguintes propriedades
+Os $\Omega$-conjuntos formam uma categoria na qual os objetos são pares $X = \langle A, [[\cdot]]\rangle$, onde $[[\cdot]] : A \times A \rightarrow \Omega$ é o morfismo identidade de $X$ (mostraremos isso mais tarde). De modo mais geral, uma flecha de $A$ em $B$ é uma função $f : A \times B \rightarrow \Omega$ que satisfaz as seguintes propriedades
 
 $$
 \begin{align}
@@ -990,7 +995,25 @@ f(x,y) \sqcap f(x, y') \sqsubseteq [[ y \approx y' ]]_B\\
 \end{align}
 $$
 
-Morfismo identidade. Composição.
+Denotamos $f(\langle x,y \rangle)$ como $[[ f(x) \approx y ]]$. Observe que as duas primeiras condições correspondem a lei da "indistinguibilidade dos iguais" [extensionalidade] e validam em $\Omega$ as fórmulas
+
+$$
+(x \approx x') \land (f(x) \approx y) \supset (f (x') \approx y)
+$$
+
+i.e, se dois objetos $x$ e $x'$ são iguais (em $A$) e $f(x)$ é igual a $y$, então $f(x')$ é igual a $y$ (em outras palavras, aplicar $f$ sobre o mesmo input produz o mesmo output). Reciprocamente,
+
+$$
+(f(x) \approx y) \land (y \approx y') \supset (f(x) \approx y')
+$$
+
+i.e, se $f(x)$ [f aplicada a x] é igual a $y$ e $y$ é igual a $y'$ (em $B$), então $f(x)$ é igual a $y'$. Colocando de outro modo, $f$ não distingue inputs iguais.
+
+#### Composição de flechas
+
+A composição de flechas é feita da seguinte maneira.
+
+> $[[\cdot]] : A \times A \rightarrow \Omega$ é o morfismo identidade de $A$ $id_A$.
 
 > A categoria $\Omega$-set é um topos.
 
