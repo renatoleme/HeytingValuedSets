@@ -1009,6 +1009,20 @@ $$
 
 i.e, se $f(x)$ [f aplicada a x] é igual a $y$ e $y$ é igual a $y'$ (em $B$), então $f(x)$ é igual a $y'$. Colocando de outro modo, $f$ não distingue inputs iguais.
 
+A terceira sentença corresponde a condição de unicidade do output. Isto é,
+
+$$
+(f(x) \approx y) \land (f(x) \approx y') \supset (y \approx y') 
+$$
+
+Conforme ilustrado na Figura 2, essa condição corresponde a própria funcionalidade de $f$. Isto é, à exigência de que só exista um único output para um mesmo input de $f$.
+
+| ![Figura 2. Funcionalidade da flecha $f$.](flecha_cond_func.svg) |
+|:--:|
+| <b>Figura 2. - Funcionalidade da flecha $f$. Observe que, para que $f$ seja função, é necessário que $y$ seja igual a $y'$. Caso contrário, um mesmo input teria dois outputs diferentes.</b>|
+
+
+
 #### Composição de flechas
 
 A composição de flechas é feita da seguinte maneira.
