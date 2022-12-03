@@ -9,7 +9,7 @@ Uma categoria $C$ consiste de:
 1. Uma coleção $O$ de objetos;
 2. Para cada par $\langle A, B \rangle$ de objetos, uma coleção de morfismos (em $C$) de $A$ em $B$. Essa coleção denota-se $Hom_C(A,B)$;
 3. Uma operação parcial $\circ$ de composição entre morfismos;
-4. Para cada objeto $A$, um morfismo $id_A$ tal que, dados $f : A \rightarrow Cod(f)$ e $g : Dom(g) \rightarrow A$, vale que (1) $f \circ id_A = f$; e (2) $id_A \circ g = g$.
+4. Para cada objeto $A$, um morfismo $id_A$ tal que, dados $f : A \rightarrow Cod(f)$ e $g : Dom(g) \rightarrow A$ (1) $f \circ id_A = f$; e (2) $id_A \circ g = g$.
 
 
 Na categoria **Type**, objetos são tipos *nat, list, bool,* etc, morfismos são funções
@@ -158,7 +158,8 @@ Dado um par de flechas $f : A \rightarrow C$ e $g : B \rightarrow C$, o seu **pu
 
 ```mermaid
 graph LR;
-  D--p_2-->B;  D--p_1-->A;
+  D--p_2-->B;
+  D--p_1-->A;
   A--f-->C;
   B--g-->C;
 ```
@@ -1032,7 +1033,9 @@ $$
 g \circ f(\langle x, z \rangle) = \bigsqcup \{ f(\langle x, y \rangle) \sqcap g(\langle y, z \rangle) \mid y \in B \}
 $$
 
-Ou seja, o morfismo $h : \bold{A} \rightarrow \bold{B}$ é dado pela união (join) de todos os $y \in B$ tais que $f(x) = y$ e (meet) $g(y) = z$.
+Ou seja, o morfismo $h : \bold{A} \rightarrow \bold{C}$ é dado pela união (join) de todos os $y \in B$ tais que $f(x) = y$ e (meet) $g(y) = z$.
+
+> Composição é associativa.
 
 #### Morfismo identidade
 
@@ -1050,7 +1053,7 @@ $$
 \end{align}
 $$
 
-> (B) $ f(\langle x,y \rangle) \sqcap [[ y \approx y' ]]_A \sqsubseteq f(\langle x,y' \rangle)$
+> (B) $f(\langle x,y \rangle) \sqcap [[ y \approx y' ]]_A \sqsubseteq f(\langle x,y' \rangle)$
 
 Tome $f = id_A = [[\cdot]]_A$, então, de modo semelhante,
 
@@ -1061,7 +1064,7 @@ $$
 \end{align}
 $$
 
-> (C) $ f(\langle x,y \rangle) \sqcap f(\langle x, y' \rangle) \sqsubseteq [[ y \approx y' ]]_A$
+> (C) $f(\langle x,y \rangle) \sqcap f(\langle x, y' \rangle) \sqsubseteq [[ y \approx y' ]]_A$
 
 $$
 \begin{align}
