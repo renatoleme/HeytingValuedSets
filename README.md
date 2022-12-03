@@ -988,10 +988,10 @@ Os $\Omega$-conjuntos formam uma categoria na qual os objetos são pares $X = \l
 
 $$
 \begin{align}
-[[ x \approx x' ]]_A \sqcap f(x,y) \sqsubseteq f(x',y) \\
- f(x,y) \sqcap [[ y \approx y' ]]_B \sqsubseteq f(x,y')\\
-f(x,y) \sqcap f(x, y') \sqsubseteq [[ y \approx y' ]]_B\\
-[[ x \approx x ]]_A = \bigsqcup \{ f(x,y) : y \in B \}
+[[ x \approx x' ]]_A \sqcap f(\langle x,y \rangle) \sqsubseteq f(\langle x',y \rangle) \\
+ f(\langle x,y \rangle) \sqcap [[ y \approx y' ]]_B \sqsubseteq f(\langle x,y' \rangle)\\
+f(\langle x,y \rangle) \sqcap f(\langle x, y' \rangle) \sqsubseteq [[ y \approx y' ]]_B\\
+[[ x \approx x ]]_A = \bigsqcup \{ f(\langle x,y \rangle) : y \in B \}
 \end{align}
 $$
 
@@ -1021,13 +1021,23 @@ Conforme ilustrado na Figura 2, essa condição corresponde a própria funciona
 |:--:|
 | <b>Figura 2. - Funcionalidade da flecha $f$. Observe que, para que $f$ seja função, é necessário que $y$ seja igual a $y'$. Caso contrário, um mesmo input teria dois outputs diferentes.</b>|
 
+Por fim, a última condição corresponde a totalidade da função $f$ em $\Omega$. Isto é, valida a sentença "todo $x \in A$ possui uma f-imagem $y \in B$" ($f$ é uma função total).
 
+> Uma outra forma de ver o axioma da totalidade é "cada elemento de $A$ existe na medida em que possui imagem em $B$." (Goldblatt, p. 278)
 
 #### Composição de flechas
 
-A composição de flechas é feita da seguinte maneira.
+Sejam $f : A \times B \rightarrow \Omega$ e $g : B \times C \rightarrow \Omega$, existe uma função $g \circ f : A \times C \rightarrow \Omega$ dada por
 
-> $[[\cdot]] : A \times A \rightarrow \Omega$ é o morfismo identidade de $A$ $id_A$.
+$$
+g \circ f(\langle x, z \rangle) = \bigsqcup \{ f(\langle x, y \rangle) \sqcap g(\langle y, z \rangle) \mid y \in B \}
+$$
+
+Ou seja, o morfismo $h : \bold{A} \rightarrow \bold{B}$ é dado pela união (join) de todos os $y \in B$ tais que $f(x) = y$ e (meet) $g(y) = z$.
+
+#### Morfismo identidade
+
+Iremos mostrar que $[[\cdot]] : A \times A \rightarrow \Omega$ é o morfismo identidade de $A$, $id_A$. Para isso, precisamos primeiro verificar se $id_A$ é um morfismo genuíno.
 
 > A categoria $\Omega$-set é um topos.
 
