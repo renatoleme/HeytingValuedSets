@@ -9,7 +9,7 @@ Uma categoria $C$ consiste de:
 1. Uma coleção $O$ de objetos;
 2. Para cada par $\langle A, B \rangle$ de objetos, uma coleção de morfismos (em $C$) de $A$ em $B$. Essa coleção denota-se $Hom_C(A,B)$;
 3. Uma operação parcial $\circ$ de composição entre morfismos;
-4. Para cada objeto $A$, um morfismo $id_A$ tal que (1) $f \circ id_A = f$; e (2) $id_A \circ g = g$.
+4. Para cada objeto $A$, um morfismo $id_A$ tal que, dados $f : A \rightarrow Cod(f)$ e $g : Dom(g) \rightarrow A$, vale que (1) $f \circ id_A = f$; e (2) $id_A \circ g = g$.
 
 
 Na categoria **Type**, objetos são tipos *nat, list, bool,* etc, morfismos são funções
@@ -158,8 +158,7 @@ Dado um par de flechas $f : A \rightarrow C$ e $g : B \rightarrow C$, o seu **pu
 
 ```mermaid
 graph LR;
-  D--p_2-->B;
-  D--p_1-->A;
+  D--p_2-->B;  D--p_1-->A;
   A--f-->C;
   B--g-->C;
 ```
@@ -739,7 +738,7 @@ A partir do qual as sentenças são construídas da maneira usual.
 
 ### Semântica algébrica
 
-Podemos providenciar uma semântica intuicionista para a lógica intuicionista proposicional (IL) a partir de uma álgebra de Heyting $\Omega$. Para isso, mapeamos os conectivos da linguagem para os operadores do reticulado e dizemos que uma sentença $A$ é $\Omega$-válida $([[A]]_{\Omega})$ quando $[[A]]_{\Omega} = \top$ para toda valoração $[[\cdot]]$. Partindo dessa caracterização, obtemos correção e completude com relação a IL, isto é,
+Podemos providenciar uma semântica para a lógica intuicionista proposicional (IL) a partir de uma álgebra de Heyting $\Omega$. Para isso, mapeamos os conectivos da linguagem para os operadores do reticulado e dizemos que uma sentença $A$ é $\Omega$-válida $([[A]]_{\Omega})$ quando $[[A]]_{\Omega} = \top$ para toda valoração $[[\cdot]]$. Partindo dessa caracterização, obtemos correção e completude com relação a IL, isto é,
 
 $$
 [[A]]_{\Omega} \text { se e somente se } \vdash_{IL} A 
@@ -1037,7 +1036,58 @@ Ou seja, o morfismo $h : \bold{A} \rightarrow \bold{B}$ é dado pela união (joi
 
 #### Morfismo identidade
 
-Iremos mostrar que $[[\cdot]] : A \times A \rightarrow \Omega$ é o morfismo identidade de $A$, $id_A$. Para isso, precisamos primeiro verificar se $id_A$ é um morfismo genuíno.
+Iremos mostrar que $[[\cdot]]_A : A \times A \rightarrow \Omega$ é o morfismo identidade de $A$, $id_A$. Para isso, precisamos primeiro verificar se $id_A$ é um morfismo genuíno.
+
+> (A) $[[ x \approx x' ]]_A \sqcap f(\langle x,y \rangle) \sqsubseteq f(\langle x',y \rangle)$
+
+Tome $f = id_A = [[\cdot]]_A$, então
+
+$$
+\begin{align}
+\text{(A)} &=_{def} [[ x \approx x' ]]_A \sqcap [[ x \approx y ]]_A \sqsubseteq [[ x' \approx y ]]_A \\
+&=_{refl.} [[ x' \approx x ]]_A \sqcap [[ x \approx y ]]_A \sqsubseteq [[ x' \approx y ]]_A \\
+&\therefore \text{Se segue por transitividade.}
+\end{align}
+$$
+
+> (B) $ f(\langle x,y \rangle) \sqcap [[ y \approx y' ]]_A \sqsubseteq f(\langle x,y' \rangle)$
+
+Tome $f = id_A = [[\cdot]]_A$, então, de modo semelhante,
+
+$$
+\begin{align}
+\text{(B)} &=_{def} [[ x \approx y ]]_A \sqcap [[ y \approx y' ]]_A \sqsubseteq [[ x \approx y' ]]_A \\
+&\therefore \text{Se segue por transitividade.}
+\end{align}
+$$
+
+> (C) $ f(\langle x,y \rangle) \sqcap f(\langle x, y' \rangle) \sqsubseteq [[ y \approx y' ]]_A$
+
+$$
+\begin{align}
+\text{(C)} &=_{def} [[ x \approx y ]]_A \sqcap [[ x \approx y' ]]_A \sqsubseteq [[ y \approx y' ]]_A \\
+&=_{refl.} [[ y \approx x ]]_A \sqcap [[ x \approx y' ]]_A \sqsubseteq [[ y \approx y' ]]_A \\
+&\therefore \text{Se segue por transitividade.}
+\end{align}
+$$
+
+> (D) $[[ x \approx x ]]_A = \bigsqcup \{ f(\langle x,y \rangle) : y \in A \}$
+
+$$
+\begin{align}
+\text{(D)} &=_{def} \bigsqcup \{ [[ x \approx y ]] : y \in A \} \\
+&= \bigsqcup \{ [[ x \approx y ]] : y \in A \} \sqcup [[ x \approx x ]]_A \\
+&= \bigsqcup \{ [[ x \approx y ]] : y \in A \} \sqcup \top \\
+&= \top \\
+&\therefore \top = [[x \approx x]]_A
+\end{align}
+$$
+
+Verificamos, portanto, que $id_A$ é um morfismo de fato. Precisamos verificar agora que
+
+> Para todo morfismo $g : A \rightarrow B$, $g \circ id_A = g$.
+
+> Para todo morfismo $g : B \rightarrow A$, $id_A \circ g = g$.
 
 > A categoria $\Omega$-set é um topos.
 
