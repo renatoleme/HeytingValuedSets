@@ -940,6 +940,30 @@ $$
 
 onde os elementos de $\Omega$ são interpretados como valores de verdade. Em particular, $\bot$ significa o menor elemento de $\Omega$ (zero) e $\top$ significa o maior elemento de $\Omega$ (um).
 
+##### Exercícios
+
+Mostre que, para qualquer álgebra de Heyting $\Omega$,
+
+> $[[ Ep ]]_{\Omega} = \top$
+
+$$
+\begin{align}
+[[Ep]]_{\Omega} &=_{def} [[ p \approx p ]]_{\Omega} \\
+[[ p \approx p ]]_{\Omega} &=_{def} p \Leftrightarrow p \\
+p \Rightarrow p &=_{def} max \{ c \mid c \sqcap p \sqsubseteq p \} \\
+&= \top \text{ (Já que $\top \sqcap p = p$.) }
+\end{align}
+$$
+
+> $[[ p \approx \top ]]_{\Omega} = p$
+
+$$
+\begin{align}
+[[ p \approx \top ]]_{\Omega} &=_{def} p \Leftrightarrow \top \\
+p \Leftrightarrow \top &=_{def} (p \Rightarrow \top) \sqcap (\top \Rightarrow p)
+\end{align}
+$$
+
 ### Categoria $\Omega$-set
 
 Objetos são conjuntos $\Omega$-valorados e uma flecha de $A$ em $B$ é uma função $f : A \times B \rightarrow \Omega$ que satisfaz as seguintes propriedades
