@@ -852,12 +852,12 @@ Em outras palavras, "igualdade implica existência". Formalizando:
 
 Podemos derivar (A) a partir de (B). Tome $v = w$ em (2),
 
-
+$$
 \begin{align}
     v \approx v \supset E(v) \land E(v) \\
     v \approx v \supset E(v)
 \end{align}
-
+$$
 
 Por essa razão, chamaremos $\approx$ de **equivalência forte** ou simplesmente **igualdade**.
 
@@ -909,7 +909,7 @@ $$
 [[ f \approx g ]] = \{ i \in I \mid f(i) = g(i) \}
 $$ 
 
-| ![Heyting valued Bn(I)](bn_h_valued.png) |
+| ![Heyting valued Bn(I)](bn_h_valued.svg) |
 |:--:|
 | <b>Figura 1. - Medida de igualdade entre objetos de um bundle.</b>|
 
@@ -995,7 +995,7 @@ Denotamos $[[ x \approx y]]_A$ como $\delta(x,y)$, onde $\delta$ é uma funçã
 
 > Mostre que, para todo $A$, $\delta (x, y) \sqsubseteq [[ Ex ]]$.
 
-
+$$
 \begin{align}
 \delta(x,y) &\sqsubseteq \delta (y, x) \text{ [Simet. $\delta$]} \\
 \delta(x,y) &\sqsubseteq \delta (x, y) \text{ [Refl. $\sqsubseteq$]} \\
@@ -1003,7 +1003,7 @@ Denotamos $[[ x \approx y]]_A$ como $\delta(x,y)$, onde $\delta$ é uma funçã
 \delta (x, y) \sqcap \delta(y, x) &\sqsubseteq \delta (x, x) \text{ [Trans. $\delta$]} \\
 \delta (x, y) &\sqsubseteq \delta(x,x) \text{ [Trans. $\sqsubseteq$ (1), (3) e (4)]}
 \end{align}
-
+$$
 
 #### Semântica $\Omega$-valorada
 
@@ -1021,18 +1021,18 @@ Mostre que, para qualquer álgebra de Heyting $\Omega$,
 
 > $[[ Ep ]]_{\Omega} = \top$
 
-
+$$
 \begin{align}
 [[Ep]]_{\Omega} &=_{def} [[ p \approx p ]]_{\Omega} \\
 [[ p \approx p ]]_{\Omega} &=_{def} p \Leftrightarrow p \\
 p \Rightarrow p &=_{def} max \{ c \mid c \sqcap p \sqsubseteq p \} \\
 &= \top \text{ (Já que $\top \sqcap p = p$.) }
 \end{align}
-
+$$
 
 > $[[ p \approx \top ]]_{\Omega} = p$
 
-
+$$
 \begin{align}
 [[ p \approx \top ]]_{\Omega} &=_{def} p \Leftrightarrow \top \\
 p \Leftrightarrow \top &=_{def} (p \Rightarrow \top) \sqcap (\top \Rightarrow p) \\
@@ -1042,11 +1042,11 @@ p \Leftrightarrow \top &=_{def} (p \Rightarrow \top) \sqcap (\top \Rightarrow p)
 &= p \\
 &\therefore \top \sqcap p = p
 \end{align}
-
+$$
 
 > $[[ p \approx \bot ]]_{\Omega} = \neg p$
 
-
+$$
 \begin{align}
 [[ p \approx \bot ]]_{\Omega} &=_{def} (p \Rightarrow \bot) \sqcap (\bot \Rightarrow p) \\
 \text{(A) } p \Rightarrow \bot &=_{def} max \{ c \mid c \sqcap p \sqsubseteq \bot \} \\
@@ -1055,20 +1055,20 @@ p \Leftrightarrow \top &=_{def} (p \Rightarrow \top) \sqcap (\top \Rightarrow p)
 &=_{def} \top \\
 &\therefore \neg p \sqcap \top = \neg p
 \end{align}
-
+$$
 
 ### Categoria $\Omega$-set
 
 Os $\Omega$-conjuntos formam uma categoria na qual os objetos são pares $X = \langle A, [[\cdot]]\rangle$, onde $[[\cdot]] : A \times A \rightarrow \Omega$ é o morfismo identidade de $X$ (mostraremos isso mais tarde). De modo mais geral, uma flecha de $A$ em $B$ é uma função $f : A \times B \rightarrow \Omega$ que satisfaz as seguintes propriedades
 
-
+$$
 \begin{align}
 [[ x \approx x' ]]_A \sqcap f(\langle x,y \rangle) \sqsubseteq f(\langle x',y \rangle) \\
  f(\langle x,y \rangle) \sqcap [[ y \approx y' ]]_B \sqsubseteq f(\langle x,y' \rangle)\\
 f(\langle x,y \rangle) \sqcap f(\langle x, y' \rangle) \sqsubseteq [[ y \approx y' ]]_B\\
 [[ x \approx x ]]_A = \bigsqcup \{ f(\langle x,y \rangle) : y \in B \}
 \end{align}
-
+$$
 
 Um morfismo $f : \bold{A} \rightarrow \bold{B}$, portanto, é uma função de valoração $\bar{f} : A \times B \rightarrow \Omega$ que retorna o valor de verdade de $[[ f(x) \approx y ]]_B$, onde $x \in A$ e $y \in B$. Em outras palavras, retorna o grau de igualdade entre $f(x)$ e $y$ em $B$. Por essa razão, denotamos $f(\langle x,y \rangle)$ como $[[ f(x) \approx y ]]$. Observe que as duas primeiras condições correspondem a lei da "indistinguibilidade dos iguais" [extensionalidade] e validam em $\Omega$ as fórmulas
 
@@ -1092,7 +1092,7 @@ $$
 
 Conforme ilustrado na Figura 2, essa condição corresponde a própria funcionalidade de $f$. Isto é, à exigência de que só exista um único output para um mesmo input de $f$.
 
-| ![Figura 2. Funcionalidade da flecha $f$.](flecha_cond_func.png) |
+| ![Figura 2. Funcionalidade da flecha $f$.](flecha_cond_func.svg) |
 |:--:|
 | <b>Figura 2. - Funcionalidade da flecha $f$. Observe que, para que $f$ seja função, é necessário que $y$ seja igual a $y'$. Caso contrário, um mesmo input teria dois outputs diferentes.</b>|
 
@@ -1122,38 +1122,38 @@ Iremos mostrar que $[[\cdot]]_A : A \times A \rightarrow \Omega$ é o morfismo i
 
 Tome $f = id_A = [[\cdot]]_A$, então
 
-
+$$
 \begin{align}
 \text{(A)} &=_{def} [[ x \approx x' ]]_A \sqcap [[ x \approx y ]]_A \sqsubseteq [[ x' \approx y ]]_A \\
 &=_{refl.} [[ x' \approx x ]]_A \sqcap [[ x \approx y ]]_A \sqsubseteq [[ x' \approx y ]]_A \\
 &\therefore \text{Se segue por transitividade.}
 \end{align}
-
+$$
 
 > (B) $f(\langle x,y \rangle) \sqcap [[ y \approx y' ]]_A \sqsubseteq f(\langle x,y' \rangle)$
 
 Tome $f = id_A = [[\cdot]]_A$, então, de modo semelhante,
 
-
+$$
 \begin{align}
 \text{(B)} &=_{def} [[ x \approx y ]]_A \sqcap [[ y \approx y' ]]_A \sqsubseteq [[ x \approx y' ]]_A \\
 &\therefore \text{Se segue por transitividade.}
 \end{align}
-
+$$
 
 > (C) $f(\langle x,y \rangle) \sqcap f(\langle x, y' \rangle) \sqsubseteq [[ y \approx y' ]]_A$
 
-
+$$
 \begin{align}
 \text{(C)} &=_{def} [[ x \approx y ]]_A \sqcap [[ x \approx y' ]]_A \sqsubseteq [[ y \approx y' ]]_A \\
 &=_{refl.} [[ y \approx x ]]_A \sqcap [[ x \approx y' ]]_A \sqsubseteq [[ y \approx y' ]]_A \\
 &\therefore \text{Se segue por transitividade.}
 \end{align}
-
+$$
 
 > (D) $[[ x \approx x ]]_A = \bigsqcup \{ f(\langle x,y \rangle) : y \in A \}$
 
-
+$$
 \begin{align}
 \text{(D)} &=_{def} \bigsqcup \{ [[ x \approx y ]] : y \in A \} \\
 &= \bigsqcup \{ [[ x \approx y ]] : y \in A \} \sqcup [[ x \approx x ]]_A \\
@@ -1161,7 +1161,7 @@ Tome $f = id_A = [[\cdot]]_A$, então, de modo semelhante,
 &= \top \\
 &\therefore \top = [[x \approx x]]_A
 \end{align}
-
+$$
 
 Verificamos, portanto, que $id_A$ é um morfismo de fato. Precisamos verificar agora que
 
