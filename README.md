@@ -703,13 +703,14 @@ A noção de pseudo-complemento pode ser generalizada para qualquer $b$. O **pse
 Observe que o pseudo-complemento de $a$ é o r.p.c de $a$ relativo a $\bot$ (isto é, $a \Rightarrow \bot$). Contudo, a definição de r.p.c não requer a existência de $\bot$ no reticulado.
 
 
-> Uma **álgebra de Heyting** (**AH**) é um reticulado r.p.c  $\Omega = \langle H, \sqsubseteq, \sqcap, \sqcup \rangle$ com $\bot$, onde $\neg, \Rightarrow$ são funções $H \rightarrow H$ tais que
-> - $a \Rightarrow b = max \{ x \mid a \sqcap x \sqsubseteq b \}$
-> - $\neg a = (a \Rightarrow \bot) = max \{ x \mid a \sqcap x = \bot \}$
-> - $a \sqcap b = max \{ x \mid x \sqsubseteq a \text{ e } x \sqsubseteq b \}$
-> - $a \sqcup b = min \{ x \mid a \sqsubseteq x \text{ e } b \sqsubseteq x \}$
+Uma **álgebra de Heyting** (**AH**) é um reticulado r.p.c  $\Omega = \langle H, \sqsubseteq, \sqcap, \sqcup \rangle$ com $\bot$, onde $\neg, \Rightarrow$ são funções $H \rightarrow H$ tais que
 
-Uma álgebra de Heyting é **completa** (**AHC**) quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min. Em particular, como sabemos, $\Omega$ é subconjunto de si próprio, e portanto possui l.s.max, o qual chamaremos de $\top$.
+- $a \Rightarrow b = max \{ x \mid a \sqcap x \sqsubseteq b \}$
+- $\neg a = (a \Rightarrow \bot) = max \{ x \mid a \sqcap x = \bot \}$
+- $a \sqcap b = max \{ x \mid x \sqsubseteq a \text{ e } x \sqsubseteq b \}$
+- $a \sqcup b = min \{ x \mid a \sqsubseteq x \text{ e } b \sqsubseteq x \}$
+
+> Uma álgebra de Heyting é **completa** (**AHC**) quando todo subconjunto de $\Omega$ possui l.s.max e l.i.min. Em particular, como sabemos, $\Omega$ é subconjunto de si próprio, e portanto possui l.s.max, o qual chamaremos de $\top$.
 
 Além das leis usuais de um reticulado (listadas na seção sobre reticulados), observe que, em uma álgebra de Heyting, $\bot$ é o neutro do $\sqcup$ e $\top$ o neutro do $\sqcap$. Isto é, valem as seguintes identidades para qualquer $a$ 
 
@@ -995,7 +996,7 @@ f(\langle x,y \rangle) \sqcap f(\langle x, y' \rangle) \sqsubseteq [[ y \approx 
 \end{align}
 $$
 
-Denotamos $f(\langle x,y \rangle)$ como $[[ f(x) \approx y ]]$. Observe que as duas primeiras condições correspondem a lei da "indistinguibilidade dos iguais" [extensionalidade] e validam em $\Omega$ as fórmulas
+Um morfismo $f : \bold{A} \rightarrow \bold{B}$, portanto, é uma função de valoração $\bar{f} : A \times B \rightarrow \Omega$ que retorna o valor de verdade de $[[ f(x) \approx y ]]_B$, onde $x \in A$ e $y \in B$. Em outras palavras, retorna o grau de igualdade entre $f(x)$ e $y$ em $B$. Por essa razão, denotamos $f(\langle x,y \rangle)$ como $[[ f(x) \approx y ]]$. Observe que as duas primeiras condições correspondem a lei da "indistinguibilidade dos iguais" [extensionalidade] e validam em $\Omega$ as fórmulas
 
 $$
 (x \approx x') \land (f(x) \approx y) \supset (f (x') \approx y)
@@ -1034,6 +1035,10 @@ g \circ f(\langle x, z \rangle) = \bigsqcup \{ f(\langle x, y \rangle) \sqcap g(
 $$
 
 Ou seja, o morfismo $h : \bold{A} \rightarrow \bold{C}$ é dado pela união (join) de todos os $y \in B$ tais que $f(x) = y$ e (meet) $g(y) = z$.
+
+Observe que o morfismo composição de $f$ e $g$ retorna o valor de verdade de $[[ f(x) \approx g(y) ]]_C$.
+
+> A flecha composição é um morfismo. Isto é, respeita as leis da extensionalidade, funcionalidade e totalidade.
 
 > Composição é associativa.
 
