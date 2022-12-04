@@ -1,8 +1,83 @@
-# Noções preliminares
+# Conjuntos Heyting Valorados
+
+> Anotações para o seminário de Renato Reis Leme e Gabriel Rodrigues Rocha.
+
+> Instituto de Filosofia e Ciências Humanas, UNICAMP.
+
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [Conjuntos Heyting Valorados](#conjuntos-heyting-valorados)
+    - [Noções preliminares](#noções-preliminares)
+        - [Categorias](#categorias)
+        - [Monomorfismos](#monomorfismos)
+        - [Epimorfismos](#epimorfismos)
+        - [Isomorfismos](#isomorfismos)
+        - [Objeto inicial](#objeto-inicial)
+        - [Objeto terminal](#objeto-terminal)
+        - [Equalizador](#equalizador)
+        - [Coequalizador](#coequalizador)
+        - [Pullback](#pullback)
+            - [Propriedade universal do pullback](#propriedade-universal-do-pullback)
+        - [Pushout](#pushout)
+            - [Propriedade universal do pushout](#propriedade-universal-do-pushout)
+        - [Limite](#limite)
+        - [Colimite](#colimite)
+        - [Produtos](#produtos)
+        - [Coprodutos](#coprodutos)
+        - [Exponenciação](#exponenciação)
+        - [Funtores](#funtores)
+    - [Subobjeto](#subobjeto)
+        - [Imagem inversa](#imagem-inversa)
+        - [Classificador de subobjetos](#classificador-de-subobjetos)
+    - [Topos](#topos)
+    - [Reticulado](#reticulado)
+        - [Comutatividade](#comutatividade)
+        - [Associatividade](#associatividade)
+        - [Absorção](#absorção)
+        - [Idempotência](#idempotência)
+        - [Ordem](#ordem)
+    - [Álgebra de Heyting](#álgebra-de-heyting)
+    - [Limite superior e limite inferior](#limite-superior-e-limite-inferior)
+        - [Exercícios](#exercícios)
+            - [Exercício 1](#exercício-1)
+            - [Exercício 2](#exercício-2)
+            - [Exercício 3](#exercício-3)
+            - [Exercício 4](#exercício-4)
+        - [Complemento](#complemento)
+            - [Exercício 5](#exercício-5)
+            - [Exemplos](#exemplos)
+            - [Sub(A)](#suba)
+        - [Definição formal](#definição-formal)
+- [Conjuntos Heyting-valorados](#conjuntos-heyting-valorados)
+    - [Linguagem](#linguagem)
+        - [Alfabeto](#alfabeto)
+        - [Semântica algébrica](#semântica-algébrica)
+    - [Dois princípios](#dois-princípios)
+        - [(A) Tudo que é igual a algo que existe, existe](#a-tudo-que-é-igual-a-algo-que-existe-existe)
+        - [(B) Igualdade implica existência](#b-igualdade-implica-existência)
+    - [Dois sentidos para "sameness"](#dois-sentidos-para-sameness)
+    - [Exemplos](#exemplos-1)
+        - [Bn(I)](#bni)
+        - [Top(I)](#topi)
+    - [Conjuntos $\Omega$-valorados](#conjuntos-omega-valorados)
+        - [Definição formal](#definição-formal-1)
+            - [Exercícios](#exercícios-1)
+            - [Semântica $\Omega$-valorada](#semântica-omega-valorada)
+                - [Exercícios](#exercícios-2)
+        - [Categoria $\Omega$-set](#categoria-omega-set)
+            - [Composição de flechas](#composição-de-flechas)
+            - [Morfismo identidade](#morfismo-identidade)
+            - [Objeto terminal](#objeto-terminal-1)
+
+<!-- markdown-toc end -->
+
+
+## Noções preliminares
 
 > Anotações a partir de Topoi (R. Goldblatt) e "Mini-curso de Introdução à Teoria de Categorias com aplicações à Lógica" (M. Coniglio).
 
-## Categorias
+### Categorias
 
 Uma categoria $C$ consiste de:
 
@@ -450,7 +525,7 @@ graph LR;
  
 > $\langle  Sub(A), \leq \rangle$ é uma álgebra de Heyting.
 
-#### Imagem inversa
+### Imagem inversa
 
  Um subobjeto pode ter imagem inversa. Seja $f : A \rightarrow B$ um morfismo e $i : C \hookrightarrow B$ um subobjeto de $B$, a *imagem inversa de i por f* é o monomorfismo $f^{-1}(i) : f^{-1}(C) \hookrightarrow A$ dado pelo seguinte pullback:
 
@@ -1107,8 +1182,3 @@ graph LR;
 ```
 
 onde a flecha $k : A \rightarrow 1$ é dada por $[[f(x) \approx 0]] = [[Ex]]$
-
-#### Produto
-#### Pullback
-#### Subobjeto
-#### Classificador de subobjeto
